@@ -1,35 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>E-commerce Frontend</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-        <link rel="stylesheet" href="./style/main.css" />
-        <link rel="stylesheet" href="./style/responsive.css">
-    </head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Frontend</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style/main.css" />
+    <link rel="stylesheet" href="./style/responsive.css" />
+  </head>
+  <body>
     <header class="site-header">
-        <div class="navbar">
-            <div class="logo">BrandLogo</div>
-            <nav class="nav-menu">
-                <ul class="menus">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#product">Product</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>        
-            <div class="header-right">
-                <input type="search" class="search-bar" placeholder="Search products..." />
-                <div class="cart">
-                    <span class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></span>
-                    <span class="cart-count">0</span>
-                </div>
-                <div class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></div>
-            </div>
+      <div class="navbar">
+        <div class="logo">BrandLogo</div>
+        <nav class="nav-menu">
+          <ul class="menus">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#product">Product</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-right">
+          <input
+            type="search"
+            class="search-bar"
+            placeholder="Search products..."
+          />
+          <div class="cart">
+            <span class="cart-icon"
+              ><i class="fa-solid fa-cart-shopping"></i
+            ></span>
+            <span class="cart-count">0</span>
+          </div>
+          <div class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+          </div>
         </div>
+      </div>
     </header>
-  <script type="module" src="./script/app.js"></script>
-</body>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Biggest Sale of the Year!, New Arrivals</h1>
+        <p>Up to 70% off on all items – limited time only.</p>
+        <a href="#products" class="cta-button">Shop Now</a>
+      </div>
+    </section>
+    <script type="module" src="./script/app.js"></script>
+  </body>
 </html>
