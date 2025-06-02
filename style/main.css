@@ -73,14 +73,12 @@ body {
     cursor: pointer;
 }
 
-
-
 .hero {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 90vh;
+    min-height: 70dvh;
     background: linear-gradient(to right, #141e30, #243b55);
     color: white;
     padding: 2rem;
@@ -122,4 +120,29 @@ body {
 .cta-button:hover {
     background-color: #e75a4d;
     transform: scale(1.05);
+}
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 1rem 2rem;
+    gap: 1rem;
+    padding: 1.2rem;
+}
+
+.item {
+    border: 2px solid #333;
+    border-radius: 1rem;
+    text-align: center;
+}
+.item-img {
+    width: 100%;
+}
+.item-title {
+    width: 100%;
+    margin: 1rem 0 0.5rem;
+}
+.cart-btn {
+    width: 100%;
+    border-radius: 1rem;
+
 }
