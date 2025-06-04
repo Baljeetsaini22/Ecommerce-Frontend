@@ -59,12 +59,14 @@ function addCart() {
 
       const card = `
         <div class="item">
-            <div class="item-details">
-                <img src ="${image}" alt="${item.title}" class="item-img"/>
-                <h4 class="item-title">${item?.title}</h4>
-                <span class="item-price">₹${Math.floor(item.price)*85}</span>
-                <button class="cart-btn">Add to Cart</button>
+          <div class="item-details">
+            <div class="add-cartBtn">
+              <img src ="${image}" alt="${item.title}" class="item-img"/>
+              <input type="submit" value="Add to Cart" class="cart-btn" />
             </div>
+            <h4 class="item-title">${item?.title}</h4>
+            <span class="item-price">₹${Math.floor(item.price * 80)}</span>
+          </div>
         </div>
         `;
       items.innerHTML += card;
@@ -73,3 +75,13 @@ function addCart() {
   getData();
 }
 addCart();
+
+/**
+ * @description This data add to cart
+ */
+
+function CartItem() {
+  
+}
+
+CartItem()
