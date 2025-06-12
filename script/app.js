@@ -42,37 +42,56 @@ smoothBehavior();
  */
 
 function addCart() {
-  const url = "https://dummyjson.com/products";
+  const items = document.querySelector(".items");
+  const loading = document.getElementById("loading");
 
-  const itemDetails = document.createElement("div");
-  itemDetails.className = "item";
+  function loadProducts() {
+    loading.style.display = "block";
+    items.innerHTML = "";
 
-  let fetched = [];
+    fetch("https://dummyjson.com/products")
+      .then((response) => response.json())
+      .then((data) => {
+        const products = data?.products.slice(0, 16);
 
-  async function getData() {
-    const getUrl = await fetch(url);
-    const data = await getUrl.json();
-    fetched = data?.products;
-    fetched.slice(0, 16).forEach((item) => {
-      const items = document.querySelector(".items");
-      const image = item.images?.[0];
+        loading.style.display = "none";
 
-      const card = `
-        <div class="item">
-          <div class="item-details">
-            <div class="add-cartBtn">
-              <img src ="${image}" alt="${item.title}" class="item-img"/>
-              <input type="submit" value="Add to Cart" class="cart-btn" />
+        if (!products || products.length === 0) {
+          items.innerHTML = "<p>No products found.</p>";
+          return;
+        }
+        products.forEach((item) => {
+          const image = item.thumbnail || item.images?.[0];
+          const card = `
+            <div class="item">
+              <div class="item-details">
+                <div class="image-cartBtn">
+                  <img src="${image}" alt="${
+            item.title
+          }" loading="lazy" class="item-img"/>
+                  <button class="go-items" )" class="cart-btn"><span>Add to Cart</span></button>
+                  
+                </div>
+                <h4 class="item-title" onclick="addToCart(${item.title}>${
+            item.title
+          }</h4>
+                <p class="item-price"><strong>₹${Math.floor(
+                  item.price * 80
+                )}</strong></p>
+              </div>
             </div>
-            <h4 class="item-title">${item?.title}</h4>
-            <span class="item-price">₹${Math.floor(item.price * 80)}</span>
-          </div>
-        </div>
-        `;
-      items.innerHTML += card;
-    });
+          `;
+
+          items.innerHTML += card;
+        });
+      })
+      .catch((err) => {
+        console.error("Error loading products:", err);
+        loading.textContent = "Failed to load products.";
+      });
   }
-  getData();
+
+  loadProducts();
 }
 addCart();
 
@@ -81,7 +100,70 @@ addCart();
  */
 
 function CartItem() {
-  
-}
+  const cart = [];
 
-CartItem()
+  window.addToCart = function (itemName) {
+    const existingItem = cart.find((item) => item.name === itemName);
+    if (existingItem) {
+      existingItem.qty++;
+    } else {
+      cart.push({ name: itemName, qty: 1 });
+    }
+    alert(itemName + " added to cart");
+  };
+
+  window.showCart = function () {
+    const cartList = document.getElementById("cart-list");
+    cartList.innerHTML = "";
+
+    if (cart.length === 0) {
+      cartList.innerHTML = "<li>Cart is empty</li>";
+    } else {
+      cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+              <span>${item.name} (x${item.qty})</span>
+              <div>
+                <button onclick="changeQty(${index}, 1)">+</button>
+                <button onclick="changeQty(${index}, -1)">-</button>
+                <button onclick="removeItem(${index})">🗑</button>
+              </div>
+            `;
+        cartList.appendChild(li);
+      });
+    }
+
+    document.getElementById("cart-dialog").style.display = "flex";
+  };
+
+  window.closeCart = function () {
+    document.getElementById("cart-dialog").style.display = "none";
+  };
+
+  window.changeQty = function (index, delta) {
+    cart[index].qty += delta;
+    if (cart[index].qty <= 0) {
+      cart.splice(index, 1);
+    }
+    showCart();
+  };
+
+  window.removeItem = function (index) {
+    cart.splice(index, 1);
+    showCart();
+  };
+
+  window.confirmOrder = function () {
+    if (cart.length === 0) {
+      alert("Your cart is empty.");
+    } else {
+      alert(
+        "✅ Order Confirmed!\n\n" +
+          cart.map((item) => `${item.name} x${item.qty}`).join("\n")
+      );
+      cart.length = 0;
+      closeCart();
+    }
+  };
+}
+CartItem();
