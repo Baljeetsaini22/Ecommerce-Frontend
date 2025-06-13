@@ -1,21 +1,25 @@
 @media (max-width: 768px) {
   .nav-menu {
     display: none;
-    flex-direction: column;
     position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
+    top: 4rem;
+    left: 7.5%;
+    width: 85%;
+    height: auto;
     background: white;
+    justify-content: center;    
     border-top: 1px solid #ccc;
+    border-radius: 0 0 10px 10px;
   }
-
   .nav-menu.open {
     display: flex;
   }
 
   .hamburger {
     display: block;
+  }
+  .menus {
+    flex-direction: column;
   }
 
   .hero-content h1 {
@@ -32,15 +36,25 @@
   }
 }
 
-@media (max-width: 500px) {
-  .search-bar {
-    display: none;
-  }
-  .search-icon {
-    display: block;
-  }
+@media (max-width: 500px) {  
   .items {
     padding: 1rem 0.5rem;
     gap: 2rem;
+  }
+  .search-item {
+    display: none;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .search-item.open {
+    display: flex;
+  }
+
+  .search-icon {
+    display: block;
   }
 }

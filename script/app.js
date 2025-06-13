@@ -15,6 +15,23 @@ function hamburger() {
 }
 hamburger();
 
+
+/**
+ * @description this is search icon click
+ * @returns get search input in menu bar
+ * @function searchBar()
+ */
+function searchBar() {
+  document.addEventListener("DOMContentLoaded", () => {
+    const BtnGlass = document.getElementById("magnifyBtn")
+    const Search = document.querySelector(".search-item")
+    BtnGlass.addEventListener("click", () => {
+      Search.classList.toggle("open");
+    })
+  })
+}
+searchBar();
+
 /**
  * @description this used for scroll behavior
  * @returns go smooth scrool links menus
@@ -49,10 +66,11 @@ function addCart() {
     loading.style.display = "block";
     items.innerHTML = "";
 
-    fetch("https://dummyjson.com/products")
+    // fetch("https://dummyjson.com/products")
+    fetch("https://fakestoreapiserver.reactbd.com/walmart")
       .then((response) => response.json())
       .then((data) => {
-        const products = data?.products.slice(0, 16);
+        // const products = data?.products.slice(0, 16);
 
         loading.style.display = "none";
 
@@ -60,21 +78,23 @@ function addCart() {
           items.innerHTML = "<p>No products found.</p>";
           return;
         }
-        products.forEach((item) => {
-          const image = item.thumbnail || item.images?.[0];
+        data.forEach((item) => {
+          const image = item.image || item.image?.[0];
           const card = `
             <div class="item">
               <div class="item-details">
                 <div class="image-cartBtn">
+                <a href='../pages/productsDetails.html?id=${item._id}'>
                   <img src="${image}" alt="${
             item.title
           }" loading="lazy" class="item-img"/>
-                  <button class="go-items" )" class="cart-btn"><span>Add to Cart</span></button>
-                  
-                </div>
-                <h4 class="item-title" onclick="addToCart(${item.title}>${
-            item.title
-          }</h4>
+          </a>
+          </div>
+                <button class="cart-btn" onclick="addToCart('${item.title.replace(
+                  /'/g,
+                  "\\'"
+                )}')"><span>Add to Cart</span></button>
+                <h4 class="item-title">${item.title}</h4>
                 <p class="item-price"><strong>₹${Math.floor(
                   item.price * 80
                 )}</strong></p>
