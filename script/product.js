@@ -1,7 +1,7 @@
 function ProductDetails() {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
-  //   console.log(productId)
+
   fetch("https://fakestoreapiserver.reactbd.com/walmart")
     .then((response) => response.json())
     .then((data) => {
@@ -15,7 +15,7 @@ function ProductDetails() {
             <img src="${product.image}" alt="${product.title}" width="150" />
             <p>Price: ₹ ${Math.floor(product.price * 80)} <del> ₹ ${Math.floor(
           product.oldPrice * 80
-        )} </del></p>
+        )} </del></p>c
             <p>${product.des}</p>
             <p>${product.category}</p>
             
@@ -31,4 +31,4 @@ function ProductDetails() {
         "Failed to load product.";
     });
 }
-ProductDetails()
+ProductDetails();
