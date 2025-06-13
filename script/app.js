@@ -15,7 +15,6 @@ function hamburger() {
 }
 hamburger();
 
-
 /**
  * @description this is search icon click
  * @returns get search input in menu bar
@@ -23,12 +22,12 @@ hamburger();
  */
 function searchBar() {
   document.addEventListener("DOMContentLoaded", () => {
-    const BtnGlass = document.getElementById("magnifyBtn")
-    const Search = document.querySelector(".search-item")
+    const BtnGlass = document.getElementById("magnifyBtn");
+    const Search = document.querySelector(".search-item");
     BtnGlass.addEventListener("click", () => {
       Search.classList.toggle("open");
-    })
-  })
+    });
+  });
 }
 searchBar();
 
@@ -84,7 +83,7 @@ function addCart() {
             <div class="item">
               <div class="item-details">
                 <div class="image-cartBtn">
-                <a href='../pages/productsDetails.html?id=${item._id}'>
+                <a href='../pages/product.html?id=${item._id}'>
                   <img src="${image}" alt="${
             item.title
           }" loading="lazy" class="item-img"/>
