@@ -1,7 +1,4 @@
 
-  
-
-
 
 /**
  * @description this page for item details 
@@ -19,9 +16,9 @@ function ProductDetails() {
       const product = data.find(
         (item) => String(item._id) === String(productId)
       );
-      const DiscountPrice = ((product.oldPrice - product.price) / product.oldPrice) * 100
-      const lessPrice = DiscountPrice.toFixed(2) + "%";
-      
+      const DiscountPrice = ((product.price - product.oldPrice) / product.oldPrice) * 100 || 0;
+      const lessPrice = DiscountPrice.toFixed(0) + "%";
+      const MrP = Math.floor(product.oldPrice || product.price)* 80;
       if (product) {
         document.getElementById("product-container").innerHTML = `
         <div class="container">
@@ -33,8 +30,8 @@ function ProductDetails() {
               
               <h2>${product.des}</h2>
               <div>              
-              <p> <span class="lessPrice">-${lessPrice} </span> ₹ ${Math.floor(product.price * 80)}</p>
-              <span>M.R.P.:<del>₹${Math.floor(product.oldPrice * 80)}</del></span>
+              <p> <span class="lessPrice">${lessPrice} </span> ₹ ${Math.floor(product.price * 80)}</p>
+              <span>M.R.P.:<del>₹${MrP}</del></span>
               </div>
               <button class="cart-btn" onclick="addToCart('${product.title.replace(
                   /'/g,

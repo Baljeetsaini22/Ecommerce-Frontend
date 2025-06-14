@@ -49,6 +49,10 @@
     width: 100%;
     justify-content: center;
   }
+  .search-bar {
+    width: 70%;
+    padding-left: 15px;
+  }
 
   .search-item.open {
     display: flex;
@@ -56,5 +60,8 @@
 
   .search-icon {
     display: block;
+  }
+  .foot-cont {
+    flex-direction: column;
   }
 }
