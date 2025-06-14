@@ -83,7 +83,7 @@ function addCart() {
             <div class="item">
               <div class="item-details">
                 <div class="image-cartBtn">
-                <a href='../pages/product.html?id=${item._id}'>
+                <a href='../pages/index.html?id=${item._id}'>
                   <img src="${image}" alt="${
             item.title
           }" loading="lazy" class="item-img"/>
