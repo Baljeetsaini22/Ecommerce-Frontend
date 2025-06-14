@@ -1,0 +1,39 @@
+.about-product {
+  padding-inline: 7.5%;
+  display: flex;
+  justify-content: center;
+}
+.product-img {
+  text-align: center;
+  width: 50%;
+  img {
+    width: 70%;
+  }
+}
+
+.description {
+  width: 50%;
+  line-height: 2;
+}
+
+.lessPrice {
+  color: red;
+}
+
+@media screen and (max-width: 768px) {
+  .about-product {
+    flex-direction: column;
+  }
+  .product-img {
+    text-align: center;
+    width: 100%;
+    img {
+      width: 70%;
+    }
+  }
+
+  .description {
+    width: 100%;
+    line-height: 2;
+  }
+}
