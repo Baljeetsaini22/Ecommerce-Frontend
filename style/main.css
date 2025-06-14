@@ -321,3 +321,31 @@ footer {
   background-color: #000;
   color: #fff;
 }
+
+
+/* Product.html style of product details page */
+
+.about-product {
+  padding-inline: 7.5%;
+  display: flex;
+  justify-content: center;
+
+}
+.product-img {
+  text-align: center;
+  width: 50%;
+  img {
+    width: 70%;
+  }
+}
+
+.description {
+  width: 50%;
+  line-height: 2;
+  
+  
+}
+
+.lessPrice {
+  color: red;
+}

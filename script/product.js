@@ -1,3 +1,14 @@
+
+  
+
+
+
+/**
+ * @description this page for item details 
+ * @returns Full details of Products and add to cart 
+ * @function ProductDetails()
+ */
+
 function ProductDetails() {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
@@ -8,17 +19,35 @@ function ProductDetails() {
       const product = data.find(
         (item) => String(item._id) === String(productId)
       );
-
+      const DiscountPrice = ((product.oldPrice - product.price) / product.oldPrice) * 100
+      const lessPrice = DiscountPrice.toFixed(2) + "%";
+      
       if (product) {
         document.getElementById("product-container").innerHTML = `
-            <h2>${product.title}</h2>
-            <img src="${product.image}" alt="${product.title}" width="150" />
-            <p>Price: ₹ ${Math.floor(product.price * 80)} <del> ₹ ${Math.floor(
-          product.oldPrice * 80
-        )} </del></p>c
-            <p>${product.des}</p>
-            <p>${product.category}</p>
-            
+        <div class="container">
+          <div class="about-product">
+            <div class="product-img">
+              <img src="${product.image}" alt="${product.title}" width="150" />
+            </div>
+            <div class="description">
+              
+              <h2>${product.des}</h2>
+              <div>              
+              <p> <span class="lessPrice">-${lessPrice} </span> ₹ ${Math.floor(product.price * 80)}</p>
+              <span>M.R.P.:<del>₹${Math.floor(product.oldPrice * 80)}</del></span>
+              </div>
+              <button class="cart-btn" onclick="addToCart('${product.title.replace(
+                  /'/g,
+                  "\\'"
+                )}')"><span>Add to Cart</span></button>
+              <hr/>
+              <p> <strong>Title: </strong>${product.title}</p>
+              <p> <strong>Brand: </strong> ${product.brand}</p>
+              <p> <strong>Category: </strong> ${product.category}</p>
+            </div>
+          </div>
+          
+        </div>
           `;
       } else {
         document.getElementById("product-container").innerText =
@@ -32,3 +61,4 @@ function ProductDetails() {
     });
 }
 ProductDetails();
+
