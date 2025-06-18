@@ -3,7 +3,6 @@
 }
 
 .content {
-  width: 100%;
   margin: 7.5%;
   border: 2px solid #fff;
   box-shadow: 0 0 10px;
@@ -33,7 +32,7 @@
 
     cursor: zoom-in;
     &:hover {
-      transform = 'translate3d(0, 0, 0) scale(1)'
+      transform: 'translate3d(0, 0, 0) scale(1)';
     }
   }
 }
