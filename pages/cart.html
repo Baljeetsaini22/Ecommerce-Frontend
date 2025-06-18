@@ -9,8 +9,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <link rel="stylesheet" href="../style/main.css" />
-    <link rel="stylesheet" href="../style/style.css" />
     <link rel="stylesheet" href="../style/responsive.css" />
+    <link rel="stylesheet" href="../style/cartstyle.css" />
   </head>
   <body>
     <header class="site-header">
@@ -36,12 +36,8 @@
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
           <div class="cart">
-            <a
-              href="./cart.html"
-              title="cartbox"
-              id="showCart"
-              class="cart-icon">
-              <i class="fa-solid fa-cart-shopping"></i
+            <a href="./cart.html" title="cartbox" class="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i></button
             ></a>
             <span class="cart-count">0</span>
           </div>
@@ -51,11 +47,12 @@
         </div>
       </div>
     </header>
-   
-    <section class="cart-box">
-      <div id="product-container" class="content"></div>
+    <section class="cart-item">
+      <div class="cart-content">
+        <h1>Shopping Cart</h1>
+        <div id="cart-container"></div>
+      </div>
     </section>
-
     <footer>
       <div class="scroil-top">
         <a href="#hero"><p>Back to Top</p></a>
@@ -97,7 +94,6 @@
         </div>
       </div>
     </footer>
-    <script type="module" src="../script/product.js"></script>
-    <script type="module" src="../script/app.js"></script>
+    <script type="module" src="../script/cartscript.js"></script>
   </body>
 </html>
