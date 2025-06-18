@@ -4,3 +4,5 @@ dist/
        .vscode/
        .DS_Store
 free.html
+
+tester.js
