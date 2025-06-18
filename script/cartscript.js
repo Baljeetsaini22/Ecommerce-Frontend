@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cartContainer = document.getElementById("cart-container");
+  const cartCounter = document.getElementById("cart-counter");
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   function updateCartDisplay() {
@@ -7,14 +8,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (cart.length === 0) {
       cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+      cartCounter.innerHTML = "<p>Total Price 0.</p>";
       return;
     }
 
     cart.forEach((item, index) => {
+      const price = item.price * item.qty;
+      const totalPrice = cart.reduce(
+        (sum, item) => sum + item.price * item.qty,
+        0
+      );
       const div = document.createElement("div");
-      div.className = "cart-item";
+      div.className = "cart-Prod";
       div.innerHTML = `
+      <div class="cart-item">
+        <div>
         <img src="${item.image}" width="100" />
+        </div>
         <div>
           <h3>${item.title}</h3>
           <p>Price: ₹${item.price}</p>
@@ -23,13 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
             <span>${item.qty}</span>
             <button class="inc-btn" data-index="${index}">➕</button>
           </div>
-          <p>Total: ₹${(item.price * item.qty).toFixed(2)}</p>
+          <p>Total: ₹${price}</p>
           <button class="remove-btn" data-index="${index}">🗑 Remove</button>
+        </div>
         </div>
       `;
       cartContainer.appendChild(div);
+      cartCounter.innerHTML = `
+      <div class="get-order">
+        <div class="Order-price"><p>Total Price: ₹${totalPrice}</p></div>
+        <div class="conf-order"><button class="odr-btn">Place Order</button></div>
+      </div>`;
     });
-
     attachButtonListeners();
   }
 

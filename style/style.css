@@ -3,7 +3,7 @@
 }
 
 .content {
-  margin: 7.5%;
+  margin: 5rem 7.5%;
   border: 2px solid #fff;
   box-shadow: 0 0 10px;
   border-radius: 1rem;
@@ -26,23 +26,26 @@
 
   img {
     width: 80%;
-    transition: transform 0.3s ease-in;
+    transition: 0.3s ease-in;
     object-fit: cover;
-    transform-origin: center center;
-
     cursor: zoom-in;
     &:hover {
-      transform: 'translate3d(0, 0, 0) scale(1)';
+      transform: scale(1.5);
     }
   }
 }
 
+.prod-ablity{
+  margin-block: 1rem;
+  line-height: 2;
+}
 .description {
   width: 50%;
   line-height: 1.5;
 }
 .price {
   margin-block: 1rem;
+  line-height: 2;
 }
 .lessPrice {
   color: red;

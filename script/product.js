@@ -45,6 +45,21 @@ if (path.includes("product.html")) {
             </div>
             <div class="description">
               <h2>${product.des}</h2>
+              <div class="prod-ablity">
+              <p>Size: <select>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+              <option>XXL</option>
+              </select>
+              </p>
+              <p>Color: <select>
+              <option>Black</option>
+              <option>Red</option>
+              <option>Blue</option>
+              </select>
+              </p>
+              </div>
               <div class="price">              
                 <p><span class="lessPrice">${discountPercent}% off </span> ₹${unitPriceINR}</p>
                 <span>M.R.P.: <del>₹${mrpINR}</del></span>

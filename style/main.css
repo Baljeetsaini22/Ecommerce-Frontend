@@ -9,13 +9,13 @@
 body {
   font-family: Arial, sans-serif;
 }
+
 .container {
   width: 100%;
 }
 
 .navbar {
   width: 100%;
-  height: 4rem;
   top: 0;
   display: flex;
   justify-content: space-between;
@@ -30,7 +30,7 @@ body {
   }
 }
 
-.cart-box {
+.hero-section {
   width: 100%;
   margin-top: 4rem;
 }
@@ -109,77 +109,6 @@ body {
   cursor: pointer;
 }
 
-/*! start Cart dialog box Style  */
-.cart-dialog {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.cart-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 500px;
-  max-height: 80vh;
-  overflow-y: auto;
-}
-
-.cart-content h3 {
-  margin-top: 0;
-}
-
-.cart-content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.cart-content li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 6px;
-}
-
-.cart-content button {
-  margin: 4px 2px;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-
-.cart-actions {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.confirm-btn {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-}
-
-.close-btn {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-}
-
-/*! End Cart dialog box Style  */
-
 .hero-container {
   display: flex;
   align-items: center;
@@ -230,8 +159,9 @@ body {
 }
 .items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  padding: 1.5rem 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* padding: 1.5rem 3rem; */
+  padding: 1rem 7.5%;
   gap: 2rem;
 }
 
@@ -240,7 +170,7 @@ body {
   justify-content: center;
   /* align-items: center; */
   position: relative;
-  border: 1px solid #333;  
+  border: 1px solid #333;
   border-radius: 1rem;
   text-align: center;
   padding-block: 1rem;
@@ -359,13 +289,13 @@ footer {
 }
 .foot-cont {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   gap: 1rem;
 }
 .links {
   margin-top: 1rem;
-  ul{
+  ul {
     list-style: none;
   }
   a {

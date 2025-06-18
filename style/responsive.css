@@ -7,7 +7,7 @@
     width: 85%;
     height: auto;
     background: white;
-    justify-content: center;    
+    justify-content: center;
     border-top: 1px solid #ccc;
     border-radius: 0 0 10px 10px;
   }
@@ -36,11 +36,8 @@
   }
 }
 
-@media (max-width: 500px) {  
-  .items {
-    padding: 1rem 0.5rem;
-    gap: 2rem;
-  }
+@media (max-width: 500px) {
+
   .search-item {
     display: none;
     position: absolute;
