@@ -21,7 +21,7 @@
   <body>
     <header class="site-header">
       <div class="navbar">
-        <div class="logo">BrandLogo</div>
+        <div class="logo"><a href="/">BrandLogo</a></div>
         <nav class="nav-menu">
           <ul class="menus">
             <li><a href="/">Home</a></li>
@@ -41,11 +41,16 @@
           <div class="search-icon" id="magnifyBtn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
+          <div>
+            <a href="./pages/auth.html">Login</a>
+          </div>
           <div class="cart">
-            <a href="./cart.html" title="cartbox" class="cart-icon">
+            <a href="./cart.html" 
+            title="cartbox" 
+            class="cart-icon">
                 <i class="fa-solid fa-cart-shopping"></i></button
             ></a>
-            <span class="cart-count"></span>
+            <span id="cart-count" class="counter"></span>
           </div>
           <div class="hamburger" id="hamburger">
             <i class="fa-solid fa-bars"></i>
@@ -56,11 +61,24 @@
     <section class="cart-item">
       <div class="cart-content">
         <h1>Shopping Cart</h1>
-        <div id="cart-container" class="cart-cont"></div>
-        <div class="cart-check">
+        <div class="row">
+          <div class="col-lg-8 ">
+            <h5>Cart <span id="cart-count"></span></h5>
+            
+            <div id="cart-container" class="cart-cont"></div>
+          </div>
+        <div class="col-lg-4">
+          <h5>Order Sumary</h5>
           <div id="cart-counter" class="cart-total"></div>
-         <div><a href="./checkout.html" class="odr-btn">CheckOut</a></div>
-        </div>        
+          <hr>
+          <div class="amount-sec">
+            <div><p>Total amount <br> (including VAT) </p></div>
+            <div id="total-price" class="Order-price"></div>
+          </div>
+          <hr>
+          <div class="checkout"><a href="./checkout.html" class="check-btn">CheckOut</a></div>
+        </div>   
+        </div>     
       </div>      
     </section>
     <footer class="bg-dark text-light">
@@ -85,19 +103,19 @@
             <h5 class="mb-3">Quick Links</h5>
             <ul class="list-unstyled">
               <li>
-                <a href="#" class="text-light text-decoration-none">Home</a>
+                <a href="/" class="text-light text-decoration-none">Home</a>
               </li>
               <li>
                 <a href="#" class="text-light text-decoration-none">Products</a>
               </li>
               <li>
-                <a href="#" class="text-light text-decoration-none">Category</a>
+                <a href="./category.html" class="text-light text-decoration-none">Category</a>
               </li>
               <li>
-                <a href="#" class="text-light text-decoration-none">About</a>
+                <a href="./about.html" class="text-light text-decoration-none">About</a>
               </li>
               <li>
-                <a href="#" class="text-light text-decoration-none">Contact Us</a>
+                <a href="./contact.html" class="text-light text-decoration-none">Contact Us</a>
               </li>
             </ul>
           </div>
