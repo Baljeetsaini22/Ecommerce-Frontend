@@ -53,9 +53,13 @@ smoothBehavior();
 
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
-  const cartCountEl = document.getElementById("cart-count");
-  if (cartCountEl) cartCountEl.innerText = totalCount;
+  // const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+  const cartCountEl = document.querySelector(".cart-count");
+  if(cart.length > 0){
+    cartCountEl.innerHTML = cart.length;;
+  }else{
+    cartCountEl.innerHTML = 0;
+  }
 }
 
 // ✅ Call on every page load to show cart count
@@ -141,6 +145,7 @@ if (path.includes("index.html") || path === "/") {
         }
 
         localStorage.setItem("cart", JSON.stringify(cart));
+
         updateCartCount();
         alert("Item added to cart!");
       });
@@ -149,7 +154,40 @@ if (path.includes("index.html") || path === "/") {
 
   loadProducts();
 }
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+// Normalize all ids to string and merge duplicates
+let mergedCart = [];
+
+cart.forEach(item => {
+  const id = String(item.id); // normalize id
+  const existing = mergedCart.find(i => String(i.id) === id);
+
+  if (existing) {
+    existing.qty = (existing.qty || 1) + (item.qty || 1);
+  } else {
+    mergedCart.push({
+      ...item,
+      id, // normalize to string
+      qty: item.qty || 1
+    });
+  }
+});
+
+// Save back to localStorage
+localStorage.setItem("cart", JSON.stringify(mergedCart));
+
+
+
+//   //  if(cart)
+//     // count +=  cart[i]
+//   }
+//   console.log(count)
+// cart.map((item) => {
+//   let count = 0;
+//   console.log(item)
+  
+// })
 // /**
 //  * @description this is used for Add to cart items
 //  * @returns add items in cart by user

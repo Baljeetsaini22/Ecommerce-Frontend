@@ -13,11 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     cart.forEach((item, index) => {
+      // console.log(item)
+
       const price = item.price * item.qty;
       const totalPrice = cart.reduce(
         (sum, item) => sum + item.price * item.qty,
         0
       );
+      console.log(item.id)
+      
       const div = document.createElement("div");
       div.className = "cart-Prod";
       div.innerHTML = `
@@ -38,11 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         </div>
       `;
+
+
       cartContainer.appendChild(div);
       cartCounter.innerHTML = `
       <div class="get-order">
         <div class="Order-price"><p>Total Price: ₹${totalPrice}</p></div>
-        <div class="conf-order"><button class="odr-btn">Place Order</button></div>
+        
       </div>`;
     });
     attachButtonListeners();
@@ -66,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
           cart[i].qty--;
         } else {
           if (confirm("Quantity is 1. Remove item?")) {
+             window.location.reload();
             cart.splice(i, 1);
           }
         }
@@ -91,24 +98,4 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartDisplay();
 });
 
-// const cartContainer = document.getElementById("cart-container");
-// const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// if (cart.length === 0) {
-//   cartContainer.innerHTML = "<p>Your cart is empty.</p>";
-// } else {
-//   cart.forEach((item) => {
-//     const div = document.createElement("div");
-//     div.className = "cart-item";
-//     div.innerHTML = `
-//     <img src="${item.image}" />
-//     <div>
-//       <h3>${item.title}</h3>
-//       <p>Price: ₹${item.price}</p>
-//       <p>Quantity: ${item.qty}</p>
-//       <p>Total: ₹${(item.price * item.qty).toFixed(2)}</p>
-//     </div>
-//   `;
-//     cartContainer.appendChild(div);
-//   });
-// }
