@@ -39,7 +39,7 @@
     <!-- Navbar -->
     <header class="site-header">
       <div class="navbar">
-        <div class="logo">BrandLogo</div>
+        <div class="logo"><a href="/">BrandLogo</a></div>
         <nav class="nav-menu">
           <ul class="menus">
             <li><a href="/">Home</a></li>
@@ -59,6 +59,9 @@
           <div class="search-icon" id="magnifyBtn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
+            <div>
+            <a href="./auth.html">Login</a>
+          </div>
           <div class="cart">
             <a
               href="./cart.html"
@@ -68,7 +71,7 @@
             >
               <i class="fa-solid fa-cart-shopping"></i
             ></a>
-            <span class="cart-count">0</span>
+            <span id="cart-count" class="counter"></span>
           </div>
           <div class="hamburger" id="hamburger">
             <i class="fa-solid fa-bars"></i>
@@ -154,19 +157,19 @@
             <h5 class="mb-3">Quick Links</h5>
             <ul class="list-unstyled">
               <li>
-                <a href="#" class="text-light text-decoration-none">Home</a>
+                <a href="/" class="text-light text-decoration-none">Home</a>
               </li>
               <li>
                 <a href="#" class="text-light text-decoration-none">Products</a>
               </li>
               <li>
-                <a href="#" class="text-light text-decoration-none">Category</a>
+                <a href="./category.html" class="text-light text-decoration-none">Category</a>
               </li>
               <li>
-                <a href="#" class="text-light text-decoration-none">About</a>
+                <a href="./about.html" class="text-light text-decoration-none">About</a>
               </li>
               <li>
-                <a href="#" class="text-light text-decoration-none"
+                <a href="#contact" class="text-light text-decoration-none"
                   >Contact Us</a
                 >
               </li>
