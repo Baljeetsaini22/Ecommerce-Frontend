@@ -42,10 +42,10 @@
   align-items: center;
 }
 
-.odr-btn{
-  border: none;
+.odr-btn{  
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   color: #fff;
   background-color: red;
+  
 }
