@@ -1,4 +1,20 @@
 console.log("E-Commerce Website Loaded");
+
+
+function navbarShadow() {
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+      navbar.classList.add('navbar-shadow');
+    } else {
+      navbar.classList.remove('navbar-shadow');
+    }
+  });
+}
+navbarShadow()
+
+
 /**
  * @description this is harmburger
  * @returns get menu icon on mobile view
@@ -7,7 +23,7 @@ console.log("E-Commerce Website Loaded");
 function hamburger() {
   document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.getElementById("hamburger");
-    const navMenu = document.querySelector(".nav-menu");
+    const navMenu = document.querySelector(".nav-respo");
     hamburger.addEventListener("click", () => {
       navMenu.classList.toggle("open");
     });
@@ -55,11 +71,13 @@ function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   // const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const cartCountEl = document.getElementById("cart-count");
-  if(cart.length > 0){
+
+  if (cart.length > 0) {
     cartCountEl.innerHTML = cart.length;;
-  }else{
+  } else {
     cartCountEl.innerHTML = 0;
   }
+
 }
 
 // ✅ Call on every page load to show cart count

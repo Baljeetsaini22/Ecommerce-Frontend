@@ -1,316 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../style/main.css" />
-    <link rel="stylesheet" href="../style/responsive.css" />
-    <style>
-      .about-img {
-        width: 100%;
-        border-radius: 12px;
-        object-fit: cover;
-        max-height: 400px;
-      }
-      .testimonial {
-        background: #f8f9fa;
-        border-left: 4px solid #054997;
-        padding: 1rem;
-        margin-bottom: 1rem;
-        border-radius: 8px;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <header class="site-header">
-      <div class="navbar">
-        <div class="logo"><a href="/">BrandLogo</a></div>
-        <nav class="nav-menu">
-          <ul class="menus">
-            <li><a href="/">Home</a></li>
-            <li><a href="#0">Product</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="./contact.html">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="header-right">
-          <div class="search-item">
-            <input
-              class="search-bar"
-              type="search"
-              placeholder="Search products..."
-            />
-          </div>
-          <div class="search-icon" id="magnifyBtn">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
 
-          <div class="cart">
-            <a
-              href="./cart.html"
-              title="cartbox"
-              id="showCart"
-              class="cart-icon"
-            >
-              <i class="fa-solid fa-cart-shopping"></i
-            ></a>
-            <span id="cart-count" class="counter"></span>
-          </div>
-          <div class="hamburger" id="hamburger">
-            <i class="fa-solid fa-bars"></i>
-          </div>
-        </div>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="../style/main.css" />
+  <link rel="stylesheet" href="../style/responsive.css" />
+  <style>
+    .about-img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      max-height: 400px;
+    }
 
-    <!-- About Us Section -->
-    <section id="about" class="container mt-5 pt-5 mb-5">
-      <div class="row align-items-center g-4">
-        <h2 class="mb-3">About BrandLogo</h2>
-        <p>
-          <strong>BrandLogo</strong> was born out of a simple idea — to make
-          online shopping easier, faster, and more reliable for everyone.
-          Whether you're browsing for the latest tech or everyday essentials,
-          we’re here to bring quality and affordability together under one roof.
-        </p>
-        <p>
-          We understand that shopping online should feel personal and
-          trustworthy. That’s why we handpick every product, provide accurate
-          descriptions, and ensure secure payments and timely deliveries.
-        </p>
-        <p>
-          Our team works around the clock to source innovative products, keep
-          prices competitive, and support you every step of the way — before,
-          during, and after your purchase. At BrandLogo, your satisfaction is
-          our success.
-        </p>
-        <p>
-          We believe in building long-term relationships with our customers.
-          From fast shipping to reliable return policies, we make sure that
-          shopping with us is a stress-free experience you'll want to repeat.
-        </p>
-        <ul>
-          <li>✔ 100% Genuine Products from trusted suppliers</li>
-          <li>✔ Easy returns with a no-questions-asked policy</li>
-          <li>✔ Real-time order tracking and updates</li>
-          <li>✔ Dedicated support team to resolve issues quickly</li>
+    .testimonial {
+      background: #f8f9fa;
+      border-left: 4px solid #054997;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="site-header">
+    <div id="navbar" class="nav-menu">
+      <div class="logo"><a href="/">BrandLogo</a></div>
+      <div class="nav-respo">
+        <ul class="menus">
+          <li><a href="/">Home</a></li>
+          <li><a href="./productsView.html">Product</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./auth.html">Login</a></li>
         </ul>
       </div>
-    </section>
-    <section class="container mb-5">
+      <div class="header-right">
+        <div class="search-item">
+          <input class="search-bar" type="search" placeholder="Search products..." />
+        </div>
+        <div class="search-icon" id="magnifyBtn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="cart">
+          <a href="./cart.html" title="cartbox" id="showCart" class="cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i></a>
+          <span id="cart-count" class="counter"></span>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Us Section -->
+  <section id="about" class="container mt-5 pt-5 mb-5">
+    <div class="row align-items-center g-4">
+      <h2 class="mb-3">About BrandLogo</h2>
+      <p>
+        <strong>BrandLogo</strong> was born out of a simple idea — to make
+        online shopping easier, faster, and more reliable for everyone.
+        Whether you're browsing for the latest tech or everyday essentials,
+        we’re here to bring quality and affordability together under one roof.
+      </p>
+      <p>
+        We understand that shopping online should feel personal and
+        trustworthy. That’s why we handpick every product, provide accurate
+        descriptions, and ensure secure payments and timely deliveries.
+      </p>
+      <p>
+        Our team works around the clock to source innovative products, keep
+        prices competitive, and support you every step of the way — before,
+        during, and after your purchase. At BrandLogo, your satisfaction is
+        our success.
+      </p>
+      <p>
+        We believe in building long-term relationships with our customers.
+        From fast shipping to reliable return policies, we make sure that
+        shopping with us is a stress-free experience you'll want to repeat.
+      </p>
+      <ul>
+        <li>✔ 100% Genuine Products from trusted suppliers</li>
+        <li>✔ Easy returns with a no-questions-asked policy</li>
+        <li>✔ Real-time order tracking and updates</li>
+        <li>✔ Dedicated support team to resolve issues quickly</li>
+      </ul>
+    </div>
+  </section>
+  <section class="container mb-5">
+    <div class="row g-4">
+      <div class="col-md-4 text-center">
+        <i class="fa-solid fa-thumbs-up fa-2x text-primary mb-2"></i>
+        <h5>Trusted by Thousands</h5>
+        <p>
+          We’ve served over 10,000 happy customers and counting — your trust
+          means everything to us.
+        </p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="fa-solid fa-box-open fa-2x text-primary mb-2"></i>
+        <h5>Carefully Packed</h5>
+        <p>
+          All products are securely packaged to reach you in perfect
+          condition, every time.
+        </p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="fa-solid fa-star fa-2x text-primary mb-2"></i>
+        <h5>Top-Rated Service</h5>
+        <p>
+          We’re proud to maintain a 4.8/5 customer rating thanks to our prompt
+          service and care.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Section -->
+  <section class="bg-light py-5">
+    <div class="container">
       <div class="row g-4">
-        <div class="col-md-4 text-center">
-          <i class="fa-solid fa-thumbs-up fa-2x text-primary mb-2"></i>
-          <h5>Trusted by Thousands</h5>
-          <p>
-            We’ve served over 10,000 happy customers and counting — your trust
-            means everything to us.
-          </p>
-        </div>
-        <div class="col-md-4 text-center">
-          <i class="fa-solid fa-box-open fa-2x text-primary mb-2"></i>
-          <h5>Carefully Packed</h5>
-          <p>
-            All products are securely packaged to reach you in perfect
-            condition, every time.
-          </p>
-        </div>
-        <div class="col-md-4 text-center">
-          <i class="fa-solid fa-star fa-2x text-primary mb-2"></i>
-          <h5>Top-Rated Service</h5>
-          <p>
-            We’re proud to maintain a 4.8/5 customer rating thanks to our prompt
-            service and care.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mission & Vision Section -->
-    <section class="bg-light py-5">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md-6">
-            <h4>Our Mission</h4>
-            <p>
-              To become a trusted ecommerce brand that brings happiness to
-              customers by delivering high-quality products with unmatched
-              service and convenience.
-            </p>
-          </div>
-          <div class="col-md-6">
-            <h4>Our Vision</h4>
-            <p>
-              To empower online shoppers by building a reliable platform that
-              prioritizes their needs, values their time, and ensures
-              satisfaction at every step of the shopping journey.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="container py-5">
-      <h2 class="mb-4 text-center">What Our Customers Say</h2>
-      <div class="row">
         <div class="col-md-6">
-          <div class="testimonial">
-            <p><strong>Ravi S.</strong></p>
-            <p>
-              "Excellent service! I ordered a smartwatch and received it within
-              two days. Loved the packaging and quality."
-            </p>
-          </div>
+          <h4>Our Mission</h4>
+          <p>
+            To become a trusted ecommerce brand that brings happiness to
+            customers by delivering high-quality products with unmatched
+            service and convenience.
+          </p>
         </div>
         <div class="col-md-6">
-          <div class="testimonial">
-            <p><strong>Sneha K.</strong></p>
-            <p>
-              "Very smooth checkout process and great customer support. I'm
-              definitely shopping here again."
-            </p>
-          </div>
+          <h4>Our Vision</h4>
+          <p>
+            To empower online shoppers by building a reliable platform that
+            prioritizes their needs, values their time, and ensures
+            satisfaction at every step of the shopping journey.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer class="bg-dark text-light">
-      <div class="text-center py-2 bg-dark">
-        <button id="goTopBtn" class="btn btn-primary mt-3">
-          <i class="fa-solid fa-arrow-up"></i> Go to Top
-        </button>
-      </div>
-      <div class="footer py-5">
-        <div class="row foot-content">
-          <!-- Logo -->
-          <div class="col-md-3 mb-4">
-            <h4 class="mb-3">BrandLogo</h4>
-            <p>
-              Your trusted online store offering the best products, fast
-              delivery, and excellent customer support to make your shopping
-              experience effortless and enjoyable.
-            </p>
-          </div>
-          <!-- Quick Links -->
-          <div class="col-md-3 mb-4">
-            <h5 class="mb-3">Quick Links</h5>
-            <ul class="list-unstyled">
-              <li>
-                <a href="#" class="text-light text-decoration-none">Home</a>
-              </li>
-              <li>
-                <a href="#" class="text-light text-decoration-none">Products</a>
-              </li>
-              <li>
-                <a href="#" class="text-light text-decoration-none">Category</a>
-              </li>
-              <li>
-                <a href="#" class="text-light text-decoration-none">About</a>
-              </li>
-              <li>
-                <a href="#" class="text-light text-decoration-none"
-                  >Contact Us</a
-                >
-              </li>
-            </ul>
-          </div>
-          <!-- New Products -->
-          <div class="col-md-3 mb-4">
-            <h5 class="mb-3">New Products</h5>
-            <ul class="list-unstyled">
-              <li>
-                <a href="#" class="text-light text-decoration-none"
-                  >Wireless Earbuds</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-light text-decoration-none"
-                  >Smart Watches</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-light text-decoration-none"
-                  >Fitness Trackers</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-light text-decoration-none"
-                  >Bluetooth Speakers</a
-                >
-              </li>
-            </ul>
-          </div>
-          <!-- Support -->
-          <div class="col-md-3 mb-4">
-            <h5 class="mb-3">Support</h5>
-            <ul class="list-unstyled">
-              <li>
-                <a href="#" class="text-light text-decoration-none">FAQ</a>
-              </li>
-              <li>
-                <a href="#" class="text-light text-decoration-none"
-                  >Shipping Policy</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-light text-decoration-none"
-                  >Returns & Refunds</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-light text-decoration-none"
-                  >Privacy Policy</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="text-center mt-4">
-          <small>&copy; 2025 BrandLogo. All rights reserved.</small>
+  <!-- Testimonials -->
+  <section class="container py-5">
+    <h2 class="mb-4 text-center">What Our Customers Say</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="testimonial">
+          <p><strong>Ravi S.</strong></p>
+          <p>
+            "Excellent service! I ordered a smartwatch and received it within
+            two days. Loved the packaging and quality."
+          </p>
         </div>
       </div>
-    </footer>
+      <div class="col-md-6">
+        <div class="testimonial">
+          <p><strong>Sneha K.</strong></p>
+          <p>
+            "Very smooth checkout process and great customer support. I'm
+            definitely shopping here again."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-      document
-        .getElementById("goTopBtn")
-        .addEventListener("click", function () {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
+  <footer class="bg-dark text-light">
+    <div class="text-center py-2 bg-dark">
+      <button id="goTopBtn" class="btn btn-primary mt-3">
+        <i class="fa-solid fa-arrow-up"></i> Go to Top
+      </button>
+    </div>
+    <div class="footer py-5">
+      <div class="row foot-content">
+        <!-- Logo -->
+        <div class="col-md-3 mb-4">
+          <h4 class="mb-3">BrandLogo</h4>
+          <p>
+            Your trusted online store offering the best products, fast
+            delivery, and excellent customer support to make your shopping
+            experience effortless and enjoyable.
+          </p>
+        </div>
+        <!-- Quick Links -->
+        <div class="col-md-3 mb-4">
+          <h5 class="mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#" class="text-light text-decoration-none">Home</a>
+            </li>
+            <li>
+              <a href="#" class="text-light text-decoration-none">Products</a>
+            </li>
+            <li>
+              <a href="#" class="text-light text-decoration-none">Category</a>
+            </li>
+            <li>
+              <a href="#" class="text-light text-decoration-none">About</a>
+            </li>
+            <li>
+              <a href="#" class="text-light text-decoration-none">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <!-- New Products -->
+        <div class="col-md-3 mb-4">
+          <h5 class="mb-3">New Products</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#" class="text-light text-decoration-none">Wireless Earbuds</a>
+            </li>
+            <li>
+              <a href="#" class="text-light text-decoration-none">Smart Watches</a>
+            </li>
+            <li>
+              <a href="#" class="text-light text-decoration-none">Fitness Trackers</a>
+            </li>
+            <li>
+              <a href="#" class="text-light text-decoration-none">Bluetooth Speakers</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Support -->
+        <div class="col-md-3 mb-4">
+          <h5 class="mb-3">Support</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#" class="text-light text-decoration-none">FAQ</a>
+            </li>
+            <li>
+              <a href="#" class="text-light text-decoration-none">Shipping Policy</a>
+            </li>
+            <li>
+              <a href="#" class="text-light text-decoration-none">Returns & Refunds</a>
+            </li>
+            <li>
+              <a href="#" class="text-light text-decoration-none">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <small>&copy; 2025 BrandLogo. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document
+      .getElementById("goTopBtn")
+      .addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
         });
-    </script>
-    <script type="module" src="../script/app.js"></script>
+      });
+  </script>
+  <script type="module" src="../script/app.js"></script>
 
-    <!-- Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></scrip>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

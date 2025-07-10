@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cart.map((item, index) => {
       // console.log(item)
-
       const price = item.price * item.qty;
       const totalVal = cart.reduce(
         (sum, item) => sum + item.price * item.qty,

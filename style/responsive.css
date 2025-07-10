@@ -1,17 +1,22 @@
-@media (max-width: 768px) {
-  .nav-menu {
+@media (max-width: 1025px) {
+  #itemShow {
+    grid-template-columns: auto auto;
+  }
+}
+@media (max-width: 850px) {
+  .nav-respo {
     display: none;
     position: absolute;
-    top: 4rem;
-    left: 7.5%;
-    width: 85%;
+    top: 4.5rem;
+    left: 0;
+    width: 100%;
     height: auto;
     background: white;
     justify-content: center;
-    border-top: 1px solid #ccc;
     border-radius: 0 0 10px 10px;
+    /* box-shadow: 0 5px 5px #333; */
   }
-  .nav-menu.open {
+  .nav-respo.open {
     display: flex;
   }
 
@@ -20,6 +25,7 @@
   }
   .menus {
     flex-direction: column;
+    padding-block: 1rem;
   }
 
   .hero-content h1 {
@@ -35,8 +41,39 @@
     font-size: 1rem;
   }
 }
+@media (max-width: 768px) {
+  #itemShow {
+    grid-template-columns: auto auto auto;
+  }
+  .filters {
+    position: static;
+    left: auto;
+  }
 
-@media (max-width: 500px) {
+  .prod-left {
+    border: none;
+    display: none;
+  }
+  .portrait {
+    display: none;
+  }
+  .prod-right {
+    width: 100%;
+    border: none;
+    padding: 0;
+  }
+}
+@media (max-width: 580px) {
+    #itemShow {
+    grid-template-columns: auto;
+  }
+  .nav-menu {
+    height: 4rem;
+    padding-block: 0.5rem;
+  }
+  .nav-respo {
+    top: 4rem;
+  }
 
   .search-item {
     display: none;
@@ -57,5 +94,9 @@
 
   .search-icon {
     display: block;
+  }
+
+  .prod-cont {
+    margin-top: 4rem;
   }
 }
