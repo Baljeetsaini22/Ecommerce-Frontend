@@ -1,19 +1,16 @@
 console.log("E-Commerce Website Loaded");
 
-
 function navbarShadow() {
-
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
+  const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 0) {
-      navbar.classList.add('navbar-shadow');
+      navbar.classList.add("navbar-shadow");
     } else {
-      navbar.classList.remove('navbar-shadow');
+      navbar.classList.remove("navbar-shadow");
     }
   });
 }
-navbarShadow()
-
+navbarShadow();
 
 /**
  * @description this is harmburger
@@ -73,11 +70,10 @@ function updateCartCount() {
   const cartCountEl = document.getElementById("cart-count");
 
   if (cart.length > 0) {
-    cartCountEl.innerHTML = cart.length;;
+    cartCountEl.innerHTML = cart.length;
   } else {
     cartCountEl.innerHTML = 0;
   }
-
 }
 
 // ✅ Call on every page load to show cart count
@@ -177,9 +173,9 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 // Normalize all ids to string and merge duplicates
 let mergedCart = [];
 
-cart.forEach(item => {
+cart.forEach((item) => {
   const id = String(item.id); // normalize id
-  const existing = mergedCart.find(i => String(i.id) === id);
+  const existing = mergedCart.find((i) => String(i.id) === id);
 
   if (existing) {
     existing.qty = (existing.qty || 1) + (item.qty || 1);
@@ -187,10 +183,26 @@ cart.forEach(item => {
     mergedCart.push({
       ...item,
       id, // normalize to string
-      qty: item.qty || 1
+      qty: item.qty || 1,
     });
   }
 });
 
 // Save back to localStorage
 localStorage.setItem("cart", JSON.stringify(mergedCart));
+
+
+
+/**
+ * @description Scroll to down to Up Button
+ * @function GotoUpBtn() 
+ */
+function GotoUpBtn() {
+  document.getElementById("goTopBtn").addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}
+GotoUpBtn()

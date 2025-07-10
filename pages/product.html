@@ -23,10 +23,10 @@
           <li><a href="./productsView.html">Product</a></li>
           <li><a href="./about.html">About</a></li>
           <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./auth.html">Login</a></li>
         </ul>
       </div>
       <div class="header-right">
+        <div class="menus"><a href="./auth.html" class="login">Login</a></div>
         <div class="search-item">
           <input class="search-bar" type="search" placeholder="Search products..." />
         </div>
@@ -131,16 +131,6 @@
     </div>
   </footer>
 
-  <script>
-    document
-      .getElementById("goTopBtn")
-      .addEventListener("click", function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-  </script>
   <script type="module" src="../script/product.js"></script>
   <script type="module" src="../script/app.js"></script>
 
