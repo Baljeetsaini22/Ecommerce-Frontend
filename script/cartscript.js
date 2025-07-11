@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const i = btn.dataset.index;
         cart.splice(i, 1);
         cartCounter.innerHTML = " ";
+        window.location.reload();
         saveAndRender();
       });
     });
