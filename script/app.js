@@ -9,13 +9,18 @@ console.log("E-Commerce Website Loaded");
 function navbarShadow() {
   const navbar = document.getElementById("navbar");
   window.addEventListener("scroll", () => {
+  const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 0) {
       navbar.classList.add("navbar-shadow");
+      navbar.classList.add("navbar-shadow");
     } else {
+      navbar.classList.remove("navbar-shadow");
       navbar.classList.remove("navbar-shadow");
     }
   });
 }
+navbarShadow();
 navbarShadow();
 
 /**
@@ -82,6 +87,7 @@ function updateCartCount() {
   const cartCountEl = document.getElementById("cart-count");
 
   if (cart.length > 0) {
+    cartCountEl.innerHTML = cart.length;
     cartCountEl.innerHTML = cart.length;
   } else {
     cartCountEl.innerHTML = 0;
@@ -186,7 +192,9 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let mergedCart = [];
 
 cart.forEach((item) => {
+cart.forEach((item) => {
   const id = String(item.id); // normalize id
+  const existing = mergedCart.find((i) => String(i.id) === id);
   const existing = mergedCart.find((i) => String(i.id) === id);
 
   if (existing) {
@@ -195,6 +203,7 @@ cart.forEach((item) => {
     mergedCart.push({
       ...item,
       id, // normalize to string
+      qty: item.qty || 1,
       qty: item.qty || 1,
     });
   }
