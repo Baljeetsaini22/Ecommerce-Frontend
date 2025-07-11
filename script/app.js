@@ -115,6 +115,7 @@ if (path.includes("index.html") || path === "/") {
         data.forEach((item) => {
           const image = item.image || item.image?.[0];
           const price = Math.floor(item.price * 80);
+          let title = item.title.slice(0, 22);
 
           const card = `
             <div class="item">
@@ -133,7 +134,7 @@ if (path.includes("index.html") || path === "/") {
                 >
                   <span>Add to Cart</span>
                 </button>
-                <h4 class="item-title">${item.title}</h4>
+                <h4 class="item-title">${title}</h4>
                 <p class="item-price"><strong>₹${price}</strong></p>
               </div>
             </div>
