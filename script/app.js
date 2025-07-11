@@ -1,24 +1,27 @@
 console.log("E-Commerce Website Loaded");
 
+/**
+ * @description navbar shadow
+ * @function navbarShadow()
+ * @returns scrolling time shadow under navbar
+ */
 
 function navbarShadow() {
-
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
+  const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 0) {
-      navbar.classList.add('navbar-shadow');
+      navbar.classList.add("navbar-shadow");
     } else {
-      navbar.classList.remove('navbar-shadow');
+      navbar.classList.remove("navbar-shadow");
     }
   });
 }
-navbarShadow()
-
+navbarShadow();
 
 /**
  * @description this is harmburger
- * @returns get menu icon on mobile view
  * @function harmburger()
+ * @returns get menu icon on mobile view
  */
 function hamburger() {
   document.addEventListener("DOMContentLoaded", () => {
@@ -33,8 +36,8 @@ hamburger();
 
 /**
  * @description this is search icon click
- * @returns get search input in menu bar
  * @function searchBar()
+ * @returns get search input in menu bar
  */
 function searchBar() {
   document.addEventListener("DOMContentLoaded", () => {
@@ -49,8 +52,8 @@ searchBar();
 
 /**
  * @description this used for scroll behavior
- * @returns go smooth scrool links menus
  * @function smoothBehavior()
+ * @returns go smooth scrool links menus
  */
 function smoothBehavior() {
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -67,17 +70,22 @@ function smoothBehavior() {
 }
 smoothBehavior();
 
+/**
+ * @description Cart Count
+ * @function updateCartCount()
+ * @returns update cart value then added item in cart
+ */
+
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   // const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const cartCountEl = document.getElementById("cart-count");
 
   if (cart.length > 0) {
-    cartCountEl.innerHTML = cart.length;;
+    cartCountEl.innerHTML = cart.length;
   } else {
     cartCountEl.innerHTML = 0;
   }
-
 }
 
 // ✅ Call on every page load to show cart count
@@ -177,9 +185,9 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 // Normalize all ids to string and merge duplicates
 let mergedCart = [];
 
-cart.forEach(item => {
+cart.forEach((item) => {
   const id = String(item.id); // normalize id
-  const existing = mergedCart.find(i => String(i.id) === id);
+  const existing = mergedCart.find((i) => String(i.id) === id);
 
   if (existing) {
     existing.qty = (existing.qty || 1) + (item.qty || 1);
@@ -187,10 +195,42 @@ cart.forEach(item => {
     mergedCart.push({
       ...item,
       id, // normalize to string
-      qty: item.qty || 1
+      qty: item.qty || 1,
     });
   }
 });
 
 // Save back to localStorage
 localStorage.setItem("cart", JSON.stringify(mergedCart));
+
+/**
+ * @description Smooth scroll down to top Button
+ * @function goToTopBtn()
+ */
+function goToTopBtn() {
+  document.getElementById("goTopBtn").addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}
+goToTopBtn();
+
+function showUser() {
+  const showLoginUser = document.querySelector(".login");
+  const userLog = document.querySelector(".userLog");
+  const userProfile = document.querySelector(".user-profile")
+
+  const getUserAuth = JSON.parse(localStorage.getItem("auth"));
+  // console.log(getUserAuth);
+  if (!getUserAuth) {
+    showLoginUser.innerHTML = "Login";
+    userProfile.style.display = "none"
+  } else {
+    showLoginUser.style.display ="none"
+    userProfile.style.display = "flex"
+    userLog.innerHTML = `Hi! ${getUserAuth.name}`;
+  }
+}
+showUser();

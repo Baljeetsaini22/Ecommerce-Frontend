@@ -21,8 +21,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   padding: 1rem 7.5%;
-  background-color: #fff;  
+  background-color: #fff;
   position: fixed;
   transition: box-shadow 0.3s ease;
   z-index: 100;
@@ -30,7 +31,11 @@ body {
 .navbar-shadow {
   box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
 }
-
+.nav-respo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -45,6 +50,7 @@ ul {
   justify-content: center;
   gap: 0.5rem;
   list-style-type: none;
+
   a {
     text-decoration: none;
     color: #333;
@@ -62,7 +68,20 @@ ul {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 0.5;
+}
+
+.fa-user {
+  font-size: 1.2rem;
 }
 
 .search-bar {
@@ -269,4 +288,3 @@ ul {
   width: 85%;
   margin-inline: auto;
 }
-

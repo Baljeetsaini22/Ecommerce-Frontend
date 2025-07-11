@@ -39,8 +39,9 @@
           <li><a href="./productsView.html">Product</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./auth.html">Login</a></li>
+          <li><a href="./auth.html" class="login"></a></li>
         </ul>
+        <div class="user-profile mt-"><i class="fa-solid fa-user"></i><br><span class="userLog">User</span></div>
       </div>
       <div class="header-right">
         <div class="search-item">
@@ -254,17 +255,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    document
-      .getElementById("goTopBtn")
-      .addEventListener("click", function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-  </script>
   <script type="module" src="../script/app.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

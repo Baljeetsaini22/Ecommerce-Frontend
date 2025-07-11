@@ -1,329 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login / Signup</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style/main.css" />
+    <link rel="stylesheet" href="../style/responsive.css" />
+    <style>
+      .form-container {
+        max-width: 400px;
+        margin: 50px auto;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login / Signup</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="stylesheet" href="../style/main.css" />
-  <link rel="stylesheet" href="../style/responsive.css" />
-  <style>
-    .form-container {
-      max-width: 400px;
-      margin: 50px auto;
-    }
+      .password-toggle {
+        cursor: pointer;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    </style>
+  </head>
 
-    .password-toggle {
-      cursor: pointer;
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  </style>
-</head>
-
-<body>
-  <header class="site-header">
-    <div id="navbar" class="nav-menu">
-      <div class="logo"><a href="/">BrandLogo</a></div>
-      <div class="nav-respo">
-        <ul class="menus">
-          <li><a href="/">Home</a></li>
-          <li><a href="./productsView.html">Product</a></li>
-          <li><a href="./about.html">About</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="#login" class="login"></a></li>
-        </ul>
-      </div>
-      <div class="header-right">
-        <div class="search-item">
-          <input class="search-bar" type="search" placeholder="Search products..." />
-        </div>
-        <div class="search-icon" id="magnifyBtn">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <div class="cart">
-          <a href="./cart.html" title="cartbox" id="showCart" class="cart-icon">
-            <i class="fa-solid fa-cart-shopping"></i></a>
-          <span id="cart-count" class="counter"></span>
-        </div>
-
-        <div class="hamburger" id="hamburger">
-          <i class="fa-solid fa-bars"></i>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Forms Container -->
-  <div class="form-container">
-    <!-- Login Form -->
-    <form id="loginForm" class="border p-4 rounded">
-      <h3 class="text-center mb-3">Login</h3>
-
-      <div class="mb-3">
-        <label>Email</label>
-        <input type="email" class="form-control" id="loginEmail" required />
-      </div>
-
-      <div class="mb-3 position-relative">
-        <label>Password</label>
-        <input type="password" class="form-control" id="loginPassword" required />
-        <span class="password-toggle" onclick="togglePassword('loginPassword')">👁️</span>
-      </div>
-
-      <div class="mb-2 text-end">
-        <a href="#">Forgot Password?</a>
-      </div>
-
-      <button type="submit" class="btn btn-primary w-100">Login</button>
-
-      <p class="text-center mt-3">
-        Don't have an account?
-        <a href="#" onclick="showSignup()">Sign up</a>
-      </p>
-    </form>
-
-    <script>
-
-    </script>
-    <!-- Signup Form -->
-    <form id="signupForm" class="border p-4 rounded d-none" onsubmit="">
-      <h3 class="text-center mb-3">Sign Up</h3>
-
-      <div class="mb-3">
-        <label>Full Name</label>
-        <input type="text" class="form-control" id="name" required />
-      </div>
-
-      <div class="mb-3">
-        <label>Email</label>
-        <input type="email" class="form-control" id="signupEmail" required />
-      </div>
-
-      <div class="mb-3 position-relative">
-        <label>Password</label>
-        <input type="password" class="form-control" id="signupPassword" required oninput="checkStrength(this.value)" />
-        <span class="password-toggle" onclick="togglePassword('signupPassword')">👁️</span>
-        <small id="strength" class="text-muted"></small>
-      </div>
-
-      <div class="mb-3">
-        <label>Confirm Password</label>
-        <input type="password" class="form-control" id="confirmPassword" required />
-      </div>
-
-      <button type="submit" class="btn btn-success w-100">Sign Up</button>
-
-      <p class="text-center mt-3">
-        Already have an account?
-        <a href="#" onclick="showLogin()">Login</a>
-      </p>
-    </form>
-  </div>
-  <footer class="bg-dark text-light">
-    <div class="text-center py-2 bg-dark">
-      <button id="goTopBtn" class="btn btn-primary mt-3">
-        <i class="fa-solid fa-arrow-up"></i> Go to Top
-      </button>
-    </div>
-    <div class="footer py-5">
-      <div class="row foot-content">
-        <!-- Logo -->
-        <div class="col-md-3 mb-4">
-          <h4 class="mb-3">BrandLogo</h4>
-          <p>
-            Your trusted online store offering the best products, fast
-            delivery, and excellent customer support to make your shopping
-            experience effortless and enjoyable.
-          </p>
-        </div>
-        <!-- Quick Links -->
-        <div class="col-md-3 mb-4">
-          <h5 class="mb-3">Quick Links</h5>
-          <ul class="list-unstyled">
-            <li>
-              <a href="/" class="text-light text-decoration-none">Home</a>
-            </li>
-            <li>
-              <a href="#product" class="text-light text-decoration-none">Products</a>
-            </li>
-            <li>
-              <a href="./category.html" class="text-light text-decoration-none">Category</a>
-            </li>
-            <li>
-              <a href="./about.html" class="text-light text-decoration-none">About</a>
-            </li>
-            <li>
-              <a href="./contact.html" class="text-light text-decoration-none">Contact Us</a>
-            </li>
+  <body>
+    <header class="site-header">
+      <div id="navbar" class="nav-menu">
+        <div class="logo"><a href="/">BrandLogo</a></div>
+        <div class="nav-respo">
+          <ul class="menus">
+            <li><a href="/">Home</a></li>
+            <li><a href="./productsView.html">Product</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="#login" class="login"></a></li>
           </ul>
+          <div class="user-profile mt-">
+            <i class="fa-solid fa-user"></i><br /><span class="userLog"
+              >User</span
+            >
+          </div>
         </div>
-        <!-- New Products -->
-        <div class="col-md-3 mb-4">
-          <h5 class="mb-3">New Products</h5>
-          <ul class="list-unstyled">
-            <li>
-              <a href="#" class="text-light text-decoration-none">Wireless Earbuds</a>
-            </li>
-            <li>
-              <a href="#" class="text-light text-decoration-none">Smart Watches</a>
-            </li>
-            <li>
-              <a href="#" class="text-light text-decoration-none">Fitness Trackers</a>
-            </li>
-            <li>
-              <a href="#" class="text-light text-decoration-none">Bluetooth Speakers</a>
-            </li>
-          </ul>
-        </div>
-        <!-- Support -->
-        <div class="col-md-3 mb-4">
-          <h5 class="mb-3">Support</h5>
-          <ul class="list-unstyled">
-            <li>
-              <a href="#" class="text-light text-decoration-none">FAQ</a>
-            </li>
-            <li>
-              <a href="#" class="text-light text-decoration-none">Shipping Policy</a>
-            </li>
-            <li>
-              <a href="#" class="text-light text-decoration-none">Returns & Refunds</a>
-            </li>
-            <li>
-              <a href="#" class="text-light text-decoration-none">Privacy Policy</a>
-            </li>
-          </ul>
+        <div class="header-right">
+          <div class="search-item">
+            <input
+              class="search-bar"
+              type="search"
+              placeholder="Search products..."
+            />
+          </div>
+          <div class="search-icon" id="magnifyBtn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="cart">
+            <a
+              href="./cart.html"
+              title="cartbox"
+              id="showCart"
+              class="cart-icon"
+            >
+              <i class="fa-solid fa-cart-shopping"></i
+            ></a>
+            <span id="cart-count" class="counter"></span>
+          </div>
+
+          <div class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+          </div>
         </div>
       </div>
-      <div class="text-center mt-4">
-        <small>&copy; 2025 BrandLogo. All rights reserved.</small>
-      </div>
+    </header>
+
+    <!-- Forms Container -->
+    <div class="form-container">
+      <!-- Login Form -->
+      <form id="loginForm" class="border p-4 rounded">
+        <h3 class="text-center mb-3">Login</h3>
+
+        <div class="mb-3">
+          <label>Email</label>
+          <input type="email" class="form-control" id="loginEmail" required />
+        </div>
+
+        <div class="mb-3 position-relative">
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="loginPassword"
+            required
+          />
+          <span
+            class="password-toggle"
+            onclick="togglePassword('loginPassword')"
+            >👁️</span
+          >
+        </div>
+
+        <div class="mb-2 text-end">
+          <a href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+
+        <p class="text-center mt-3">
+          Don't have an account?
+          <a href="#" onclick="showSignup()">Sign up</a>
+        </p>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signupForm" class="border p-4 rounded d-none" onsubmit="">
+        <h3 class="text-center mb-3">Sign Up</h3>
+
+        <div class="mb-3">
+          <label>Full Name</label>
+          <input type="text" class="form-control" id="name" required />
+        </div>
+
+        <div class="mb-3">
+          <label>Email</label>
+          <input type="email" class="form-control" id="signupEmail" required />
+        </div>
+
+        <div class="mb-3 position-relative">
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="signupPassword"
+            required
+            oninput="checkStrength(this.value)"
+          />
+          <span
+            class="password-toggle"
+            onclick="togglePassword('signupPassword')"
+            >👁️</span
+          >
+          <small id="strength" class="text-muted"></small>
+        </div>
+
+        <div class="mb-3">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="confirmPassword"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Sign Up</button>
+
+        <p class="text-center mt-3">
+          Already have an account?
+          <a href="#" onclick="showLogin()">Login</a>
+        </p>
+      </form>
     </div>
-  </footer>
+    <footer class="bg-dark text-light">
+      <div class="text-center py-2 bg-dark">
+        <button id="goTopBtn" class="btn btn-primary mt-3">
+          <i class="fa-solid fa-arrow-up"></i> Go to Top
+        </button>
+      </div>
+      <div class="footer py-5">
+        <div class="row foot-content">
+          <!-- Logo -->
+          <div class="col-md-3 mb-4">
+            <h4 class="mb-3">BrandLogo</h4>
+            <p>
+              Your trusted online store offering the best products, fast
+              delivery, and excellent customer support to make your shopping
+              experience effortless and enjoyable.
+            </p>
+          </div>
+          <!-- Quick Links -->
+          <div class="col-md-3 mb-4">
+            <h5 class="mb-3">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="/" class="text-light text-decoration-none">Home</a>
+              </li>
+              <li>
+                <a href="#product" class="text-light text-decoration-none"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./category.html"
+                  class="text-light text-decoration-none"
+                  >Category</a
+                >
+              </li>
+              <li>
+                <a href="./about.html" class="text-light text-decoration-none"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a href="./contact.html" class="text-light text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- New Products -->
+          <div class="col-md-3 mb-4">
+            <h5 class="mb-3">New Products</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Wireless Earbuds</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Smart Watches</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Fitness Trackers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Bluetooth Speakers</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Support -->
+          <div class="col-md-3 mb-4">
+            <h5 class="mb-3">Support</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-light text-decoration-none">FAQ</a>
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Shipping Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Returns & Refunds</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <small>&copy; 2025 BrandLogo. All rights reserved.</small>
+        </div>
+      </div>
+    </footer>
+    <script src="../script/auth.js"></script>
 
-  <script>
-    document
-      .getElementById("goTopBtn")
-      .addEventListener("click", function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-  </script>
-
-  <!-- Scripts -->
-  <script>
-    function togglePassword(id) {
-      const field = document.getElementById(id);
-      field.type = field.type === "password" ? "text" : "password";
-    }
-
-    function showSignup() {
-      document.getElementById("loginForm").classList.add("d-none");
-      document.getElementById("signupForm").classList.remove("d-none");
-    }
-
-    function showLogin() {
-      document.getElementById("signupForm").classList.add("d-none");
-      document.getElementById("loginForm").classList.remove("d-none");
-    }
-
-    function validateEmail(email) {
-      return /^[^@]+@[^@]+\.[a-z]{2,}$/.test(email);
-    }
-
-    function checkStrength(password) {
-      const strengthEl = document.getElementById("strength");
-      let strength = "Weak";
-      if (
-        password.length >= 8 &&
-        /[A-Z]/.test(password) &&
-        /[a-z]/.test(password) &&
-        /\d/.test(password)
-      ) {
-        strength = "Strong";
-      } else if (password.length >= 6) {
-        strength = "Medium";
-      }
-      strengthEl.textContent = `Password strength: ${strength}`;
-    }
-
-    document.getElementById("signupForm").onsubmit = function (e) {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("signupEmail").value;
-      const password = document.getElementById("signupPassword").value;
-      const confirm = document.getElementById("confirmPassword").value;
-
-      if (!validateEmail(email)) {
-        alert("Invalid email format.");
-        return;
-      }
-
-      if (password !== confirm) {
-        alert("Passwords do not match.");
-        return;
-      }
-
-      if (
-        password.length < 8 ||
-        !/[A-Z]/.test(password) ||
-        !/[a-z]/.test(password) ||
-        !/\d/.test(password)
-      ) {
-        alert("Password must contain uppercase, lowercase, and a number.");
-        return;
-      }
-      const user = { name, email, password };
-      localStorage.setItem('auth', JSON.stringify(user))
-      window.location.href = "/";
-    };
-
-    document.getElementById("loginForm").onsubmit = function (e) {
-      e.preventDefault();
-      const email = document.getElementById("loginEmail").value;
-      const password = document.getElementById("loginPassword").value;
-
-      if (!validateEmail(email)) {
-        alert("Invalid email format.");
-        return;
-      }
-
-      if (!password) {
-        alert("Password required.");
-        return;
-      }
-
-      alert("Login successful!");
-    };
-
-    const showLoginUser = document.querySelector('.login')
-
-    const getUserAuth = JSON.parse(localStorage.getItem("auth"));
-    console.log(getUserAuth)
-    if (!getUserAuth) {
-      showLoginUser.innerHTML = "Login"
-    }else{
-      showLoginUser.innerHTML = `Hi! ${getUserAuth.name}`
-    }
-  </script>
-  <script type="module" src="../script/app.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
-</body>
-
+    <script type="module" src="../script/app.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
