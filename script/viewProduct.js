@@ -41,6 +41,10 @@ if (path.includes("productsView.html")) {
                     const productDiv = document.createElement('div');
                     productDiv.className = 'product';
 
+                    let title = item.title.slice(0, 22);
+                    console.log(title);
+                    
+
                     productDiv.innerHTML = `
                     <div class="item">
                         <div class="item-details">
@@ -58,7 +62,7 @@ if (path.includes("productsView.html")) {
                 >
                   <span>Add to Cart</span>
                 </button>
-                            <h3>${item.title}</h3>
+                            <h3>${title}</h3>
                             <p>Price: ₹${price}</p>
                             
                         </div>
