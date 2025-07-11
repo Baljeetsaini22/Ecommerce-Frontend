@@ -34,3 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   updateCartDisplay();
 });
+
+
+const isLogin = localStorage.getItem("isLogin");
+if (isLogin !== "true") {
+  alert("Please login to proceed to checkout.");
+  window.location.href = "../pages/auth.html";
+}

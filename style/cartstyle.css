@@ -4,7 +4,7 @@
   padding: 0;
 }
 .cart-item {
-  width: 100%;;
+  width: 100%;
 }
 .cart-content {
   width: 100%;
@@ -13,7 +13,7 @@
   box-shadow: 0 0 10px;
   border-radius: 1rem;
   background-color: #fff;
-  h1{
+  h1 {
     text-align: center;
   }
 }
@@ -29,46 +29,40 @@
   width: 100px;
 }
 
-.cart-total{
+.cart-total {
   width: 100%;
   margin-block: 1rem;
-  
 }
-.cart-left{
+.cart-left {
   display: flex;
   align-items: center;
-  justify-content: space-between ;
+  justify-content: space-between;
 
   gap: 1rem;
 }
 
-.inc-dec{
-  
+.inc-dec {
   display: flex;
   gap: 5px;
   align-items: center;
-  
-
 }
 .get-order {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   padding-inline: 1rem;
   gap: 2rem;
- 
 }
 .cart-right {
   display: flex;
   justify-content: space-between;
 }
-.cart-check{
+.cart-check {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-inline: 1rem;
-
 }
-.amount-sec{
+.amount-sec {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -78,12 +72,19 @@
   display: flex;
   justify-content: center;
   align-items: end;
-  
+}
+.check-btn {
+  background-color: red;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
 }
 
-.check-btn{  
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
-  color: #fff;
-  background-color: red;  
+.check-btn:hover {
+  background-color: #ff6f61;
+  transform: scale(1.05);
+  color: white;
+  text-decoration: none;
 }
