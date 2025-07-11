@@ -3,7 +3,7 @@
     grid-template-columns: auto auto;
   }
 }
-@media (max-width: 850px) {
+@media (max-width: 940px) {
   .nav-respo {
     display: none;
     position: absolute;
@@ -14,10 +14,11 @@
     background: white;
     justify-content: center;
     border-radius: 0 0 10px 10px;
-    /* box-shadow: 0 5px 5px #333; */
   }
   .nav-respo.open {
     display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
   }
 
   .hamburger {
@@ -64,7 +65,7 @@
   }
 }
 @media (max-width: 580px) {
-    #itemShow {
+  #itemShow {
     grid-template-columns: auto;
   }
   .nav-menu {

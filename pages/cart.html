@@ -23,10 +23,12 @@
           <li><a href="./productsView.html">Product</a></li>
           <li><a href="./about.html">About</a></li>
           <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./auth.html">Login</a></li>
+          <li><a href="./auth.html" class="login">Login</a></li>
         </ul>
+        <div class="user-profile mt-"><i class="fa-solid fa-user"></i><br><span class="userLog">User</span></div>
       </div>
       <div class="header-right">
+        <div class="menus"><a href="./auth.html" class="login">Login</a></div>
         <div class="search-item">
           <input class="search-bar" type="search" placeholder="Search products..." />
         </div>
@@ -50,12 +52,11 @@
       <h1>Shopping Cart</h1>
       <div class="row">
         <div class="col-lg-8 ">
-          <h5>Cart <span id="cart-count"></span></h5>
-
+          <h5 class="text-center">Cart <span id="cart-count"></span></h5>   
           <div id="cart-container" class="cart-cont"></div>
         </div>
         <div class="col-lg-4">
-          <h5>Order Sumary</h5>
+          <h5 class="text-center">Order Sumary</h5>
           <div id="cart-counter" class="cart-total"></div>
           <hr>
           <div class="amount-sec">
@@ -150,17 +151,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    document
-      .getElementById("goTopBtn")
-      .addEventListener("click", function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-  </script>
   <script type="module" src="../script/cartscript.js"></script>
   <script type="module" src="../script/app.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

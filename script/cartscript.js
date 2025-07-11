@@ -8,7 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
     cartContainer.innerHTML = "";
 
     if (cart.length === 0) {
-      cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+      cartContainer.innerHTML = `
+      <div class="d-flex flex-column align-items-center justify-content-center mt-5">
+        <p>Your cart is empty.</p>
+        <div><a href="../pages/productsView.html" class="shop-btn">Shop Now</a></div>
+      </div>
+      
+      `;
       cartCounter.innerHTML = "<p>Total Price 0.</p>";
       return;
     }
@@ -23,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(item.id);
 
       const div = document.createElement("div");
-      div.className = "cart-Prod";      
+      div.className = "cart-Prod";
       div.innerHTML += `
       <div class="cart-item">
         <div>
@@ -46,21 +52,21 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       `;
       cartContainer.appendChild(div);
-      
+
       let title = item.title.slice(0, 22);
 
       cartCounter.innerHTML += `
       <div class="get-order">
         <div class="row cart-right">
         
-          <p class="col-sm-1"> ${index+ 1}</p>
+          <p class="col-sm-1"> ${index + 1}</p>
           <p class="col-sm-4"> ${title}</p>
           <span class="col-sm-2">x ${item.qty}</span>
           <p class="col-sm-4">Total: ₹${price}</p>
         </div>            
       </div>
       `;
-      totalPrice.innerHTML = `<p>₹${totalVal}</p>`
+      totalPrice.innerHTML = `<p>₹${totalVal}</p>`;
     });
 
     attachButtonListeners();
@@ -72,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("click", () => {
         const i = btn.dataset.index;
         cart[i].qty++;
-        cartCounter.innerHTML =" "
+        cartCounter.innerHTML = " ";
         saveAndRender();
       });
     });
@@ -83,12 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const i = btn.dataset.index;
         if (cart[i].qty > 1) {
           cart[i].qty--;
-          cartCounter.innerHTML =" "
+          cartCounter.innerHTML = " ";
         } else {
           if (confirm("Quantity is 1. Remove item?")) {
             window.location.reload();
             cart.splice(i, 1);
-          }          
+          }
         }
         saveAndRender();
       });
@@ -99,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("click", () => {
         const i = btn.dataset.index;
         cart.splice(i, 1);
-        cartCounter.innerHTML =" "
+        cartCounter.innerHTML = " ";
         saveAndRender();
       });
     });
