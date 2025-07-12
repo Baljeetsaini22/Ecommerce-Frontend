@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login / Signup</title>
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
     <link
@@ -21,7 +21,6 @@
         max-width: 400px;
         margin: 50px auto;
       }
-
       .password-toggle {
         cursor: pointer;
         position: absolute;
@@ -31,7 +30,6 @@
       }
     </style>
   </head>
-
   <body>
     <header class="site-header">
       <div id="navbar" class="nav-menu">
@@ -44,10 +42,28 @@
             <li><a href="./contact.html">Contact</a></li>
             <li><a href="#login" class="login"></a></li>
           </ul>
-          <div class="user-profile mt-">
-            <i class="fa-solid fa-user"></i><br /><span class="userLog"
-              >User</span
+          <div
+            class="dropdown dropdown-toggle showProfile"
+            role="button"
+            id="userDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <a href="#" class="user-profile">
+              <i class="fa-solid fa-user"></i><span class="userLog"></span>
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="userDropdown"
             >
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <button id="logout" class="dropdown-item text-danger">
+                  Logout
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="header-right">
@@ -79,18 +95,15 @@
         </div>
       </div>
     </header>
-
     <!-- Forms Container -->
     <div class="form-container">
       <!-- Login Form -->
       <form id="loginForm" class="border p-4 rounded">
         <h3 class="text-center mb-3">Login</h3>
-
         <div class="mb-3">
           <label>Email</label>
           <input type="email" class="form-control" id="loginEmail" required />
         </div>
-
         <div class="mb-3 position-relative">
           <label>Password</label>
           <input
@@ -105,33 +118,25 @@
             >👁️</span
           >
         </div>
-
-        <div class="mb-2 text-end">
-          <a href="#">Forgot Password?</a>
-        </div>
-
-        <button type="submit" class="btn btn-primary w-100">Login</button>
-
+        <button type="submit" class="btn btn-primary w-100" id="setuser">
+          Login
+        </button>
         <p class="text-center mt-3">
-          Don't have an account?
-          <a href="#" onclick="showSignup()">Sign up</a>
+          Don't have an account? <a href="#" id="showSignupBtn">Sign up</a>
         </p>
       </form>
 
       <!-- Signup Form -->
-      <form id="signupForm" class="border p-4 rounded d-none" onsubmit="">
+      <form id="signupForm" class="border p-4 rounded d-none">
         <h3 class="text-center mb-3">Sign Up</h3>
-
         <div class="mb-3">
           <label>Full Name</label>
           <input type="text" class="form-control" id="name" required />
         </div>
-
         <div class="mb-3">
           <label>Email</label>
           <input type="email" class="form-control" id="signupEmail" required />
         </div>
-
         <div class="mb-3 position-relative">
           <label>Password</label>
           <input
@@ -139,7 +144,6 @@
             class="form-control"
             id="signupPassword"
             required
-            oninput="checkStrength(this.value)"
           />
           <span
             class="password-toggle"
@@ -148,7 +152,6 @@
           >
           <small id="strength" class="text-muted"></small>
         </div>
-
         <div class="mb-3">
           <label>Confirm Password</label>
           <input
@@ -158,12 +161,9 @@
             required
           />
         </div>
-
         <button type="submit" class="btn btn-success w-100">Sign Up</button>
-
         <p class="text-center mt-3">
-          Already have an account?
-          <a href="#" onclick="showLogin()">Login</a>
+          Already have an account? <a href="#" id="showLoginBtn">Login</a>
         </p>
       </form>
     </div>
@@ -271,23 +271,9 @@
         </div>
       </div>
     </footer>
-    <script src="../script/auth.js"></script>
 
+    <script type="module" src="../script//auth.js"></script>
     <script type="module" src="../script/app.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

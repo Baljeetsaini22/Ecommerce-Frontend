@@ -119,3 +119,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateCartDisplay();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const checkoutBtn = document.getElementById("checkoutBtn");
+
+  checkoutBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const user = JSON.parse(localStorage.getItem("auth"));
+
+    if (user) {
+      // User is logged in, proceed
+      window.location.href = "../pages/checkout.html";
+    } else {
+      // User not logged in
+      alert("Please login first to proceed to checkout.");
+      window.location.href = "../pages/auth.html";
+    }
+  });
+});
