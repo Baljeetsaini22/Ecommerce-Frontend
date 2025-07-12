@@ -3,10 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPrice = document.getElementById("MRP");
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   // console.log(cart);
-  
 
   function updateCartDisplay() {
-    
     cart.map((item, index) => {
       // console.log(item)
       const price = item.price * item.qty;
@@ -34,10 +32,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   updateCartDisplay();
 });
-
-
-const isLogin = localStorage.getItem("isLogin");
-if (isLogin !== "true") {
-  alert("Please login to proceed to checkout.");
-  window.location.href = "../pages/auth.html";
-}

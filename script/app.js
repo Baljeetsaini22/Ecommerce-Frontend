@@ -50,25 +50,25 @@ function searchBar() {
 }
 searchBar();
 
-/**
- * @description this used for scroll behavior
- * @function smoothBehavior()
- * @returns go smooth scrool links menus
- */
-function smoothBehavior() {
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        target.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-}
-smoothBehavior();
+// /**
+//  * @description this used for scroll behavior
+//  * @function smoothBehavior()
+//  * @returns go smooth scrool links menus
+//  */
+// function smoothBehavior() {
+//   document.querySelectorAll('a[href^="#"]').forEach((link) => {
+//     link.addEventListener("click", function (e) {
+//       e.preventDefault();
+//       const target = document.querySelector(this.getAttribute("href"));
+//       if (target) {
+//         target.scrollIntoView({
+//           behavior: "smooth",
+//         });
+//       }
+//     });
+//   });
+// }
+// smoothBehavior();
 
 /**
  * @description Cart Count
@@ -220,18 +220,119 @@ goToTopBtn();
 
 function showUser() {
   const showLoginUser = document.querySelector(".login");
+  const userProfile = document.querySelector(".user-profile");
   const userLog = document.querySelector(".userLog");
-  const userProfile = document.querySelector(".user-profile")
 
-  const getUserAuth = JSON.parse(localStorage.getItem("auth"));
-  // console.log(getUserAuth);
-  if (!getUserAuth) {
+  // Get user data from localStorage
+  const getUserName = localStorage.getItem("userName");
+
+  // Check if user is logged in
+  if (!getUserName) {
+    // User not logged in
     showLoginUser.innerHTML = "Login";
-    userProfile.style.display = "none"
+    showLoginUser.style.display = "block"; // Show Login button
+    userProfile.style.display = "none"; // Hide user profile section
   } else {
-    showLoginUser.style.display ="none"
-    userProfile.style.display = "flex"
-    userLog.innerHTML = `Hi! ${getUserAuth.name}`;
+    // User is logged in
+    showLoginUser.style.display = "none"; // Hide Login button
+    userProfile.style.display = "flex"; // Show user profile section
+    userLog.innerHTML = `Hi! ${getUserName}`; // Display user name
   }
 }
 showUser();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutBtn = document.getElementById("logout");
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      localStorage.removeItem("auth");
+      localStorage.removeItem("userName");
+      window.location.href = "/";
+    });
+  }
+});
+
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut,
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+function logoutKey() {
+  // Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyDP2TktQJUtRfloWBoKTwlnzEJeRlUSS6M",
+    authDomain: "ecommerce-project-eda80.firebaseapp.com",
+    projectId: "ecommerce-project-eda80",
+    storageBucket: "ecommerce-project-eda80.appspot.com",
+    messagingSenderId: "555193689458",
+    appId: "1:555193689458:web:8b3be9e69bb7ac0d1869eb",
+    measurementId: "G-6XB0QJEKK3",
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // DOM elements
+  const showLoginUser = document.querySelector(".login");
+  const showProfile = document.querySelector(".showProfile");
+  const userLog = document.querySelector(".userLog");
+
+  // Show user if logged in
+  function showUser() {
+    const getUserAuth = JSON.parse(localStorage.getItem("auth"));
+    if (!getUserAuth) {
+      if (showLoginUser)
+        showLoginUser.innerHTML = "Login";
+      if (showProfile) showProfile.style.display = "none";
+    } else {
+      if (showLoginUser) showLoginUser.style.display = "none";
+      if (showProfile) showProfile.style.display = "flex";
+      if (userLog) userLog.innerHTML = `Hi! ${getUserAuth.name}`;
+    }
+  }
+  showUser();
+
+  // Listen for auth state and update localStorage if needed
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      const docRef = doc(db, "users", user.uid);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        const { name, email, uid } = docSnap.data();
+        localStorage.setItem("auth", JSON.stringify({ uid, email, name }));
+        localStorage.setItem("isLogin", "true");
+        showUser(); // Update UI
+      }
+    }
+  });
+
+  // Logout function
+  document.addEventListener("DOMContentLoaded", () => {
+    const logoutBtn = document.getElementById("logout");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        try {
+          await signOut(auth); // Firebase logout
+          localStorage.removeItem("auth");
+          localStorage.removeItem("userName");
+          localStorage.removeItem("isLogin");
+          window.location.href = "../pages/auth.html"; // Redirect
+        } catch (error) {
+          console.error("Logout error:", error.message);
+        }
+      });
+    }
+  });
+}
+logoutKey();
