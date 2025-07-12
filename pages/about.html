@@ -17,23 +17,51 @@
     <link rel="stylesheet" href="../style/main.css" />
     <link rel="stylesheet" href="../style/responsive.css" />
     <style>
-      .about-img {
-        width: 100%;
-        border-radius: 12px;
-        object-fit: cover;
-        max-height: 400px;
+      body {
+        background-color: #fff;
+        color: #000;
       }
 
-      .testimonial {
-        background: #f8f9fa;
-        border-left: 4px solid #054997;
-        padding: 1rem;
+      .main-container {
+        width: 85%;
+        margin: auto;
+        padding: 2rem 0;
+      }
+
+      .section-title {
+        color: #054997;
+        font-weight: 700;
         margin-bottom: 1rem;
-        border-radius: 8px;
+        border-bottom: 2px solid #054997;
+        padding-bottom: 0.5rem;
+      }
+
+      .service-box,
+      .feature-box,
+      .review-box {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        background-color: #f9f9f9;
+      }
+
+      .review-box {
+        background-color: #ffffff;
+      }
+
+      .highlight {
+        color: #054997;
+      }
+
+      @media (max-width: 576px) {
+        .main-container {
+          width: 85%;
+          padding: 1rem 0;
+        }
       }
     </style>
   </head>
-
   <body>
     <!-- Navbar -->
     <header class="site-header">
@@ -101,118 +129,103 @@
       </div>
     </header>
 
-    <!-- About Us Section -->
-    <section id="about" class="container mt-5 pt-5 mb-5">
-      <div class="row align-items-center g-4">
-        <h2 class="mb-3">About BrandLogo</h2>
+    <div class="main-container">
+      <!-- About Website -->
+      <section id="about-website">
+        <h2 class="section-title">About Our Website</h2>
         <p>
-          <strong>BrandLogo</strong> was born out of a simple idea — to make
-          online shopping easier, faster, and more reliable for everyone.
-          Whether you're browsing for the latest tech or everyday essentials,
-          we’re here to bring quality and affordability together under one roof.
+          <strong>ShopNow</strong> is a leading eCommerce platform designed to
+          bring you the best shopping experience, whether you're on desktop or
+          mobile. Our platform offers a sleek interface, lightning-fast
+          checkout, and a secure environment to meet all your online shopping
+          needs.
         </p>
-        <p>
-          We understand that shopping online should feel personal and
-          trustworthy. That’s why we handpick every product, provide accurate
-          descriptions, and ensure secure payments and timely deliveries.
-        </p>
-        <p>
-          Our team works around the clock to source innovative products, keep
-          prices competitive, and support you every step of the way — before,
-          during, and after your purchase. At BrandLogo, your satisfaction is
-          our success.
-        </p>
-        <p>
-          We believe in building long-term relationships with our customers.
-          From fast shipping to reliable return policies, we make sure that
-          shopping with us is a stress-free experience you'll want to repeat.
-        </p>
-        <ul>
-          <li>✔ 100% Genuine Products from trusted suppliers</li>
-          <li>✔ Easy returns with a no-questions-asked policy</li>
-          <li>✔ Real-time order tracking and updates</li>
-          <li>✔ Dedicated support team to resolve issues quickly</li>
-        </ul>
-      </div>
-    </section>
-    <section class="container mb-5">
-      <div class="row g-4">
-        <div class="col-md-4 text-center">
-          <i class="fa-solid fa-thumbs-up fa-2x text-primary mb-2"></i>
-          <h5>Trusted by Thousands</h5>
+      </section>
+
+      <!-- Our Services -->
+      <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="row">
+          <div class="col-md-4 service-box">
+            <h5 class="highlight">Free Shipping</h5>
+            <p>
+              Enjoy free shipping on orders over ₹999, anywhere across India.
+            </p>
+          </div>
+          <div class="col-md-4 service-box">
+            <h5 class="highlight">24/7 Customer Support</h5>
+            <p>
+              Our friendly support team is available anytime to help you with
+              your queries.
+            </p>
+          </div>
+          <div class="col-md-4 service-box">
+            <h5 class="highlight">Easy Returns</h5>
+            <p>
+              Not satisfied with your purchase? Get easy 7-day returns with no
+              hassle.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features">
+        <h2 class="section-title">Key Features</h2>
+        <div class="row">
+          <div class="col-md-6 feature-box">
+            <h6>🛒 Smart Cart System</h6>
+            <p>
+              Real-time cart updates with personalized suggestions based on your
+              browsing history.
+            </p>
+          </div>
+          <div class="col-md-6 feature-box">
+            <h6>🔐 Secure Payments</h6>
+            <p>
+              Powered by encrypted gateways to ensure secure and quick
+              transactions.
+            </p>
+          </div>
+          <div class="col-md-6 feature-box">
+            <h6>📱 Mobile Responsive</h6>
+            <p>
+              Browse and shop seamlessly on any device—mobile, tablet, or
+              desktop.
+            </p>
+          </div>
+          <div class="col-md-6 feature-box">
+            <h6>🚀 Lightning-Fast Checkout</h6>
+            <p>
+              One-click checkout system with saved addresses and card details.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section id="reviews">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="review-box">
           <p>
-            We’ve served over 10,000 happy customers and counting — your trust
-            means everything to us.
+            🌟 "Excellent platform! Easy to use and amazing product quality." -
+            <strong>Ritika Sharma</strong>
           </p>
         </div>
-        <div class="col-md-4 text-center">
-          <i class="fa-solid fa-box-open fa-2x text-primary mb-2"></i>
-          <h5>Carefully Packed</h5>
+        <div class="review-box">
           <p>
-            All products are securely packaged to reach you in perfect
-            condition, every time.
+            🌟 "I loved the fast delivery and responsive design. ShopNow is my
+            go-to!" - <strong>Aman Verma</strong>
           </p>
         </div>
-        <div class="col-md-4 text-center">
-          <i class="fa-solid fa-star fa-2x text-primary mb-2"></i>
-          <h5>Top-Rated Service</h5>
+        <div class="review-box">
           <p>
-            We’re proud to maintain a 4.8/5 customer rating thanks to our prompt
-            service and care.
+            🌟 "Support team helped me with returns instantly. Very
+            professional!" - <strong>Neha Mehta</strong>
           </p>
         </div>
-      </div>
-    </section>
-
-    <!-- Mission & Vision Section -->
-    <section class="bg-light py-5">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md-6">
-            <h4>Our Mission</h4>
-            <p>
-              To become a trusted ecommerce brand that brings happiness to
-              customers by delivering high-quality products with unmatched
-              service and convenience.
-            </p>
-          </div>
-          <div class="col-md-6">
-            <h4>Our Vision</h4>
-            <p>
-              To empower online shoppers by building a reliable platform that
-              prioritizes their needs, values their time, and ensures
-              satisfaction at every step of the shopping journey.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="container py-5">
-      <h2 class="mb-4 text-center">What Our Customers Say</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="testimonial">
-            <p><strong>Ravi S.</strong></p>
-            <p>
-              "Excellent service! I ordered a smartwatch and received it within
-              two days. Loved the packaging and quality."
-            </p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="testimonial">
-            <p><strong>Sneha K.</strong></p>
-            <p>
-              "Very smooth checkout process and great customer support. I'm
-              definitely shopping here again."
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
+      </section>
+    </div>
     <footer class="bg-dark text-light">
       <div class="text-center py-2 bg-dark">
         <button id="goTopBtn" class="btn btn-primary mt-3">

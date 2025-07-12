@@ -138,10 +138,32 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-function togglePassword(id) {
-  const field = document.getElementById(id);
-  field.type = field.type === "password" ? "text" : "password";
+// document.getElementById("togglePassword").addEventListener("click", (e) => {
+//   e.preventDefault();
+//   const field = document.getElementById(id);
+//   field.type = field.type === "password" ? "text" : "password";
+// });
+function togglePassword(inputId, spanId) {
+  const input = document.getElementById(inputId);
+  const span = document.getElementById(spanId);
+
+  if (input.type === "password") {
+    input.type = "text";
+    span.innerHTML = `<i class="fa-solid fa-eye"></i>`
+  } else {
+    input.type = "password";
+    span.innerHTML = `<i class="fa-solid fa-eye-slash"></i>`
+  }
 }
+
+// Add event listeners
+document.getElementById("toggleLogin").addEventListener("click", function () {
+  togglePassword("loginPassword", "toggleLogin");
+});
+
+document.getElementById("toggleSignup").addEventListener("click", function () {
+  togglePassword("signupPassword", "toggleSignup");
+});
 
 function showSignup() {
   document.getElementById("loginForm").classList.add("d-none");

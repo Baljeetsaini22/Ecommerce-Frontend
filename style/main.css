@@ -196,7 +196,6 @@ ul {
 .items {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  /* padding: 1.5rem 3rem; */
   padding: 1rem 7.5%;
   gap: 2rem;
 }
@@ -204,7 +203,6 @@ ul {
 .item {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   position: relative;
   border: 1px solid #333;
   border-radius: 1rem;
