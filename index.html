@@ -4,8 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-commerce Frontend</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="./style/main.css" />
     <link rel="stylesheet" href="./style/responsive.css" />
   </head>
@@ -21,14 +29,24 @@
             <li><a href="./pages/contact.html">Contact</a></li>
             <li><a href="./pages/auth.html" class="login"></a></li>
           </ul>
-          <div class="dropdown dropdown-toggle showProfile" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <div
+            class="dropdown dropdown-toggle showProfile"
+            role="button"
+            id="userDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             <a href="#" title="User-profile" class="user-profile">
               <i class="fa-solid fa-user"></i><span class="userLog"></span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="userDropdown">
               <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><button id="logout" class="dropdown-item text-danger">Logout</button></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <button id="logout" class="dropdown-item text-danger">
+                  Logout
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -70,10 +88,11 @@
         </div>
       </div>
     </section>
-    <section class="products-section" id="products">
+    <section class="products-section my-4" id="products">
       <div id="loading">Loading products...</div>
-      <div class="items"></div>
-    <section class="container py-5" id="feature">
+      <div id="items" class="row"></div>
+    </section>
+    <section class="feature-section py-5" id="feature">
       <div class="section_title text-center mb-5">
         <h1 class="text-capitalize">Our Features</h1>
       </div>
@@ -116,7 +135,6 @@
       </div>
     </section>
     <!-- ==============feature ends here============== -->
-
 
     <footer class="bg-dark text-light">
       <div class="text-center py-2 bg-dark">
@@ -228,29 +246,5 @@
     </footer>
     <script type="module" src="./script/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyBbO-AZ8s7c38riLYMjzebhui_jxaQLF3A",
-        authDomain: "ecommerce-project-cf8ef.firebaseapp.com",
-        projectId: "ecommerce-project-cf8ef",
-        storageBucket: "ecommerce-project-cf8ef.firebasestorage.app",
-        messagingSenderId: "364656096870",
-        appId: "1:364656096870:web:fb6c05d61d392664da5fa7",
-        measurementId: "G-NJX1508QHB",
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-    </script> -->
   </body>
 </html>
-

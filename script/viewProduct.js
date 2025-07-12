@@ -39,36 +39,29 @@ if (path.includes("productsView.html")) {
                     const image = item.image || item.image?.[0];
                     const price = Math.floor(item.price * 80);
                     const productDiv = document.createElement('div');
-                    productDiv.className = 'product';
+                    productDiv.className = ' col-sm-6 col-md-6 col-lg-4 mb-4';
 
                     let title = item.title.slice(0, 22);
                     console.log(title);
                     
 
                     productDiv.innerHTML = `
-                    <div class="item">
-                        <div class="item-details">
-                            <div class="image-cartBtn">
-                                <a href='../pages/product.html?id=${item._id}'>
-                                    <img src="${image}" alt="${item.title}" loading="lazy" class="item-img"/>
-                                </a>
-                                </div>
-                                <button 
-                  class="cart-btn"
-                  data-id="${item._id}"
-                  data-title="${item.title}"
-                  data-price="${price}"
-                  data-image="${image}"
-                >
-                  <span>Add to Cart</span>
-                </button>
-                            <h3>${title}</h3>
-                            <p>Price: ₹${price}</p>
-                            
+                    <div class="item card h-100 text-center">
+                      <div class="card-body">
+                        <div class="image-cartBtn">
+                          <a href='../pages/product.html?id=${item._id}'>
+                            <img src="${image}" alt="${item.title}" loading="lazy" class="item-img"/>
+                          </a>
                         </div>
+                        <button class="cart-btn" data-id="${item._id}"
+                          data-title="${item.title}" data-price="${price}" data-image="${image}">
+                          <span>Add to Cart</span>
+                        </button>
+                        <h5>${title}</h5>
+                        <p>Price: ₹${price}</p>
+                      </div>
                     </div>
                     `;
-
                     container.appendChild(productDiv);
                 });
                 attachCartListeners()

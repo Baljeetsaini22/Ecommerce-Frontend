@@ -193,21 +193,15 @@ ul {
   color: white;
   text-decoration: none;
 }
-.items {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  padding: 1rem 7.5%;
-  gap: 2rem;
+
+.products-section, .feature-section{
+  width: 100%;
+  padding-inline: 7.5%;
 }
 
 .item {
-  display: flex;
-  justify-content: center;
-  position: relative;
   border: 1px solid #333;
   border-radius: 1rem;
-  text-align: center;
-  padding-block: 1rem;
   animation: doup 1.5s forwards;
   opacity: 0.7;
 
@@ -226,12 +220,7 @@ ul {
     bottom: 0;
   }
 }
-.item-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+
 .image-cartBtn {
   width: 50%;
   margin: auto;
@@ -250,6 +239,7 @@ ul {
 .item-img:hover {
   transform: scale(1.05);
 }
+
 .cart-btn {
   border: none;
   border-radius: 1rem;
@@ -257,14 +247,13 @@ ul {
   margin-top: 1rem;
   cursor: pointer;
   position: relative;
-  font-size: 18px;
+  font-size: 1rem;
   color: white;
   background-color: red;
   overflow: hidden;
   transition: color 0.5s ease;
   &:hover {
     transition: all 0.5s ease-in-out;
-    /* transform: scale(1.2); */
   }
 }
 .cart-btn::before {
@@ -290,11 +279,9 @@ ul {
   position: relative;
   z-index: 1;
 }
-.item-title {
+
+footer {
   width: 100%;
-  margin: 1rem 0 0.5rem;
-}
-.footer {
-  width: 85%;
-  margin-inline: auto;
+  padding-inline: 7.5%;
+ 
 }

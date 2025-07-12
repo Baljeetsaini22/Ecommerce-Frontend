@@ -50,26 +50,6 @@ function searchBar() {
 }
 searchBar();
 
-// /**
-//  * @description this used for scroll behavior
-//  * @function smoothBehavior()
-//  * @returns go smooth scrool links menus
-//  */
-// function smoothBehavior() {
-//   document.querySelectorAll('a[href^="#"]').forEach((link) => {
-//     link.addEventListener("click", function (e) {
-//       e.preventDefault();
-//       const target = document.querySelector(this.getAttribute("href"));
-//       if (target) {
-//         target.scrollIntoView({
-//           behavior: "smooth",
-//         });
-//       }
-//     });
-//   });
-// }
-// smoothBehavior();
-
 /**
  * @description Cart Count
  * @function updateCartCount()
@@ -95,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const path = window.location.pathname;
 if (path.includes("index.html") || path === "/") {
-  const items = document.querySelector(".items");
+  const items = document.getElementById("items");
   const loading = document.getElementById("loading");
 
   function loadProducts() {
@@ -117,9 +97,12 @@ if (path.includes("index.html") || path === "/") {
           const price = Math.floor(item.price * 80);
           let title = item.title.slice(0, 22);
 
-          const card = `
-            <div class="item">
-              <div class="item-details">
+          const product = document.createElement("div");
+          product.className = " col-sm-6 col-md-6 col-lg-4 mb-4";
+
+          product.innerHTML = `
+            <div class="item card h-100 text-center position-relative d-flex justify-content-center">
+              <div class="card-body p-3">
                 <div class="image-cartBtn">
                   <a href='../pages/product.html?id=${item._id}'>
                     <img src="${image}" alt="${item.title}" loading="lazy" class="item-img"/>
@@ -134,12 +117,12 @@ if (path.includes("index.html") || path === "/") {
                 >
                   <span>Add to Cart</span>
                 </button>
-                <h4 class="item-title">${title}</h4>
+                <h4 class="my-3">${title}</h4>
                 <p class="item-price"><strong>₹${price}</strong></p>
               </div>
             </div>
           `;
-          items.innerHTML += card;
+          items.appendChild(product);
         });
 
         attachCartListeners(); // Add listeners after rendering
@@ -291,8 +274,7 @@ function logoutKey() {
   function showUser() {
     const getUserAuth = JSON.parse(localStorage.getItem("auth"));
     if (!getUserAuth) {
-      if (showLoginUser)
-        showLoginUser.innerHTML = "Login";
+      if (showLoginUser) showLoginUser.innerHTML = "Login";
       if (showProfile) showProfile.style.display = "none";
     } else {
       if (showLoginUser) showLoginUser.style.display = "none";
