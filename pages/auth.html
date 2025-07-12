@@ -18,8 +18,9 @@
     <link rel="stylesheet" href="../style/responsive.css" />
     <style>
       .form-container {
+        margin-block: 6rem;
         max-width: 400px;
-        margin: 50px auto;
+        margin-inline: auto;
       }
       .password-toggle {
         cursor: pointer;
@@ -112,11 +113,7 @@
             id="loginPassword"
             required
           />
-          <span
-            class="password-toggle"
-            onclick="togglePassword('loginPassword')"
-            >👁️</span
-          >
+          <span class="password-toggle" id="toggleLogin"><i class="fa-solid fa-eye-slash"></i></span>
         </div>
         <button type="submit" class="btn btn-primary w-100" id="setuser">
           Login
@@ -145,11 +142,7 @@
             id="signupPassword"
             required
           />
-          <span
-            class="password-toggle"
-            onclick="togglePassword('signupPassword')"
-            >👁️</span
-          >
+          <span class="password-toggle" id="toggleSignup"><i class="fa-solid fa-eye-slash"></i></span>
           <small id="strength" class="text-muted"></small>
         </div>
         <div class="mb-3">
