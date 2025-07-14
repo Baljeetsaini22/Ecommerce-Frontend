@@ -98,7 +98,7 @@ if (path.includes("index.html") || path === "/") {
           let title = item.title.slice(0, 22);
 
           const product = document.createElement("div");
-          product.className = " col-sm-6 col-md-6 col-lg-4 mb-4";
+          product.className = " col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4";
 
           product.innerHTML = `
             <div class="item card h-100 text-center position-relative d-flex justify-content-center">
