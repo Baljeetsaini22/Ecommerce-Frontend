@@ -92,11 +92,28 @@ if (path.includes("index.html") || path === "/") {
           return;
         }
 
-        data.forEach((item) => {
+        data.map((item) => {
           const image = item.image || item.image?.[0];
           const price = Math.floor(item.price * 80);
-          let title = item.title.slice(0, 22);
 
+          const title = item.title.length > 22 ? item.title.slice(0, 22) : item.title;
+
+          let priceOld = null;
+          if (item.oldPrice) {
+            const convertedOld = Math.floor(Number(item.oldPrice) * 80);
+            if (convertedOld > price) {
+              priceOld = convertedOld;
+            }
+          }
+          if (item.oldPrice !== undefined && !isNaN(item.oldPrice) &&  Number(item.oldPrice) > price 
+          ) {
+            priceOld = Math.floor(Number(item.oldPrice) * 80);
+          }
+
+          const showPrice = priceOld
+            ? `<p><del>₹${priceOld}</del>: ₹${price}</p>`
+            : `<p>₹${price}</p>`;
+            
           const product = document.createElement("div");
           product.className = " col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4";
 
@@ -105,20 +122,23 @@ if (path.includes("index.html") || path === "/") {
               <div class="card-body p-3">
                 <div class="image-cartBtn">
                   <a href='../pages/product.html?id=${item._id}'>
-                    <img src="${image}" alt="${item.title}" loading="lazy" class="item-img"/>
+                    <img src="${image}" alt="${
+            item.title
+          }" loading="lazy" class="item-img"/>
                   </a>
                 </div>
                 <button 
                   class="cart-btn"
                   data-id="${item._id}"
                   data-title="${item.title}"
+                  data-oldprice="${priceOld !== null ? priceOld : ""}"
                   data-price="${price}"
                   data-image="${image}"
                 >
                   <span>Add to Cart</span>
                 </button>
                 <h4 class="my-3">${title}</h4>
-                <p class="item-price"><strong>₹${price}</strong></p>
+                <p>${showPrice}</p>
               </div>
             </div>
           `;
@@ -143,6 +163,9 @@ if (path.includes("index.html") || path === "/") {
         const title = this.dataset.title;
         const price = parseFloat(this.dataset.price);
         const image = this.dataset.image;
+        const oldPriceRaw = this.dataset.oldprice;
+        const oldPrice =
+          oldPriceRaw && !isNaN(oldPriceRaw) ? parseFloat(oldPriceRaw) : null;
 
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -151,7 +174,7 @@ if (path.includes("index.html") || path === "/") {
         if (existing) {
           existing.qty += 1;
         } else {
-          cart.push({ id, title, price, image, qty: 1 });
+          cart.push({ id, title, oldPrice, price, image, qty: 1 });
         }
 
         localStorage.setItem("cart", JSON.stringify(cart));
