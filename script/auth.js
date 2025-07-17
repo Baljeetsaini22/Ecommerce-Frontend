@@ -33,10 +33,10 @@ function togglePassword(inputId, spanId) {
 
   if (input.type === "password") {
     input.type = "text";
-    span.innerHTML = `<i class="fa-solid fa-eye"></i>`
+    span.innerHTML = `<i class="fa-solid fa-eye-slash"></i>`
   } else {
     input.type = "password";
-    span.innerHTML = `<i class="fa-solid fa-eye-slash"></i>`
+    span.innerHTML = `<i class="fa-solid fa-eye"></i>`
   }
 }
 
@@ -151,7 +151,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
 
     localStorage.setItem("isLogin", "true");
     alert("Login successful!");
-    window.location.href = "/";
+    window.location.href = "../pages/cart.html";
   } catch (error) {
     alert("Login Error: " + error.message);
   }
