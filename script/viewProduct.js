@@ -1,7 +1,7 @@
 const path = window.location.pathname;
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
   // const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const cartCountEl = document.getElementById("cart-count");
   if (cart.length > 0) {
