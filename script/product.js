@@ -2,11 +2,10 @@ const path = window.location.pathname;
 
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  // const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const cartCountEl = document.getElementById("cart-count");
-  if(cart.length > 0){
-    cartCountEl.innerHTML = cart.length;;
-  }else{
+  if (cart.length > 0) {
+    cartCountEl.innerHTML = cart.length;
+  } else {
     cartCountEl.innerHTML = 0;
   }
 }
@@ -37,10 +36,30 @@ if (path.includes("product.html")) {
         }
 
         const discountPercent = product.oldPrice
-          ? Math.round(((product.price - product.oldPrice) / product.oldPrice) * 100)
+          ? Math.round(
+              ((product.price - product.oldPrice) / product.oldPrice) * 100
+            )
           : 0;
-        const unitPriceINR = Math.floor(product.price * 80);
-        const mrpINR = Math.floor((product.oldPrice || product.price) * 80);
+        const NewPrice = Math.floor(product.price * 80);
+        let priceOld = null;
+        if (product.oldPrice) {
+          const convertedOld = Math.floor(Number(product.oldPrice) * 80);
+          if (convertedOld > NewPrice) {
+            priceOld = convertedOld;
+          }
+        }
+        if (
+          product.oldPrice !== undefined &&
+          !isNaN(product.oldPrice) &&
+          Number(product.oldPrice) > NewPrice
+        ) {
+          priceOld = Math.floor(Number(product.oldPrice) * 80);
+        }
+
+        const showPrice = priceOld
+          ? `<div class="d-flex gap-3"><p>M.R.P.: <del>₹${priceOld}</del></p> <span>₹${NewPrice}</span></div>`
+          : `<p>₹${NewPrice}</p>`;
+        console.log(showPrice);
 
         document.getElementById("product-container").innerHTML = `
           <div class="about-product"> 
@@ -48,7 +67,22 @@ if (path.includes("product.html")) {
               <img src="${product.image}" alt="${product.title}" width="150" />
             </div>
             <div class="description">
-              <h2>${product.des}</h2>
+              <h2>${product.title}</h2>
+              
+              <div class="price">              
+                <span class="lessPrice">${discountPercent}% off</span>
+                <p>${showPrice}</p>
+              </div>
+              <div class="quantity-control">
+                <button class="btnincDec" id="decreaseBtn">-</button>
+                <span id="quantity">1</span>
+                <button class="btnincDec" id="increaseBtn">+</button>
+              </div>
+             
+              <button id="addToCartBtn" class="cart-btn">
+                <span>Add to Cart</span>
+              </button>
+              <hr/>
               <div class="prod-ablity">
               <p>Size: <select>
               <option>M</option>
@@ -64,22 +98,9 @@ if (path.includes("product.html")) {
               </select>
               </p>
               </div>
-              <div class="price">              
-                <p><span class="lessPrice">${discountPercent}% off </span> ₹${unitPriceINR}</p>
-                <span>M.R.P.: <del>₹${mrpINR}</del></span>
-              </div>
-              <div class="quantity-control">
-                <button class="btnincDec" id="decreaseBtn">-</button>
-                <span id="quantity">1</span>
-                <button class="btnincDec" id="increaseBtn">+</button>
-              </div>
-              <p>Total: ₹<span id="totalPrice">${unitPriceINR}</span></p>
-              <button id="addToCartBtn" class="cart-btn">
-                <span>Add to Cart</span>
-              </button>
-              <hr/>
+              <hr />
               <div class="otherDetails">
-                <p><strong>Title:</strong> ${product.title}</p>
+                <p><strong>Discription:</strong> ${product.des}</p>
                 <p><strong>Brand:</strong> ${product.brand}</p>
                 <p><strong>Category:</strong> ${product.category}</p>
               </div>
@@ -116,8 +137,11 @@ if (path.includes("product.html")) {
         cartBtn.addEventListener("click", () => {
           const id = product._id;
           const title = product.title;
-          const price = unitPriceINR;
+          const price = NewPrice;
           const image = product.image;
+          const oldPriceRaw = priceOld;
+          const oldPrice =
+            oldPriceRaw && !isNaN(oldPriceRaw) ? parseFloat(oldPriceRaw) : null;
 
           let cart = JSON.parse(localStorage.getItem("cart")) || [];
           const existing = cart.find((item) => item.id === id);
@@ -125,15 +149,14 @@ if (path.includes("product.html")) {
           if (existing) {
             existing.qty += quantity;
           } else {
-            cart.push({ id, title, price, image, qty: quantity });
+            cart.push({ id, title, oldPrice, price, image, qty: 1 });
           }
 
           localStorage.setItem("cart", JSON.stringify(cart));
           alert("Product added to cart!");
-          window.location.reload()
+          window.location.reload();
         });
         updateCartCount();
-          
       })
       .catch((err) => {
         console.error(err);
