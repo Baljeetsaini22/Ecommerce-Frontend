@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-commerce Frontend</title>
+    <title>Checkout Page</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,6 +16,31 @@
     />
     <link rel="stylesheet" href="../style/main.css" />
     <link rel="stylesheet" href="../style/responsive.css" />
+    <style>
+      .item-imgs{
+        width: 15%;        
+        img{
+          width: 100%;
+        }
+      }
+      .fixed-summary {
+        position: fixed;
+        top: 0;
+        right: 7.5%;
+        width: 300px;
+        height: 100vh;
+        overflow-y: auto;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        padding: 20px;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: -1;
+        margin-top: 4rem;
+      }
+      .main-content {
+        margin-right: 320px;
+      }
+    </style>
   </head>
 
   <body>
@@ -84,139 +109,106 @@
       </div>
     </header>
     <section class="Checkout py-5 my-5" id="Checkout">
-      <div class="container">
-        <div class="section_title text-center mb-5">
-          <h1 class="text-capitalize">Checkout</h1>
-        </div>
+      <div class="container py-5">
         <div class="row">
-          <!--Grid column-->
-          <div class="col-lg-8">
-            <!-- Card -->
-            <div class="card bg_checkout_1 pb-5">
+          <div class="col-lg-8 main-content">
+            <div class="card mb-4">
+              <div class="card-header bg-primary text-white">Step 1: Billing Details</div>
               <div class="card-body">
-                <h5 class="mb-5">Billing details</h5>
-                <!-- Grid row -->
-                <div class="row">
-                  <!-- Grid column -->
-                  <div class="col-lg-6">
-                    <!-- First name -->
-                    <div class="form-group mb-0 mb-lg-4">
-                      <label for="firstName">First name</label>
-                      <input
-                        type="text"
-                        name="name"
-                        pattern="^[A-Za-z\s]{2,}$"
-                        title="Name must contain only letters and spaces, min 2 characters"
-                        required
-                        id="firstName"
-                        class="form-control mb-0 mb-lg-2"
-                      />
+                <form id="checkoutForm">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" id="fullName" placeholder="Full Name" required pattern="[A-Za-z\s]+" />
+                    </div>
+                    <div class="col-md-6">
+                      <input type="email" class="form-control" id="email" placeholder="Email" required />
+                    </div>
+                    <div class="col-md-6">
+                      <input type="tel" class="form-control" id="mobile" placeholder="Mobile Number" required pattern="[0-9]{10}" />
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" id="pincode" placeholder="PIN Code" required />
+                    </div>
+                    <div class="col-12">
+                      <input type="text" class="form-control" id="address" placeholder="Address" required />
+                    </div>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" id="city" placeholder="City" required />
+                    </div>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" id="state" placeholder="State" required />
+                    </div>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" id="country" placeholder="Country" required />
+                    </div>
+                    <div class="col-12">
+                      <textarea class="form-control" id="additionalInfo" placeholder="Additional Info (optional)"></textarea>
                     </div>
                   </div>
-                  <!-- Grid column -->
-                  <!-- Grid column -->
-                  <div class="col-lg-6">
-                    <!-- Last name -->
-                    <div class="form-group md-outline">
-                      <label for="lastName">Last name</label>
-                      <input type="text" id="lastName" class="form-control" />
-                    </div>
-                  </div>
-                  <!-- Grid column -->
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-header bg-primary text-white">Step 2: Order Details</div>
+              <div class="card-body " id="orderDetails">
+                <!-- Populated from localStorage -->
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-header bg-primary text-white">Step 3: Payment Method</div>
+              <div class="card-body">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paymentMethod" value="COD" checked />
+                  <label class="form-check-label">Cash on Delivery</label>
                 </div>
-                <!-- Grid row -->
-                <!-- Phone -->
-                <div class="form-group">
-                  <label for="form18">Phone</label>
-                  <input type="number" id="form18" class="form-control" />
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paymentMethod" value="UPI" />
+                  <label class="form-check-label">UPI (Google Pay, PhonePe, Paytm)</label>
                 </div>
-                <!-- Email address -->
-                <div class="form-group">
-                  <label for="form19">Email address</label>
-                  <input type="email" id="form19" class="form-control" />
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paymentMethod" value="Card" />
+                  <label class="form-check-label">Debit/Credit Card</label>
                 </div>
-                <!-- Country -->
-                <div class="d-flex flex-wrap">
-                  <div class="w-100">
-                    <label>Country</label>
-                    <select class="custom-select form-group">
-                      <option value="" selected disabled>
-                        Choose your option
-                      </option>
-                      <option value="1">India</option>
-                      <option value="2">United State</option>
-                      <option value="3">United Kingdom</option>
-                    </select>
-                  </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paymentMethod" value="NetBanking" />
+                  <label class="form-check-label">Net Banking</label>
                 </div>
-                <!-- Address Part 1 -->
-                <div class="form-group">
-                  <label for="form14">Address Line 1</label>
-                  <input
-                    type="text"
-                    id="form14"
-                    placeholder="House number and street name"
-                    class="form-control"
-                  />
+
+                <div id="upiSection" class="mt-3 d-none">
+                  <input type="text" id="upiID" class="form-control" placeholder="Enter UPI ID" />
                 </div>
-                <!-- Address Part 2 -->
-                <div class="form-group">
-                  <label for="form15">Address Line 2</label>
-                  <input
-                    type="text"
-                    id="form15"
-                    placeholder="Apartment, suite, unit etc. (optional)"
-                    class="form-control"
-                  />
+                <div id="cardSection" class="mt-3 d-none">
+                  <input type="text" id="cardNumber" class="form-control mb-2" placeholder="Card Number" />
+                  <input type="text" id="cardExpiry" class="form-control mb-2" placeholder="MM/YY" />
+                  <input type="password" id="cardCVV" class="form-control" placeholder="CVV" />
                 </div>
-                <!-- Postcode / ZIP -->
-                <div class="form-group">
-                  <label for="form16">Postcode / ZIP</label>
-                  <input type="text" id="form16" class="form-control" />
-                </div>
-                <!-- Town / City -->
-                <div class="form-group">
-                  <label for="form17">Town / City</label>
-                  <input type="text" id="form17" class="form-control" />
-                </div>
-                <!-- Additional information -->
-                <div class="form-group">
-                  <label for="form76">Additional information</label>
-                  <textarea
-                    id="form76"
-                    class="md-textarea form-control"
-                    rows="4"
-                  ></textarea>
-                </div>
-                <!-- <button class="btn btn-success"><i class="fa fa-check"></i>
-Purchase</button> -->
-                <div class="text-center">
-                  <a href="order_confirmation.html" class="btn btn-primary">
-                    <i class="fa fa-check mr-2"></i>Purchase
-                  </a>
+                <div id="netBankingSection" class="mt-3 d-none">
+                  <input type="text" id="bankName" class="form-control mb-2" placeholder="Bank Name" />
+                  <input type="text" id="bankState" class="form-control mb-2" placeholder="State" />
+                  <input type="text" id="bankCity" class="form-control" placeholder="City" />
                 </div>
               </div>
             </div>
-            <!-- Card -->
+
+            <div class="text-end">
+              <button type="submit" class="btn btn-success">Confirm Purchase</button>
+            </div>
+            </form>
           </div>
-          <!--Grid column-->
-          <!--Grid column-->
-          <div class="col-lg-4 bg_checkout_1 h-25 rounded">
-            <!-- Card -->
-            <div class="mb-3">
+          <div class="col-lg-4">
+            <div class="fixed-summary">
               <div class="pt-4">
                 <h5 class="text-center">Order Sumary</h5>
                 <div id="cart-counter" class="cart-total"></div>
                 <hr />
-                <div class="amount-sec d-flex justify-content-between">                  
-                    <p>Total Payable:</p>                  
+                <div class="amount-sec d-flex justify-content-between">
+                  <p>Total Payable:</p>
                   <div id="MRP" class="Order-price"></div>
                 </div>
               </div>
             </div>
-            <!-- Card -->
           </div>
-          <!--Grid column-->
         </div>
       </div>
     </section>
@@ -323,7 +315,48 @@ Purchase</button> -->
         </div>
       </div>
     </footer>
-    <script src="../script/checkout.js"></script>
+    <script type="module">
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // 🔐 Add Auth
+      import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      const auth = getAuth();
+
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          document.getElementById("email").value = user.email || "";
+          if (user.displayName) {
+            document.getElementById("fullName").value = user.displayName;
+          }
+        }
+      });
+    </script>
+    <!-- <script type="module">
+      // Import Firebase SDKs
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDP2TktQJUtRfloWBoKTwlnzEJeRlUSS6M",
+        authDomain: "ecommerce-project-eda80.firebaseapp.com",
+        projectId: "ecommerce-project-eda80",
+        storageBucket: "ecommerce-project-eda80.appspot.com",
+        messagingSenderId: "555193689458",
+        appId: "1:555193689458:web:8b3be9e69bb7ac0d1869eb",
+        measurementId: "G-6XB0QJEKK3",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      window.firebaseConfig = { db, addDoc, collection };
+    </script> -->
+    <script type="module" src="../script/checkout.js"></script>
     <script type="module" src="../script/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
