@@ -81,24 +81,27 @@
     </header>
     <section id="cartView" class="cart-item">
       <div class="cart-content">
-        <h1>Shopping Cart</h1>
+        <h1>Shopping Cart <span id="cart-count"></span> </h1>
         <div class="row">
           <div class="col-lg-8 mb-4">
-            <h5 class="text-center">Cart <span id="cart-count"></span></h5>
+            <h5 class="text-center">Cart </span></h5>
             <div id="cart-container" class="cart-cont"></div>
           </div>
           <div class="col-lg-4">
             <h5 class="text-center">Order Sumary</h5>
             <div id="cart-counter" class="cart-total"></div>
             <hr />
-            <div class="amount-sec">
-              <div>
-                <p>
-                  Total amount <br />
-                  (including VAT)
-                </p>
+            <div class="d-flex flex-column">
+              <div class="amount-sec">
+                <div><p>Discount Price:</p></div>
+                <div id="discount" class="Order-price"></div></div>
               </div>
-              <div id="total-price" class="Order-price"></div>
+              <div class="amount-sec">
+                <div>
+                  <p>Total amount <br />(including VAT)</p>
+                </div>
+                  <div id="total-price" class="Order-price"></div>
+                </div>
             </div>
             <hr />
             <div class="checkout">
