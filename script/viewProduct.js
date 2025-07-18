@@ -122,7 +122,7 @@ if (path.includes("productsView.html")) {
         }
         
         localStorage.setItem("cart", JSON.stringify(cart));
-
+        window.location.reload()
         updateCartCount();
         alert("Item added to cart!");
       });
