@@ -1,80 +1,88 @@
-@media (max-width: 1025px) {
+@media (max-width: 1024px) {
   .cart-btn {
     border-radius: 0.5rem;
     padding: 0.5rem 0.5rem;
     font-size: 0.75rem;
   }
+}
+.fixed-summary {
+  position: static;  
+  width: 100%;
+  height: auto  ;
+  border: none;
+  padding: 20px;  
+  box-shadow: none;
+  z-index: auto;
+}
 
-  @media (max-width: 940px) {
-    .nav-respo {
-      display: none;
-      flex-direction: column-reverse;
-      position: absolute;
-      top: 4.5rem;
-      left: 0;
-      width: 100%;
-      height: auto;
-      background: white;
-      border-radius: 0 0 10px 10px;
-    }
-    .nav-respo.open {
-      display: flex;
-    }
-
-    .hamburger {
-      display: block;
-    }
-    .menus {
-      flex-direction: column;
-      align-items: center;
-      padding-block: 1rem;
-    }
-
-    .hero-content h1 {
-      font-size: 2rem;
-    }
-
-    .hero-content p {
-      font-size: 1rem;
-    }
-
-    .cta-button {
-      width: 100%;
-      font-size: 1rem;
-    }
+@media (max-width: 940px) {
+  .nav-respo {
+    display: none;
+    flex-direction: column-reverse;
+    position: absolute;
+    top: 4.5rem;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: white;
+    border-radius: 0 0 10px 10px;
+  }
+  .nav-respo.open {
+    display: flex;
+  }
+  .hamburger {
+    display: block;
+  }
+  .menus {
+    flex-direction: column;
+    align-items: center;
+    padding-block: 1rem;
   }
 
-  @media (max-width: 580px) {
-    #itemShow {
-      grid-template-columns: auto;
-    }
-    .nav-menu {
-      height: 4rem;
-      padding-block: 0.5rem;
-    }
-    .nav-respo {
-      top: 4rem;
-    }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
 
-    .search-item {
-      display: none;
-      position: absolute;
-      top: 4rem;
-      left: 0;
-      width: 100%;
-      justify-content: center;
-    }
-    .search-bar {
-      width: 70%;
-      padding-left: 15px;
-    }
+  .hero-content p {
+    font-size: 1rem;
+  }
 
-    .search-item.open {
-      display: flex;
-    }
+  .cta-button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
 
-    .search-icon {
-      display: block;
-    }
+@media (max-width: 580px) {
+  #itemShow {
+    grid-template-columns: auto;
+  }
+  .nav-menu {
+    height: 4rem;
+    padding-block: 0.5rem;
+  }
+  .nav-respo {
+    top: 4rem;
+  }
+
+  .search-item {
+    display: none;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+  .search-bar {
+    width: 70%;
+    padding-left: 15px;
+  }
+
+  .search-item.open {
+    display: flex;
+  }
+
+  .search-icon {
+    display: block;
   }
 }

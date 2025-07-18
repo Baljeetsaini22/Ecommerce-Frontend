@@ -1,39 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const cartCounter = document.getElementById("cart-counter");
-  const totalPrice = document.getElementById("MRP");
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  function updateCartDisplay() {
-    cart.map((item, index) => {
-      const totalVal = cart.reduce(
-        (sum, item) => sum + item.price * item.qty,
-        0
-      );
-
-      cartCounter.innerHTML = `
-      <div class="d-flex justify-content-between">
-      <p>Porduct (${index + 1} items)</p><span>₹${totalVal}</span></div>
-      `;
-      totalPrice.innerHTML = `<p>₹${totalVal}</p>`;
-    });
-  }
-  updateCartDisplay();
-});
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDP2TktQJUtRfloWBoKTwlnzEJeRlUSS6M",
-//   authDomain: "ecommerce-project-eda80.firebaseapp.com",
-//   projectId: "ecommerce-project-eda80",
-//   storageBucket: "ecommerce-project-eda80.appspot.com",
-//   messagingSenderId: "555193689458",
-//   appId: "1:555193689458:web:8b3be9e69bb7ac0d1869eb",
-//   measurementId: "G-6XB0QJEKK3",
-// };
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
   getFirestore,
   collection,
   addDoc,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+// Load cart from localStorage
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 function updateUser() {
   const firebaseConfig = {
     apiKey: "AIzaSyDP2TktQJUtRfloWBoKTwlnzEJeRlUSS6M",
@@ -50,20 +23,16 @@ function updateUser() {
 
   const form = document.getElementById("checkoutForm");
   const orderDetails = document.getElementById("orderDetails");
-  const orderSummaryDiv = document.getElementById("orderSummary");
-
-  // Load cart from localStorage
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const orderSummary = document.getElementById("orderSummary");
 
   if (cart.length === 0) {
     orderDetails.innerHTML = "<p>Your cart is empty.</p>";
-    orderSummaryDiv.innerHTML = "<p>No items in cart</p>";
+    orderSummary.innerHTML = "<p>No items in cart</p>";
     form.style.display = "none";
   } else {
-    let orderHTML = "";
     let total = 0;
     cart.forEach((item) => {
-      orderHTML += `
+      orderDetails.innerHTML += `
       <div class="d-flex justify-content-start align-items-center gap-5">
         <div class="item-imgs"><img src="${item.image}" alt="${item.title}"/></div>
         <div>
@@ -72,14 +41,7 @@ function updateUser() {
         </div> 
         </div>
       `;
-      
-      total += parseFloat(item.price);
     });
-    orderHTML += `<p><strong>Total: Rs.${total}</strong></p>`;
-    orderDetails.innerHTML = orderHTML;
-    orderSummaryDiv.innerHTML = `<p>Subtotal: Rs.${total}</p><p>Shipping: Rs.50</p><hr /><p><strong>Total: Rs.${
-      total + 50
-    }</strong></p>`;
   }
 
   form.addEventListener("submit", async (e) => {
@@ -94,6 +56,51 @@ function updateUser() {
       'input[name="paymentMethod"]:checked'
     ).value;
 
+    const totalVal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+    const totalPayable = totalVal + 50;
+
+    // Payment simulation
+    if (paymentMethod === "UPI") {
+      const upiID = document.getElementById("upiID").value.trim();
+      if (!upiID) {
+        alert("Please enter a valid UPI ID to proceed.");
+        return;
+      }
+      const confirmUPI = confirm(`Pay ₹${totalPayable} from ${upiID}?`);
+      if (!confirmUPI) return;
+    }
+
+    if (paymentMethod === "Card") {
+      const cardNumber = document.getElementById("cardNumber").value.trim();
+      const cardExpiry = document.getElementById("cardExpiry").value.trim();
+      const cardCVV = document.getElementById("cardCVV").value.trim();
+
+      if (!cardNumber || !cardExpiry || !cardCVV) {
+        alert("Please fill in all card details to proceed.");
+        return;
+      }
+      const confirmCard = confirm(
+        `Pay ₹${totalPayable} using card ending with ${cardNumber.slice(-4)}?`
+      );
+      if (!confirmCard) return;
+    }
+
+    if (paymentMethod === "NetBanking") {
+      const bankName = document.getElementById("bankName").value.trim();
+      const bankState = document.getElementById("bankState").value.trim();
+      const bankCity = document.getElementById("bankCity").value.trim();
+
+      if (!bankName || !bankState || !bankCity) {
+        alert("Please fill in all net banking details to proceed.");
+        return;
+      }
+      const confirmNet = confirm(
+        `Pay ₹${totalPayable} via ${bankName} NetBanking?`
+      );
+      if (!confirmNet) return;
+    }
+
+    // Gather user details
     const userDetails = {
       fullName: document.getElementById("fullName").value,
       email: document.getElementById("email").value,
@@ -106,15 +113,18 @@ function updateUser() {
       additionalInfo: document.getElementById("additionalInfo").value,
       paymentMethod: paymentMethod,
       cart: cart,
+      totalPayable: totalPayable,
     };
 
-    if (paymentMethod === "UPI") {
+    // Include optional fields
+    if (paymentMethod === "UPI")
       userDetails.upiID = document.getElementById("upiID").value;
-    } else if (paymentMethod === "Card") {
+    if (paymentMethod === "Card") {
       userDetails.cardNumber = document.getElementById("cardNumber").value;
       userDetails.cardExpiry = document.getElementById("cardExpiry").value;
       userDetails.cardCVV = document.getElementById("cardCVV").value;
-    } else if (paymentMethod === "NetBanking") {
+    }
+    if (paymentMethod === "NetBanking") {
       userDetails.bankName = document.getElementById("bankName").value;
       userDetails.bankState = document.getElementById("bankState").value;
       userDetails.bankCity = document.getElementById("bankCity").value;
@@ -122,9 +132,7 @@ function updateUser() {
 
     try {
       await addDoc(collection(db, "orders"), userDetails);
-      alert(
-        "Order placed successfully! Thank you for shopping with us. Visit again!"
-      );
+      alert("Order placed successfully! Thank you for shopping with us.");
       form.reset();
       localStorage.removeItem("cart");
       document.getElementById("upiSection").classList.add("d-none");
@@ -156,4 +164,25 @@ function updateUser() {
     });
   });
 }
-updateUser();
+document.addEventListener("DOMContentLoaded", updateUser);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cartCounter = document.getElementById("cart-counter");
+  const totalPrice = document.getElementById("MRP");
+  function updateCartDisplay() {
+    cart.map((item, index) => {
+      const totalVal = cart.reduce(
+        (sum, item) => sum + item.price * item.qty,
+        0
+      );
+
+      cartCounter.innerHTML = `
+      <div class="d-flex justify-content-between align-items-center">
+      <p>Porduct (${index + 1} items)</p><span>₹${totalVal}</span></div>
+      <div class="d-flex justify-content-between align-items-center"><p>Shipment Charge</p><span>+ ₹50</span></div>
+      `;
+      totalPrice.innerHTML = `<p>₹${totalVal + 50}</p>`;
+    });
+  }
+  updateCartDisplay();
+});
