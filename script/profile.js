@@ -1,3 +1,4 @@
+// Firebase setup
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
   getFirestore,
@@ -22,29 +23,33 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const userEmail = "test@example.com"; // Replace with dynamic user email if using auth
+// Replace this with dynamic user email if using Firebase Auth
+const userEmail = "test@example.com";
 
+// Load profile data
 async function loadProfile() {
-  const userRef = doc(db, "users", userEmail);
+  const userRef = doc(db, "users", userEmail); // Or use UID if that's your doc ID
   const userSnap = await getDoc(userRef);
 
   if (userSnap.exists()) {
     const data = userSnap.data();
-    document.getElementById("fullName").value = data.fullName || "";
+    document.getElementById("fullName").value = data.name || "";
     document.getElementById("email").value = data.email || userEmail;
-    document.getElementById("mobile").value = data.mobile || "";
-    document.getElementById("address").value = data.address || "";
+  } else {
+    console.warn("User profile not found.");
   }
 }
 
+// Submit profile form
 document.getElementById("profileForm").addEventListener("submit", async (e) => {
   e.preventDefault();
+
   const updatedData = {
-    fullName: document.getElementById("fullName").value,
+    name: document.getElementById("fullName").value,
     email: document.getElementById("email").value,
-    mobile: document.getElementById("mobile").value,
-    address: document.getElementById("address").value,
+    uid: userEmail, // if you're using email as ID
   };
+
   try {
     await setDoc(doc(db, "users", userEmail), updatedData);
     alert("Profile updated successfully!");
@@ -54,30 +59,35 @@ document.getElementById("profileForm").addEventListener("submit", async (e) => {
   }
 });
 
+// // Load profile and orders on page load
+// loadProfile();
+// loadOrders();
+
+// Load order history
 async function loadOrders() {
-  const q = query(collection(db, "orders"), where("email", "==", userEmail));
+  const q = query(
+    collection(db, "orders"),
+    where("additionalInfo.email", "==", userEmail)
+  );
   const querySnapshot = await getDocs(q);
   const tbody = document.getElementById("ordersBody");
   tbody.innerHTML = "";
 
   let index = 1;
-  querySnapshot.forEach((doc) => {
-    const data = doc.data();
+  querySnapshot.forEach((docSnap) => {
+    const data = docSnap.data();
+
     const total =
       data.cart?.reduce((sum, item) => sum + item.price * item.qty, 0) || 0;
+
     tbody.innerHTML += `
-          <tr>
-            <td>${index++}</td>
-            <td>${data.cart?.length || 0}</td>
-            <td>₹${total}</td>
-            <td>${data.paymentMethod || "N/A"}</td>
-            <td>${new Date().toLocaleDateString()}</td>
-          </tr>
-        `;
+      <tr>
+        <td>${index++}</td>
+        <td>${data.cart?.length || 0}</td>
+        <td>₹${data.totalPayable || total}</td>
+        <td>${data.paymentMethod || "N/A"}</td>
+        <td>${data.additionalInfo?.address || "No Address"}</td>
+      </tr>
+    `;
   });
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  loadProfile();
-  loadOrders();
-});

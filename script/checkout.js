@@ -134,7 +134,12 @@ function updateUser() {
       await addDoc(collection(db, "orders"), userDetails);
       alert("Order placed successfully! Thank you for shopping with us.");
       form.reset();
-      localStorage.removeItem("cart");
+      const cart = localStorage.getItem("cart");
+      if (cart) {
+        localStorage.setItem("purchased", cart); // Save as 'purchased'
+        localStorage.removeItem("cart"); // Remove original 'cart'
+      }
+      // localStorage.removeItem("cart");
       document.getElementById("upiSection").classList.add("d-none");
       document.getElementById("cardSection").classList.add("d-none");
       document.getElementById("netBankingSection").classList.add("d-none");

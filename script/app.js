@@ -273,7 +273,7 @@ import {
   doc,
   getDoc,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-function logoutKey() {
+
   // Firebase config
   const firebaseConfig = {
     apiKey: "AIzaSyDP2TktQJUtRfloWBoKTwlnzEJeRlUSS6M",
@@ -295,8 +295,9 @@ function logoutKey() {
   const showProfile = document.querySelector(".showProfile");
   const userLog = document.querySelector(".userLog");
 
-  // Show user if logged in
-  function showUser() {
+
+
+  // Show user if logged in  
     const getUserAuth = JSON.parse(localStorage.getItem("auth"));
     if (!getUserAuth) {
       if (showLoginUser) showLoginUser.innerHTML = "Login";
@@ -306,8 +307,8 @@ function logoutKey() {
       if (showProfile) showProfile.style.display = "flex";
       if (userLog) userLog.innerHTML = `Hi! ${getUserAuth.name}`;
     }
-  }
-  showUser();
+ 
+    
 
   // Listen for auth state and update localStorage if needed
   onAuthStateChanged(auth, async (user) => {
@@ -341,5 +342,3 @@ function logoutKey() {
       });
     }
   });
-}
-logoutKey();
