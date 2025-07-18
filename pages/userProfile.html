@@ -18,23 +18,39 @@
     <link rel="stylesheet" href="../style/responsive.css" />
     <style>
       body {
-        background-color: #f7f7f7;
+        background: #f8f9fa;
+        font-family: "Segoe UI", sans-serif;
       }
-      .profile-section {
-        width: 85%;
-        margin: 5rem auto 2rem auto;
+      .profile-card,
+      .order-card {
+        background-color: #fff;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        animation: fadeIn 0.6s ease-in-out;
       }
-      .card {
-        border-radius: 15px;
+      .order-card:hover {
+        transform: scale(1.01);
+        transition: 0.3s ease;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
       }
-      .table-responsive {
-        max-height: 400px;
-        overflow-y: auto;
+      .item-img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-right: 12px;
+        border-radius: 8px;
+        border: 1px solid #dee2e6;
       }
-      @media (max-width: 576px) {
-        .table th,
-        .table td {
-          font-size: 13px;
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
     </style>
@@ -115,23 +131,12 @@
       <!-- <div class="overlay" id="overlay"></div> -->
     </header>
     <section class="profile-section">
-      <div class="container py-4">
-        <h2 class="text-center mb-4">User Profile</h2>
-        <div class="card p-3 mb-4">
-          <h5 class="card-title">User Information</h5>
-          <p>
-            <strong>Full Name:</strong>
-            <span id="userFullName">Loading...</span>
-          </p>
-          <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
-          <p>
-            <strong>Mobile:</strong> <span id="userMobile">Loading...</span>
-          </p>
-          <p><strong>User ID:</strong> <span id="userUID">Loading...</span></p>
-        </div>
+      <div class="container my-5">
+        <h2 class="mb-4 text-primary">User Profile</h2>
+        <div id="userInfo" class="profile-card"></div>
 
-        <h4>Order History</h4>
-        <div id="orderList"></div>
+        <h3 class="mb-4 text-success">Order History</h3>
+        <div id="orderHistory"></div>
       </div>
     </section>
     <footer class="bg-dark text-light">

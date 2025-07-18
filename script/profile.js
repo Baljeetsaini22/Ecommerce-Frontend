@@ -27,71 +27,93 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const authData = JSON.parse(localStorage.getItem("auth"));
+const userInfoDiv = document.getElementById("userInfo");
+const orderHistoryDiv = document.getElementById("orderHistory");
 
-async function renderUserProfile(userData) {
-  const fullName = userData.fullName || userData.name || "N/A";
-  const { email, uid, mobile } = userData;
-  document.getElementById("userFullName").textContent = fullName;
-  document.getElementById("userEmail").textContent = email || "N/A";
-  document.getElementById("userUID").textContent = uid || "N/A";
-  document.getElementById("userMobile").textContent = mobile || "N/A";
-}
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    const uid = user.uid;
 
-async function fetchOrders() {
-  const orderListContainer = document.getElementById("orderList");
-  if (!authData?.uid) return;
+    // Get user data
+    const userRef = doc(db, "users", uid);
+    const userSnap = await getDoc(userRef);
 
-  const ordersRef = collection(db, "orders");
-  const q = query(ordersRef, where("uid", "==", authData.uid));
-
-  try {
-    const querySnapshot = await getDocs(q);
-    if (querySnapshot.empty) {
-      orderListContainer.innerHTML = "<p>No orders found.</p>";
-      return;
+    if (userSnap.exists()) {
+      const userData = userSnap.data();
+      userInfoDiv.innerHTML = `
+              <h5 class="mb-3">Welcome, ${userData.name} 👋</h5>
+              <p><strong>Email:</strong> ${userData.email}</p>
+              <p><strong>Mobile:</strong> ${userData.mobile}</p>
+              <p><strong>UID:</strong> ${userData.uid}</p>
+            `;
+    } else {
+      userInfoDiv.innerHTML = `<p>User data not found.</p>`;
     }
 
-    querySnapshot.forEach((doc, i) => {
-      const order = doc.data();
-      const orderCard = document.createElement("div");
-      orderCard.className = "card mb-3 p-3";
+    // Firestore Order History
+    const ordersRef = collection(db, "orders");
+    const q = query(ordersRef, where("email", "==", user.email));
+    const querySnapshot = await getDocs(q);
 
-      let productsHTML = "";
-      (order.cart || []).forEach((item) => {
-        productsHTML += `
-              <li>
-                <a href="/product.html?id=${item.id}" class="text-decoration-none text-primary">
-                  ${item.title}
-                </a> - Qty: ${item.qty} - ₹${item.price}
-              </li>`;
+    if (querySnapshot.empty) {
+      orderHistoryDiv.innerHTML += `<p>No orders found in Firestore.</p>`;
+    } else {
+      querySnapshot.forEach((doc) => {
+        const order = doc.data();
+        const cartItems = order.cart
+          .map(
+            (item) => `
+                <div class="d-flex align-items-center mb-2">
+                  <img src="${item.image}" class="item-img" alt="${item.title}" />
+                  <div>
+                    <p class="mb-0">${item.title}</p>
+                    <small>Price: ₹${item.price} × ${item.qty}</small>
+                  </div>
+                </div>
+              `
+          )
+          .join("");
+
+        orderHistoryDiv.innerHTML += `
+                <div class="order-card">
+                  <p><strong>Full Name:</strong> ${order.fullName}</p>
+                  <p><strong>Email:</strong> ${order.email}</p>
+                  <p><strong>Mobile:</strong> ${order.mobile}</p>
+                  <p><strong>Address:</strong> ${order.address}, ${order.city}, ${order.state} - ${order.pincode}, ${order.country}</p>
+                  <p><strong>Additional Info:</strong> ${order.additionalInfo}</p>
+                  <p><strong>Payment Method:</strong> ${order.paymentMethod}</p>
+                  <p><strong>Total Payable:</strong> ₹${order.totalPayable}</p>
+                  <div><strong>Cart Items:</strong><br/>${cartItems}</div>
+                </div>
+              `;
       });
+    }
 
-      orderCard.innerHTML = `
-            <h5>Order #${i + 1}</h5>
-            <ul>${productsHTML}</ul>
-            <p><strong>Total Payable:</strong> ₹${order.totalPayable}</p>
-            <p><strong>Delivery Address:</strong> ${order.address}</p>
-          `;
+    // LocalStorage Order Display
+    const localCart = JSON.parse(localStorage.getItem("purchased")) || [];
+    if (localCart.length > 0) {
+      const localOrderHTML = localCart
+        .map(
+          (item) => `
+              <div class="d-flex align-items-center mb-2">
+                <img src="${item.image}" class="item-img" alt="${item.title}" />
+                <div>
+                  <p class="mb-0">${item.title}</p>
+                  <small>Price: ₹${item.price} × ${item.qty}</small>
+                </div>
+              </div>
+            `
+        )
+        .join("");
 
-      orderListContainer.appendChild(orderCard);
-    });
-  } catch (error) {
-    console.error("Error fetching orders:", error);
-    orderListContainer.innerHTML = "<p>Error loading orders.</p>";
+      orderHistoryDiv.innerHTML += `
+              <div class="order-card border-warning">
+                <p><strong>Recent Local Order (Not Synced):</strong></p>
+                ${localOrderHTML}
+              </div>
+            `;
+    }
+  } else {
+    userInfoDiv.innerHTML = `<p>Please log in to see profile and orders.</p>`;
   }
-}
-
-async function loadUserProfile() {
-  if (!authData?.uid) return;
-  const docRef = doc(db, "users", authData.uid);
-  const docSnap = await getDoc(docRef);
-  if (docSnap.exists()) {
-    renderUserProfile(docSnap.data());
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  loadUserProfile();
-  fetchOrders();
 });
