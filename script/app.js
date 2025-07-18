@@ -19,36 +19,35 @@ function navbarShadow() {
 navbarShadow();
 
 /**
- * @description this is harmburger
- * @function harmburger()
- * @returns get menu icon on mobile view
+ * @description Hamburger toggle and search toggle 
+ * @function hamburger()
+ * @returns on mobile view click the hamburger to show menu list and maginify glass to show search bar
  */
+
 function hamburger() {
   document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.querySelector(".nav-respo");
+    const BtnGlass = document.getElementById("magnifyBtn");
+    const Search = document.querySelector(".search-item");
+    // const overlay = document.getElementById("overlay");
     hamburger.addEventListener("click", () => {
       navMenu.classList.toggle("open");
+      // overlay.classList.toggle("active");
     });
+
+    BtnGlass.addEventListener("click", () => {
+      Search.classList.toggle("open");
+      // overlay.classList.toggle("active");
+    });
+    // overlay.addEventListener("click", () => {
+    //   Search.classList.remove("open");
+    //   navMenu.classList.remove("open");
+    //   overlay.classList.remove("active");
+    // });
   });
 }
 hamburger();
-
-/**
- * @description this is search icon click
- * @function searchBar()
- * @returns get search input in menu bar
- */
-function searchBar() {
-  document.addEventListener("DOMContentLoaded", () => {
-    const BtnGlass = document.getElementById("magnifyBtn");
-    const Search = document.querySelector(".search-item");
-    BtnGlass.addEventListener("click", () => {
-      Search.classList.toggle("open");
-    });
-  });
-}
-searchBar();
 
 /**
  * @description Cart Count
@@ -58,7 +57,6 @@ searchBar();
 
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  // const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const cartCountEl = document.getElementById("cart-count");
 
   if (cart.length > 0) {
@@ -67,8 +65,6 @@ function updateCartCount() {
     cartCountEl.innerHTML = 0;
   }
 }
-
-// ✅ Call on every page load to show cart count
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
 });
@@ -96,7 +92,8 @@ if (path.includes("index.html") || path === "/") {
           const image = item.image || item.image?.[0];
           const price = Math.floor(item.price * 80);
 
-          const title = item.title.length > 22 ? item.title.slice(0, 22) : item.title;
+          const title =
+            item.title.length > 22 ? item.title.slice(0, 22) : item.title;
 
           let priceOld = null;
           if (item.oldPrice) {
@@ -105,7 +102,10 @@ if (path.includes("index.html") || path === "/") {
               priceOld = convertedOld;
             }
           }
-          if (item.oldPrice !== undefined && !isNaN(item.oldPrice) &&  Number(item.oldPrice) > price 
+          if (
+            item.oldPrice !== undefined &&
+            !isNaN(item.oldPrice) &&
+            Number(item.oldPrice) > price
           ) {
             priceOld = Math.floor(Number(item.oldPrice) * 80);
           }
@@ -113,7 +113,7 @@ if (path.includes("index.html") || path === "/") {
           const showPrice = priceOld
             ? `<p><del>₹${priceOld}</del>: ₹${price}</p>`
             : `<p>₹${price}</p>`;
-            
+
           const product = document.createElement("div");
           product.className = " col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4";
 
@@ -153,7 +153,7 @@ if (path.includes("index.html") || path === "/") {
       });
   }
 
-  // 🔁 Attach event listeners to all Add to Cart buttons
+  // Attach event listeners to all Add to Cart buttons
   function attachCartListeners() {
     const cartButtons = document.querySelectorAll(".cart-btn");
 
@@ -213,7 +213,9 @@ localStorage.setItem("cart", JSON.stringify(mergedCart));
 /**
  * @description Smooth scroll down to top Button
  * @function goToTopBtn()
+ * @returns if we are on footer to click gototop button reach top of page
  */
+
 function goToTopBtn() {
   document.getElementById("goTopBtn").addEventListener("click", function () {
     window.scrollTo({

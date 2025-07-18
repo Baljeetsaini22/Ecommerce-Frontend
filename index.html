@@ -18,11 +18,14 @@
     <link rel="stylesheet" href="./style/responsive.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div id="navbar" class="nav-menu">
+    <header class="w-100">
+      <div
+        id="navbar"
+        class="nav-menu w-100 d-flex justify-content-between position-fixed top-0 bg-white"
+      >
         <div class="logo"><a href="/">BrandLogo</a></div>
-        <div class="nav-respo">
-          <ul class="menus">
+        <div class="nav-respo align-items-center">
+          <ul class="menus d-flex align-items-center gap-1 list-unstyled">
             <li><a href="/">Home</a></li>
             <li><a href="./pages/productsView.html">Product</a></li>
             <li><a href="./pages/about.html">About</a></li>
@@ -30,17 +33,25 @@
             <li><a href="./pages/auth.html" class="login"></a></li>
           </ul>
           <div
-            class="dropdown dropdown-toggle showProfile"
-            role="button"
-            id="userDropdown"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
+            class="nav-item dropdown dropdown-toggle d-flex align-items-center showProfile"
           >
-            <a href="#" title="User-profile" class="user-profile">
+            <a
+              href="#"
+              class="nav-link flex-column align-items-center justify-content-center p-2 rounded-4 user-profile"
+              id="userDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              title="User-profile"
+            >
               <i class="fa-solid fa-user"></i><span class="userLog"></span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="userDropdown">
-              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li>
+                <a href="./pages/userProfile.html" class="dropdown-item"
+                  >Profile</a
+                >
+              </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
                 <button id="logout" class="dropdown-item text-danger">
@@ -50,18 +61,18 @@
             </ul>
           </div>
         </div>
-        <div class="header-right">
+        <div class="d-flex align-items-center gap-2">
           <div class="search-item">
             <input
-              class="search-bar"
+              class="search-bar rounded-5 p-2"
               type="search"
               placeholder="Search products..."
             />
           </div>
-          <div class="search-icon" id="magnifyBtn">
+          <div class="search-icon cursor-pointer" id="magnifyBtn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-          <div class="cart">
+          <div class="position-relative cursor-pointer">
             <a
               href="./pages/cart.html"
               title="cartbox"
@@ -70,16 +81,20 @@
             >
               <i class="fa-solid fa-cart-shopping"></i
             ></a>
-            <span id="cart-count" class="counter"></span>
+            <span
+              id="cart-count"
+              class="counter position-absolute bg-danger text-white rounded-circle"
+            ></span>
           </div>
 
-          <div class="hamburger" id="hamburger">
+          <div class="hamburger cursor-pointer" id="hamburger">
             <i class="fa-solid fa-bars"></i>
           </div>
         </div>
       </div>
+      <!-- <div class="overlay" id="overlay"></div> -->
     </header>
-    <section class="hero-section" id="hero">
+    <section class="hero-section w-100" id="hero">
       <div class="hero-container">
         <div class="hero-content">
           <h1>Biggest Sale of the Year!, New Arrivals</h1>
