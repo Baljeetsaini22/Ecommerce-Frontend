@@ -3,6 +3,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendPasswordResetEmail,
   onAuthStateChanged,
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -30,33 +31,36 @@ const db = getFirestore(app);
 function togglePassword(inputId, spanId) {
   const input = document.getElementById(inputId);
   const span = document.getElementById(spanId);
-
   if (input.type === "password") {
     input.type = "text";
-    span.innerHTML = `<i class="fa-solid fa-eye-slash"></i>`
+    span.innerHTML = `<i class="fa-solid fa-eye-slash"></i>`;
   } else {
     input.type = "password";
-    span.innerHTML = `<i class="fa-solid fa-eye"></i>`
+    span.innerHTML = `<i class="fa-solid fa-eye"></i>`;
   }
 }
 
-// Add event listeners
-document.getElementById("toggleLogin").addEventListener("click", function () {
+document.getElementById("toggleLogin").addEventListener("click", () => {
   togglePassword("loginPassword", "toggleLogin");
 });
-
-document.getElementById("toggleSignup").addEventListener("click", function () {
+document.getElementById("toggleSignup").addEventListener("click", () => {
   togglePassword("signupPassword", "toggleSignup");
 });
+
+function validateEmail(email) {
+  return /^[^@]+@[^@]+\.[a-z]{2,}$/.test(email);
+}
+
+function showLogin() {
+  document.getElementById("loginForm").classList.remove("d-none");
+  document.getElementById("signupForm").classList.add("d-none");
+  document.getElementById("forgotPasswordForm").classList.add("d-none");
+}
 
 function showSignup() {
   document.getElementById("loginForm").classList.add("d-none");
   document.getElementById("signupForm").classList.remove("d-none");
-}
-
-function showLogin() {
-  document.getElementById("signupForm").classList.add("d-none");
-  document.getElementById("loginForm").classList.remove("d-none");
+  document.getElementById("forgotPasswordForm").classList.add("d-none");
 }
 
 document.getElementById("showSignupBtn").addEventListener("click", (e) => {
@@ -69,9 +73,17 @@ document.getElementById("showLoginBtn").addEventListener("click", (e) => {
   showLogin();
 });
 
-function validateEmail(email) {
-  return /^[^@]+@[^@]+\.[a-z]{2,}$/.test(email);
-}
+document.getElementById("forgotPasswordBtn").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("loginForm").classList.add("d-none");
+  document.getElementById("signupForm").classList.add("d-none");
+  document.getElementById("forgotPasswordForm").classList.remove("d-none");
+});
+
+document.getElementById("backToLogin").addEventListener("click", (e) => {
+  e.preventDefault();
+  showLogin();
+});
 
 document
   .getElementById("signupPassword")
@@ -92,14 +104,17 @@ document
     strengthEl.textContent = `Password strength: ${strength}`;
   });
 
-document.getElementById("signupForm")?.addEventListener("submit", async (e) => {
+document.getElementById("signupForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const name = document.getElementById("name").value;
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
   const confirm = document.getElementById("confirmPassword").value;
+  const mobile = document.getElementById("mobile").value;
 
   if (!validateEmail(email)) return alert("Invalid email format.");
+  if (!/^[6-9]\d{9}$/.test(mobile))
+    return alert("Enter valid Indian mobile number.");
   if (password !== confirm) return alert("Passwords do not match.");
 
   try {
@@ -114,6 +129,7 @@ document.getElementById("signupForm")?.addEventListener("submit", async (e) => {
       uid: user.uid,
       name,
       email,
+      mobile,
       createdAt: new Date(),
     });
 
@@ -124,7 +140,7 @@ document.getElementById("signupForm")?.addEventListener("submit", async (e) => {
   }
 });
 
-document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
@@ -142,7 +158,6 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
 
     const docRef = doc(db, "users", user.uid);
     const docSnap = await getDoc(docRef);
-
     if (docSnap.exists()) {
       const { name, email, uid } = docSnap.data();
       localStorage.setItem("auth", JSON.stringify({ uid, email, name }));
@@ -156,6 +171,22 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
     alert("Login Error: " + error.message);
   }
 });
+
+document
+  .getElementById("forgotPasswordForm")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("resetEmail").value;
+    if (!validateEmail(email)) return alert("Enter a valid email address.");
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+      alert("Reset link sent to email. Please check your inbox.");
+      showLogin();
+    } catch (error) {
+      alert("Reset Error: " + error.message);
+    }
+  });
 
 onAuthStateChanged(auth, async (user) => {
   const showLoginUser = document.querySelector(".login");

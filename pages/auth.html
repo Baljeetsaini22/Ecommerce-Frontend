@@ -126,15 +126,15 @@
             id="loginPassword"
             required
           />
-          <span class="password-toggle" id="toggleLogin"
-            ><i class="fa-solid fa-eye"></i
-          ></span>
+          <span class="password-toggle" id="toggleLogin">
+            <i class="fa-solid fa-eye"></i>
+          </span>
         </div>
-        <button type="submit" class="btn btn-primary w-100" id="setuser">
-          Login
-        </button>
+        <button type="submit" class="btn btn-primary w-100">Login</button>
         <p class="text-center mt-3">
-          Don't have an account? <a href="#" id="showSignupBtn">Sign up</a>
+          Don't have an account?
+          <a href="#" id="showSignupBtn">Sign up</a><br />
+          <a href="#" id="forgotPasswordBtn">Forgot Password?</a>
         </p>
       </form>
 
@@ -149,6 +149,10 @@
           <label>Email</label>
           <input type="email" class="form-control" id="signupEmail" required />
         </div>
+        <div class="mb-3">
+          <label for="mobile" class="form-label">Mobile Number</label>
+          <input type="tel" class="form-control" id="mobile" required />
+        </div>
         <div class="mb-3 position-relative">
           <label>Password</label>
           <input
@@ -157,9 +161,9 @@
             id="signupPassword"
             required
           />
-          <span class="password-toggle" id="toggleSignup"
-            ><i class="fa-solid fa-eye"></i
-          ></span>
+          <span class="password-toggle" id="toggleSignup">
+            <i class="fa-solid fa-eye"></i>
+          </span>
           <small id="strength" class="text-muted"></small>
         </div>
         <div class="mb-3">
@@ -174,6 +178,21 @@
         <button type="submit" class="btn btn-success w-100">Sign Up</button>
         <p class="text-center mt-3">
           Already have an account? <a href="#" id="showLoginBtn">Login</a>
+        </p>
+      </form>
+
+      <!-- Forgot Password Form -->
+      <form id="forgotPasswordForm" class="border p-4 rounded d-none">
+        <h3 class="text-center mb-3">Reset Password</h3>
+        <div class="mb-3">
+          <label>Email</label>
+          <input type="email" class="form-control" id="resetEmail" required />
+        </div>
+        <button type="submit" class="btn btn-warning w-100">
+          Send Reset Email
+        </button>
+        <p class="text-center mt-3">
+          <a href="#" id="backToLogin">Back to Login</a>
         </p>
       </form>
     </div>
