@@ -4,39 +4,36 @@
     padding: 0.5rem 0.5rem;
     font-size: 0.75rem;
   }
-}
-.fixed-summary {
-  position: static;  
-  width: 100%;
-  height: auto  ;
-  border: none;
-  padding: 20px;  
-  box-shadow: none;
-  z-index: auto;
-}
 
-@media (max-width: 940px) {
-  .nav-respo {
-    display: none;
-    flex-direction: column-reverse;
-    position: absolute;
-    top: 4.5rem;
-    left: 0;
+  .fixed-summary {
+    position: static;
     width: 100%;
     height: auto;
-    background: white;
-    border-radius: 0 0 10px 10px;
+    border: none;
+    padding: 20px;
+    box-shadow: none;
+    z-index: auto;
+  }
+
+  .nav-respo {
+    display: none;
   }
   .nav-respo.open {
     display: flex;
+    flex-direction: column-reverse;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 0 0 10px 10px;
+  }
+  .menus{
+    flex-direction: column;
+    padding-block: 1rem;
   }
   .hamburger {
     display: block;
-  }
-  .menus {
-    flex-direction: column;
-    align-items: center;
-    padding-block: 1rem;
   }
 
   .hero-content h1 {
