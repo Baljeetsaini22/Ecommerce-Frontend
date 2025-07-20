@@ -18,40 +18,64 @@
     <link rel="stylesheet" href="../style/responsive.css" />
     <style>
       body {
-        background: #f8f9fa;
-        font-family: "Segoe UI", sans-serif;
-      }
-      .profile-card,
-      .order-card {
         background-color: #fff;
-        border-radius: 0.75rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        animation: fadeIn 0.6s ease-in-out;
+        color: #000;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
-      .order-card:hover {
-        transform: scale(1.01);
-        transition: 0.3s ease;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      .theme-color {
+        color: #054997;
       }
-      .item-img {
-        width: 50px;
-        height: 50px;
+      .btn-theme {
+        background-color: #054997;
+        color: #fff;
+      }
+      .btn-theme:hover {
+        background-color: #043d7c;
+        color: #fff;
+      }
+      .card-profile {
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(5, 73, 151, 0.15);
+        margin-bottom: 1.5rem;
+      }
+      .card-order {
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        margin-bottom: 1rem;
+      }
+      .card-order:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 18px rgba(5, 73, 151, 0.3);
+      }
+      .order-item-img {
+        width: 48px;
+        height: 48px;
         object-fit: cover;
+        border-radius: 6px;
         margin-right: 12px;
-        border-radius: 8px;
-        border: 1px solid #dee2e6;
       }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      .order-items {
+        font-size: 0.9rem;
+        color: #333;
+      }
+      .action-buttons button {
+        border-radius: 50px;
+        font-weight: 600;
+        padding: 12px 24px;
+        box-shadow: 0 4px 12px rgba(5, 73, 151, 0.2);
+        transition: transform 0.3s ease;
+      }
+      .action-buttons button:hover {
+        transform: scale(1.1);
+      }
+      .btn-delete {
+        background-color: #dc3545;
+        color: white;
+      }
+      .btn-delete:hover {
+        background-color: #b02a37;
       }
     </style>
   </head>
@@ -65,10 +89,10 @@
         <div class="nav-respo align-items-center">
           <ul class="menus d-flex align-items-center gap-1 list-unstyled">
             <li><a href="/">Home</a></li>
-            <li><a href="../pages/productsView.html">Product</a></li>
-            <li><a href="../pages/about.html">About</a></li>
-            <li><a href="../pages/contact.html">Contact</a></li>
-            <li><a href="../pages/auth.html" class="login"></a></li>
+            <li><a href="./productsView.html">Product</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./auth.html" class="login"></a></li>
           </ul>
           <div
             class="nav-item dropdown dropdown-toggle d-flex align-items-center showProfile"
@@ -110,7 +134,7 @@
           </div>
           <div class="position-relative cursor-pointer">
             <a
-              href="../pages/cart.html"
+              href="./cart.html"
               title="cartbox"
               id="showCart"
               class="cart-icon"
@@ -131,12 +155,47 @@
       <!-- <div class="overlay" id="overlay"></div> -->
     </header>
     <section class="profile-section">
-      <div class="container my-5">
-        <h2 class="mb-4 text-primary">User Profile</h2>
-        <div id="userInfo" class="profile-card"></div>
+      <div class="container py-4">
+        <h2 class="theme-color fw-bold mb-4">User Profile</h2>
 
-        <h3 class="mb-4 text-success">Order History</h3>
-        <div id="orderHistory"></div>
+        <div class="card card-profile p-4">
+          <h4 id="username" class="mb-2">Loading...</h4>
+          <p>
+            <strong class="theme-color">UID:</strong> <span id="userid">-</span>
+          </p>
+          <p>
+            <strong class="theme-color">Email:</strong>
+            <span id="useremail">-</span>
+          </p>
+          <p>
+            <strong class="theme-color">Mobile:</strong>
+            <span id="usermobile">-</span>
+          </p>
+          <p>
+            <strong class="theme-color">Account Created:</strong>
+            <span id="userCreated">-</span>
+          </p>
+        </div>
+
+        <h3 class="theme-color mb-3">Your Orders</h3>
+        <ul id="orderList" class="list-unstyled"></ul>
+
+        <div
+          class="d-flex justify-content-center gap-3 mt-4 action-buttons flex-wrap"
+        >
+          <button
+            id="deactivateBtn"
+            class="btn btn-theme flex-grow-1 flex-sm-grow-0"
+          >
+            Deactivate Account
+          </button>
+          <button
+            id="deleteBtn"
+            class="btn btn-delete flex-grow-1 flex-sm-grow-0"
+          >
+            Delete Account
+          </button>
+        </div>
       </div>
     </section>
     <footer class="bg-dark text-light">

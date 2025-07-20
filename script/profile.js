@@ -1,18 +1,20 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
-  getAuth,
-  onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import {
   getFirestore,
+  collection,
   doc,
   getDoc,
-  collection,
-  query,
-  where,
   getDocs,
+  serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+  deleteUser,
+  signOut,
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyDP2TktQJUtRfloWBoKTwlnzEJeRlUSS6M",
   authDomain: "ecommerce-project-eda80.firebaseapp.com",
@@ -23,97 +25,155 @@ const firebaseConfig = {
   measurementId: "G-6XB0QJEKK3",
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const userInfoDiv = document.getElementById("userInfo");
-const orderHistoryDiv = document.getElementById("orderHistory");
+// DOM elements
+const usernameEl = document.getElementById("username");
+const useremailEl = document.getElementById("useremail");
+const usermobileEl = document.getElementById("usermobile");
+const useridEl = document.getElementById("userid");
+const userCreatedEl = document.getElementById("userCreated");
+const orderList = document.getElementById("orderList");
+const deactivateBtn = document.getElementById("deactivateBtn");
+const deleteBtn = document.getElementById("deleteBtn");
 
+// Utility: format Firestore timestamp to local string
+function formatTimestamp(timestamp) {
+  if (!timestamp) return "-";
+  if (typeof timestamp.toDate === "function") {
+    return timestamp.toDate().toLocaleString();
+  }
+  if (timestamp.seconds) {
+    return new Date(timestamp.seconds * 1000).toLocaleString();
+  }
+  return "-";
+}
+
+// Load user profile and orders
 onAuthStateChanged(auth, async (user) => {
-  if (user) {
-    const uid = user.uid;
+  if (!user) {
+    alert("Please log in to view your profile.");
+    window.location.href = "login.html";
+    return;
+  }
 
-    // Get user data
-    const userRef = doc(db, "users", uid);
-    const userSnap = await getDoc(userRef);
+  try {
+    // Show User ID
+    useridEl.textContent = user.uid;
 
-    if (userSnap.exists()) {
-      const userData = userSnap.data();
-      userInfoDiv.innerHTML = `
-              <h5 class="mb-3">Welcome, ${userData.name} 👋</h5>
-              <p><strong>Email:</strong> ${userData.email}</p>
-              <p><strong>Mobile:</strong> ${userData.mobile}</p>
-              <p><strong>UID:</strong> ${userData.uid}</p>
-            `;
+    // Load user data
+    const userDoc = await getDoc(doc(db, "users", user.uid));
+    if (userDoc.exists()) {
+      const data = userDoc.data();
+      usernameEl.textContent = data.name || "User";
+      useremailEl.textContent = data.email || "-";
+      usermobileEl.textContent = data.mobile || "-";
+      userCreatedEl.textContent = formatTimestamp(data.createdAt);
     } else {
-      userInfoDiv.innerHTML = `<p>User data not found.</p>`;
+      usernameEl.textContent = "User";
+      useremailEl.textContent = "-";
+      usermobileEl.textContent = "-";
+      userCreatedEl.textContent = "-";
     }
 
-    // Firestore Order History
-    const ordersRef = collection(db, "orders");
-    const q = query(ordersRef, where("email", "==", user.email));
-    const querySnapshot = await getDocs(q);
+    // Load user orders
+    const ordersSnapshot = await getDocs(collection(db, "orders"));
+    orderList.innerHTML = "";
 
-    if (querySnapshot.empty) {
-      orderHistoryDiv.innerHTML += `<p>No orders found in Firestore.</p>`;
-    } else {
-      querySnapshot.forEach((doc) => {
-        const order = doc.data();
-        const cartItems = order.cart
-          .map(
-            (item) => `
-                <div class="d-flex align-items-center mb-2">
-                  <img src="${item.image}" class="item-img" alt="${item.title}" />
-                  <div>
-                    <p class="mb-0">${item.title}</p>
-                    <small>Price: ₹${item.price} × ${item.qty}</small>
-                  </div>
-                </div>
-              `
-          )
-          .join("");
-
-        orderHistoryDiv.innerHTML += `
-                <div class="order-card">
-                  <p><strong>Full Name:</strong> ${order.fullName}</p>
-                  <p><strong>Email:</strong> ${order.email}</p>
-                  <p><strong>Mobile:</strong> ${order.mobile}</p>
-                  <p><strong>Address:</strong> ${order.address}, ${order.city}, ${order.state} - ${order.pincode}, ${order.country}</p>
-                  <p><strong>Additional Info:</strong> ${order.additionalInfo}</p>
-                  <p><strong>Payment Method:</strong> ${order.paymentMethod}</p>
-                  <p><strong>Total Payable:</strong> ₹${order.totalPayable}</p>
-                  <div><strong>Cart Items:</strong><br/>${cartItems}</div>
-                </div>
-              `;
-      });
+    if (ordersSnapshot.empty) {
+      orderList.innerHTML = `<li class="text-muted">No orders found.</li>`;
+      return;
     }
 
-    // LocalStorage Order Display
-    const localCart = JSON.parse(localStorage.getItem("purchased")) || [];
-    if (localCart.length > 0) {
-      const localOrderHTML = localCart
+    ordersSnapshot.forEach((docSnap) => {
+      const order = docSnap.data();
+
+      const orderDate = formatTimestamp(order.createdAt);
+
+      // Generate order cart items HTML
+      const itemsHtml = (order.cart || [])
         .map(
           (item) => `
-              <div class="d-flex align-items-center mb-2">
-                <img src="${item.image}" class="item-img" alt="${item.title}" />
-                <div>
-                  <p class="mb-0">${item.title}</p>
-                  <small>Price: ₹${item.price} × ${item.qty}</small>
-                </div>
+            <div class="d-flex align-items-center mb-2">
+              <img src="${item.image}" alt="${item.title}" class="order-item-img" />
+              <div>
+                <strong>${item.title}</strong><br />
+                ₹${item.price} × ${item.qty}
               </div>
-            `
+            </div>
+          `
         )
         .join("");
 
-      orderHistoryDiv.innerHTML += `
-              <div class="order-card border-warning">
-                <p><strong>Recent Local Order (Not Synced):</strong></p>
-                ${localOrderHTML}
-              </div>
-            `;
-    }
-  } else {
-    userInfoDiv.innerHTML = `<p>Please log in to see profile and orders.</p>`;
+      // Create order element
+      const li = document.createElement("li");
+      li.className = "card card-order p-3";
+      li.innerHTML = `
+        <h5 class="mb-1">${order.fullName}</h5>
+        <small class="text-muted">Order Date: ${orderDate}</small>
+        <p class="mb-1">
+          <strong>Mobile:</strong> ${order.mobile}<br />
+          <strong>Address:</strong> ${order.address}, ${order.city}, ${
+        order.state
+      }, ${order.country} - ${order.pincode}
+        </p>
+        <p class="mb-1">
+          <strong>Payment:</strong> ${
+            order.paymentMethod
+          } | <strong>Total:</strong> ₹${order.totalPayable}
+        </p>
+        <p class="mb-2"><em>Note:</em> ${order.additionalInfo || "-"}</p>
+        <div class="order-items">${itemsHtml}</div>
+      `;
+
+      // Clicking order redirects to first product in order (if available)
+      li.addEventListener("click", () => {
+        const productId = order.cart?.[0]?.id;
+        if (productId) {
+          window.location.href = `product.html?id=${productId}`;
+        } else {
+          alert("No product ID found.");
+        }
+      });
+
+      orderList.appendChild(li);
+    });
+  } catch (error) {
+    console.error("Error loading profile or orders:", error);
+    orderList.innerHTML = `<li class="text-danger">Error loading orders: ${error.message}</li>`;
+  }
+});
+
+// Logout (Deactivate) button
+deactivateBtn.addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+    alert("Logged out.");
+    window.location.href = "../pages/auth.html";
+  } catch (error) {
+    alert("Error during logout: " + error.message);
+  }
+});
+
+// Delete account button
+deleteBtn.addEventListener("click", async () => {
+  if (!confirm("Are you sure you want to permanently delete your account?"))
+    return;
+
+  const user = auth.currentUser;
+  if (!user) {
+    alert("No user logged in.");
+    return;
+  }
+
+  try {
+    await deleteUser(user);
+    alert("Account deleted.");
+    window.location.href = "../pages/auth.html";
+  } catch (error) {
+    alert("You may need to re-login and try again. " + error.message);
   }
 });
