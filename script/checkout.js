@@ -3,191 +3,176 @@ import {
   getFirestore,
   collection,
   addDoc,
+  serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// Firebase config & init
+const firebaseConfig = {
+  apiKey: "AIzaSyDP2TktQJUtRfloWBoKTwlnzEJeRlUSS6M",
+  authDomain: "ecommerce-project-eda80.firebaseapp.com",
+  projectId: "ecommerce-project-eda80",
+  storageBucket: "ecommerce-project-eda80.appspot.com",
+  messagingSenderId: "555193689458",
+  appId: "1:555193689458:web:8b3be9e69bb7ac0d1869eb",
+  measurementId: "G-6XB0QJEKK3",
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 // Load cart from localStorage
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function updateUser() {
-  const firebaseConfig = {
-    apiKey: "AIzaSyDP2TktQJUtRfloWBoKTwlnzEJeRlUSS6M",
-    authDomain: "ecommerce-project-eda80.firebaseapp.com",
-    projectId: "ecommerce-project-eda80",
-    storageBucket: "ecommerce-project-eda80.appspot.com",
-    messagingSenderId: "555193689458",
-    appId: "1:555193689458:web:8b3be9e69bb7ac0d1869eb",
-    measurementId: "G-6XB0QJEKK3",
+const form = document.getElementById("checkoutForm");
+const orderDetails = document.getElementById("orderDetails");
+const orderSummary = document.getElementById("cart-counter");
+const totalPrice = document.getElementById("MRP");
+
+function renderCartItems() {
+  if (cart.length === 0) {
+    orderDetails.innerHTML = `<p class="text-muted">Your cart is empty.</p>`;
+    orderSummary.innerHTML = `<p class="text-muted">No items in cart</p>`;
+    form.style.display = "none";
+    totalPrice.innerHTML = `<p>₹0</p>`;
+    return;
+  }
+
+  orderDetails.innerHTML = "";
+  cart.forEach((item) => {
+    orderDetails.innerHTML += `
+      <div class="d-flex justify-content-start align-items-center gap-4 mb-3 border-bottom pb-2 cart-item hover-scale rounded">
+        <div class="item-imgs flex-shrink-0">
+          <img src="${item.image}" alt="${item.title}" class="img-fluid rounded" />
+        </div>
+        <div>
+          <p class="mb-1 fw-semibold">${item.title}</p>
+          <span class="text-primary fw-bold">₹${item.price} × ${item.qty}</span>
+        </div>
+      </div>
+    `;
+  });
+
+  updateSummary();
+}
+
+function updateSummary() {
+  const totalVal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  orderSummary.innerHTML = `
+    <div class="d-flex justify-content-between align-items-center">
+      <p class="mb-1">Products (${cart.length} items)</p>
+      <span class="fw-semibold">₹${totalVal}</span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <p class="mb-1">Shipping Charge</p>
+      <span class="fw-semibold">+ ₹50</span>
+    </div>
+  `;
+  totalPrice.innerHTML = `<p class="fs-4 fw-bold">₹${totalVal + 50}</p>`;
+}
+
+function togglePaymentSections() {
+  const sections = ["upiSection", "cardSection", "netBankingSection"];
+  sections.forEach((id) => document.getElementById(id).classList.add("d-none"));
+
+  const selectedMethod = document.querySelector(
+    'input[name="paymentMethod"]:checked'
+  )?.value;
+  if (selectedMethod === "UPI") {
+    document.getElementById("upiSection").classList.remove("d-none");
+  } else if (selectedMethod === "Card") {
+    document.getElementById("cardSection").classList.remove("d-none");
+  } else if (selectedMethod === "NetBanking") {
+    document.getElementById("netBankingSection").classList.remove("d-none");
+  }
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  const paymentMethod = document.querySelector(
+    'input[name="paymentMethod"]:checked'
+  ).value;
+  const totalVal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const totalPayable = totalVal + 50;
+
+  // Validate payment details based on method
+  if (paymentMethod === "UPI") {
+    const upiID = document.getElementById("upiID").value.trim();
+    if (!upiID) return alert("Please enter a valid UPI ID.");
+    if (!confirm(`Pay ₹${totalPayable} from ${upiID}?`)) return;
+  } else if (paymentMethod === "Card") {
+    const cardNumber = document.getElementById("cardNumber").value.trim();
+    const cardExpiry = document.getElementById("cardExpiry").value.trim();
+    const cardCVV = document.getElementById("cardCVV").value.trim();
+    if (!cardNumber || !cardExpiry || !cardCVV)
+      return alert("Fill in all card details.");
+    if (
+      !confirm(
+        `Pay ₹${totalPayable} using card ending with ${cardNumber.slice(-4)}?`
+      )
+    )
+      return;
+  } else if (paymentMethod === "NetBanking") {
+    const bankName = document.getElementById("bankName").value.trim();
+    const bankState = document.getElementById("bankState").value.trim();
+    const bankCity = document.getElementById("bankCity").value.trim();
+    if (!bankName || !bankState || !bankCity)
+      return alert("Fill in all net banking details.");
+    if (!confirm(`Pay ₹${totalPayable} via ${bankName} NetBanking?`)) return;
+  }
+
+  const userDetails = {
+    fullName: form.fullName.value.trim(),
+    email: form.email.value.trim(),
+    mobile: form.mobile.value.trim(),
+    pincode: form.pincode.value.trim(),
+    address: form.address.value.trim(),
+    city: form.city.value.trim(),
+    state: form.state.value.trim(),
+    country: form.country.value.trim(),
+    additionalInfo: form.additionalInfo.value.trim(),
+    paymentMethod,
+    cart,
+    totalPayable,
+    createdAt: serverTimestamp(),
   };
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  const form = document.getElementById("checkoutForm");
-  const orderDetails = document.getElementById("orderDetails");
-  const orderSummary = document.getElementById("orderSummary");
-
-  if (cart.length === 0) {
-    orderDetails.innerHTML = "<p>Your cart is empty.</p>";
-    orderSummary.innerHTML = "<p>No items in cart</p>";
-    form.style.display = "none";
-  } else {
-    let total = 0;
-    cart.forEach((item) => {
-      orderDetails.innerHTML += `
-      <div class="d-flex justify-content-start align-items-center gap-5">
-        <div class="item-imgs"><img src="${item.image}" alt="${item.title}"/></div>
-        <div>
-          <p>${item.title} </p>
-          <span>Rs.${item.price}</span>
-        </div> 
-        </div>
-      `;
-    });
+  // Add optional payment info
+  if (paymentMethod === "UPI") userDetails.upiID = form.upiID.value.trim();
+  else if (paymentMethod === "Card") {
+    userDetails.cardNumber = form.cardNumber.value.trim();
+    userDetails.cardExpiry = form.cardExpiry.value.trim();
+    userDetails.cardCVV = form.cardCVV.value.trim();
+  } else if (paymentMethod === "NetBanking") {
+    userDetails.bankName = form.bankName.value.trim();
+    userDetails.bankState = form.bankState.value.trim();
+    userDetails.bankCity = form.bankCity.value.trim();
   }
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  try {
+    await addDoc(collection(db, "orders"), userDetails);
+    alert("Order placed successfully! Thank you for shopping with us.");
+    form.reset();
+    localStorage.setItem("purchased", localStorage.getItem("cart"));
+    localStorage.removeItem("cart");
+    togglePaymentSections();
+    location.reload();
+  } catch (error) {
+    console.error("Error saving to Firebase:", error);
+    alert("Failed to place order.");
+  }
+});
 
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
+document.querySelectorAll('input[name="paymentMethod"]').forEach((input) => {
+  input.addEventListener("change", togglePaymentSections);
+});
 
-    const paymentMethod = document.querySelector(
-      'input[name="paymentMethod"]:checked'
-    ).value;
-
-    const totalVal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-    const totalPayable = totalVal + 50;
-
-    // Payment simulation
-    if (paymentMethod === "UPI") {
-      const upiID = document.getElementById("upiID").value.trim();
-      if (!upiID) {
-        alert("Please enter a valid UPI ID to proceed.");
-        return;
-      }
-      const confirmUPI = confirm(`Pay ₹${totalPayable} from ${upiID}?`);
-      if (!confirmUPI) return;
-    }
-
-    if (paymentMethod === "Card") {
-      const cardNumber = document.getElementById("cardNumber").value.trim();
-      const cardExpiry = document.getElementById("cardExpiry").value.trim();
-      const cardCVV = document.getElementById("cardCVV").value.trim();
-
-      if (!cardNumber || !cardExpiry || !cardCVV) {
-        alert("Please fill in all card details to proceed.");
-        return;
-      }
-      const confirmCard = confirm(
-        `Pay ₹${totalPayable} using card ending with ${cardNumber.slice(-4)}?`
-      );
-      if (!confirmCard) return;
-    }
-
-    if (paymentMethod === "NetBanking") {
-      const bankName = document.getElementById("bankName").value.trim();
-      const bankState = document.getElementById("bankState").value.trim();
-      const bankCity = document.getElementById("bankCity").value.trim();
-
-      if (!bankName || !bankState || !bankCity) {
-        alert("Please fill in all net banking details to proceed.");
-        return;
-      }
-      const confirmNet = confirm(
-        `Pay ₹${totalPayable} via ${bankName} NetBanking?`
-      );
-      if (!confirmNet) return;
-    }
-
-    // Gather user details
-    const userDetails = {
-      fullName: document.getElementById("fullName").value,
-      email: document.getElementById("email").value,
-      mobile: document.getElementById("mobile").value,
-      pincode: document.getElementById("pincode").value,
-      address: document.getElementById("address").value,
-      city: document.getElementById("city").value,
-      state: document.getElementById("state").value,
-      country: document.getElementById("country").value,
-      additionalInfo: document.getElementById("additionalInfo").value,
-      paymentMethod: paymentMethod,
-      cart: cart,
-      totalPayable: totalPayable,
-    };
-
-    // Include optional fields
-    if (paymentMethod === "UPI")
-      userDetails.upiID = document.getElementById("upiID").value;
-    if (paymentMethod === "Card") {
-      userDetails.cardNumber = document.getElementById("cardNumber").value;
-      userDetails.cardExpiry = document.getElementById("cardExpiry").value;
-      userDetails.cardCVV = document.getElementById("cardCVV").value;
-    }
-    if (paymentMethod === "NetBanking") {
-      userDetails.bankName = document.getElementById("bankName").value;
-      userDetails.bankState = document.getElementById("bankState").value;
-      userDetails.bankCity = document.getElementById("bankCity").value;
-    }
-
-    try {
-      await addDoc(collection(db, "orders"), userDetails);
-      alert("Order placed successfully! Thank you for shopping with us.");
-      form.reset();
-      const cart = localStorage.getItem("cart");
-      if (cart) {
-        localStorage.setItem("purchased", cart); // Save as 'purchased'
-        localStorage.removeItem("cart"); // Remove original 'cart'
-      }
-      // localStorage.removeItem("cart");
-      document.getElementById("upiSection").classList.add("d-none");
-      document.getElementById("cardSection").classList.add("d-none");
-      document.getElementById("netBankingSection").classList.add("d-none");
-      window.location.reload();
-    } catch (error) {
-      console.error("Error saving to Firebase:", error);
-      alert("Failed to place order.");
-    }
-  });
-
-  document.querySelectorAll('input[name="paymentMethod"]').forEach((input) => {
-    input.addEventListener("change", () => {
-      document.getElementById("upiSection").classList.add("d-none");
-      document.getElementById("cardSection").classList.add("d-none");
-      document.getElementById("netBankingSection").classList.add("d-none");
-
-      if (input.checked) {
-        if (input.value === "UPI")
-          document.getElementById("upiSection").classList.remove("d-none");
-        if (input.value === "Card")
-          document.getElementById("cardSection").classList.remove("d-none");
-        if (input.value === "NetBanking")
-          document
-            .getElementById("netBankingSection")
-            .classList.remove("d-none");
-      }
-    });
-  });
-}
-document.addEventListener("DOMContentLoaded", updateUser);
-
+// Initial rendering
 document.addEventListener("DOMContentLoaded", () => {
-  const cartCounter = document.getElementById("cart-counter");
-  const totalPrice = document.getElementById("MRP");
-  function updateCartDisplay() {
-    cart.map((item, index) => {
-      const totalVal = cart.reduce(
-        (sum, item) => sum + item.price * item.qty,
-        0
-      );
-
-      cartCounter.innerHTML = `
-      <div class="d-flex justify-content-between align-items-center">
-      <p>Porduct (${index + 1} items)</p><span>₹${totalVal}</span></div>
-      <div class="d-flex justify-content-between align-items-center"><p>Shipment Charge</p><span>+ ₹50</span></div>
-      `;
-      totalPrice.innerHTML = `<p>₹${totalVal + 50}</p>`;
-    });
-  }
-  updateCartDisplay();
+  renderCartItems();
+  togglePaymentSections();
 });
