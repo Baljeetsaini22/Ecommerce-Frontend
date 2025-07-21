@@ -30,6 +30,24 @@ function mobileToggles() {
 }
 mobileToggles();
 
+
+/**
+ * @description silder for hero section
+ * @function heroSlider()
+ * @returns Automatic change image in slide 5 second on hero section
+ */
+function heroSlider() {
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  setInterval(() => {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("active");
+  }, 5000);
+}
+heroSlider();
+
 /**
  * @description Cart Count
  * @function updateCartCount()
