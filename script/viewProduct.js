@@ -107,7 +107,7 @@ function attachCartListeners() {
 
       localStorage.setItem("cart", JSON.stringify(cart));
       updateCartCount();
-      window.location.reload()
+      window.location.reload();
       alert("Item added to cart!");
     });
   });
