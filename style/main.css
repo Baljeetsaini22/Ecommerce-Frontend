@@ -13,7 +13,7 @@ a {
   text-decoration-line: none;
 }
 .nav-menu {
-  height: 4rem;
+  height: 4.5rem;
   padding: 1rem 7.5%;
   transition: box-shadow 0.3s ease;
   z-index: 100;
