@@ -20,6 +20,7 @@
   </head>
 
   <body>
+    <!-- Header -->
     <header class="w-100">
       <div
         id="navbar"
@@ -29,13 +30,13 @@
         <div class="nav-respo align-items-center">
           <ul class="menus d-flex align-items-center gap-1 list-unstyled">
             <li><a href="/">Home</a></li>
-            <li><a href="#product">Product</a></li>
+            <li><a href="#prouct">Product</a></li>
             <li><a href="./about.html">About</a></li>
             <li><a href="./contact.html">Contact</a></li>
             <li><a href="./auth.html" class="login"></a></li>
           </ul>
           <div
-            class="nav-item dropdown dropdown-toggle align-items-center showProfile"
+            class="dropdown dropdown-toggle d-flex align-items-center"
           >
             <a
               href="#"
@@ -50,9 +51,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="userDropdown">
               <li>
-                <a href="./userProfile.html" class="dropdown-item"
-                  >Profile</a
-                >
+                <a href="./userProfile.html" class="dropdown-item">Profile</a>
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
@@ -96,62 +95,56 @@
       </div>
       <!-- <div class="overlay" id="overlay"></div> -->
     </header>
-    <div class="prod-cont">
+
+    <!-- Product Container -->
+    <main class="prod-cont">
       <div class="row">
-        <div
-          class="col-12 col-md-4 col-lg-3 border-md-0 d-none d-md-block custom-border-end pe-4"
-        >
-          <div class="border border-dark p-3 rounded position-fixed">
+        <!-- Filter Sidebar -->
+        <aside class="col-md-4 col-lg-3 d-none d-md-block pe-4">
+          <div class="border border-dark p-3 rounded position-sticky top-0">
             <h5>Filters</h5>
-            <div class="">
-              <label class="form-label">Category</label>
-              <div>
-                <div><input type="checkbox" /> Category 1</div>
-                <div><input type="checkbox" /> Category 2</div>
-                <div><input type="checkbox" /> Category 3</div>
-                <div><input type="checkbox" /> Category 4</div>
-                <div><input type="checkbox" /> Category 5</div>
-              </div>
-            </div>
+            <label class="form-label">Category</label>
             <div class="mb-3">
-              <label class="form-label">Price</label>
-              <input type="range" class="form-range" min="100" max="1000" />
-              <div class="d-flex justify-content-between">
-                <span>₹100</span>
-                <span>₹1000</span>
-              </div>
+              <div><input type="checkbox" /> Category 1</div>
+              <div><input type="checkbox" /> Category 2</div>
+              <div><input type="checkbox" /> Category 3</div>
+              <div><input type="checkbox" /> Category 4</div>
+              <div><input type="checkbox" /> Category 5</div>
+            </div>
+            <label class="form-label">Price</label>
+            <input type="range" class="form-range" min="100" max="1000" />
+            <div class="d-flex justify-content-between">
+              <span>₹100</span><span>₹1000</span>
             </div>
           </div>
-        </div>
-        <div class="prod-right col-12 col-lg-9 col-md-8 ps-4">
+        </aside>
+
+        <!-- Product Cards -->
+        <section class="col-md-8 col-lg-9">
           <div id="itemsView">
             <h2 class="text-center mb-4">Products</h2>
             <div id="waiting">Loading products...</div>
             <div id="itemShow" class="row"></div>
           </div>
-        </div>
+        </section>
       </div>
-    </div>
+    </main>
+
+    <!-- Footer -->
     <footer class="bg-dark text-light">
-      <div class="text-center py-2 bg-dark">
+      <div class="text-center py-2">
         <button id="goTopBtn" class="btn btn-primary mt-3">
           <i class="fa-solid fa-arrow-up"></i> Go to Top
         </button>
       </div>
-      <div class="footer py-5">
-        <div class="row foot-content">
-          <!-- Logo -->
+      <div class="footer py-5 container">
+        <div class="row">
           <div class="col-md-3 mb-4">
-            <h4 class="mb-3">BrandLogo</h4>
-            <p>
-              Your trusted online store offering the best products, fast
-              delivery, and excellent customer support to make your shopping
-              experience effortless and enjoyable.
-            </p>
+            <h4>BrandLogo</h4>
+            <p>Your trusted online store for quality and service.</p>
           </div>
-          <!-- Quick Links -->
           <div class="col-md-3 mb-4">
-            <h5 class="mb-3">Quick Links</h5>
+            <h5>Quick Links</h5>
             <ul class="list-unstyled">
               <li>
                 <a href="/" class="text-light text-decoration-none">Home</a>
@@ -178,9 +171,8 @@
               </li>
             </ul>
           </div>
-          <!-- New Products -->
           <div class="col-md-3 mb-4">
-            <h5 class="mb-3">New Products</h5>
+            <h5>New Products</h5>
             <ul class="list-unstyled">
               <li>
                 <a href="#" class="text-light text-decoration-none"
@@ -204,9 +196,8 @@
               </li>
             </ul>
           </div>
-          <!-- Support -->
           <div class="col-md-3 mb-4">
-            <h5 class="mb-3">Support</h5>
+            <h5>Support</h5>
             <ul class="list-unstyled">
               <li>
                 <a href="#" class="text-light text-decoration-none">FAQ</a>
