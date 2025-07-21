@@ -17,23 +17,29 @@
     <link rel="stylesheet" href="../style/main.css" />
     <link rel="stylesheet" href="../style/responsive.css" />
     <style>
+      .container-85 {
+        width: 85%;
+        margin: 0 auto;
+      }
       .contact-section {
         padding: 4rem 0;
       }
-
       .map-responsive {
         overflow: hidden;
         padding-bottom: 56.25%;
         position: relative;
         height: 0;
       }
-
       .map-responsive iframe {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+      }
+      .btn:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease-in-out;
       }
     </style>
   </head>
@@ -53,9 +59,7 @@
             <li><a href="#contact">Contact</a></li>
             <li><a href="./auth.html" class="login"></a></li>
           </ul>
-          <div
-            class="nav-item dropdown dropdown-toggle align-items-center showProfile"
-          >
+          <div class="dropdown dropdown-toggle d-flex align-items-center">
             <a
               href="#"
               class="nav-link flex-column align-items-center justify-content-center p-2 rounded-4 user-profile"
@@ -69,9 +73,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="userDropdown">
               <li>
-                <a href="./userProfile.html" class="dropdown-item"
-                  >Profile</a
-                >
+                <a href="./userProfile.html" class="dropdown-item">Profile</a>
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
@@ -118,11 +120,11 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section mt-5">
-      <div class="container">
+      <div class="container-85">
         <h2 class="mb-4 text-center">Contact Us</h2>
         <div class="row">
-          <!-- Contact Form -->
           <div class="col-md-6 mb-4">
+            <!-- Contact Form -->
             <form>
               <div class="mb-3">
                 <label for="name" class="form-label">Full Name</label>
@@ -150,24 +152,23 @@
               </button>
             </form>
           </div>
-          <!-- Contact Info -->
           <div class="col-md-6 mb-4">
             <h5>Get in touch</h5>
             <p>
-              <i class="fa-solid fa-location-dot me-2 text-primary"></i>
-              123 Main Street, Chandigarh, India
+              <i class="fa-solid fa-location-dot me-2 text-primary"></i> 123
+              Main Street, Chandigarh, India
             </p>
             <p>
               <i class="fa-solid fa-envelope me-2 text-primary"></i>
               support@brandlogo.com
             </p>
             <p>
-              <i class="fa-solid fa-phone me-2 text-primary"></i>
-              +91 91000 91000
+              <i class="fa-solid fa-phone me-2 text-primary"></i> +91 91000
+              91000
             </p>
             <div class="map-responsive mt-4">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109744.05905897242!2d76.68831172108816!3d30.7324019835357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0be66ec96b%3A0xa5ff67f9527319fe!2sChandigarh!5e0!3m2!1sen!2sin!4v1751941909837!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99312.6576119607!2d76.68831172108811!3d30.7324019835357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0be66ec96b%3A0xa5ff67f9527319fe!2sChandigarh!5e1!3m2!1sen!2sin!4v1753090143396!5m2!1sen!2sin"
                 width="600"
                 height="450"
                 style="border: 0"
@@ -192,11 +193,7 @@
           <!-- Logo -->
           <div class="col-md-3 mb-4">
             <h4 class="mb-3">BrandLogo</h4>
-            <p>
-              Your trusted online store offering the best products, fast
-              delivery, and excellent customer support to make your shopping
-              experience effortless and enjoyable.
-            </p>
+            <p>Your trusted online store for quality and service.</p>
           </div>
           <!-- Quick Links -->
           <div class="col-md-3 mb-4">

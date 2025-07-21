@@ -1,132 +1,124 @@
 const path = window.location.pathname;
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+// Update cart count in UI
 function updateCartCount() {
-  // const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const cartCountEl = document.getElementById("cart-count");
-  if (cart.length > 0) {
-    cartCountEl.innerHTML = cart.length;
-  } else {
-    cartCountEl.innerHTML = 0;
-  }
+  cartCountEl.textContent = cart.length > 0 ? cart.length : 0;
 }
 
-// ✅ Call on every page load to show cart count
-document.addEventListener("DOMContentLoaded", () => {
-  updateCartCount();
-});
-
-if (path.includes("productsView.html")) {
-  const itemShow = document.querySelectorAll(".itemShow");
+// Display products from API
+function loadProducts() {
   const waiting = document.getElementById("waiting");
+  const container = document.getElementById("itemShow");
+  waiting.style.display = "block";
+  container.innerHTML = "";
 
-  function productsLoad() {
-    waiting.style.display = "block";
-    itemShow.innerHTML = "";
+  fetch("https://fakestoreapiserver.reactbd.com/walmart")
+    .then((res) => res.json())
+    .then((data) => {
+      waiting.style.display = "none";
 
-    fetch("https://fakestoreapiserver.reactbd.com/walmart")
-      .then((response) => response.json())
-      .then((data) => {
-        waiting.style.display = "none";
+      if (!data || data.length === 0) {
+        container.innerHTML = "<p>No products found.</p>";
+        return;
+      }
 
-        if (!data || data.length === 0) {
-          itemShow.innerHTML = "<p>No products found.</p>";
-          return;
-        }
+      data.forEach((item) => {
+        const image = item.image || item.image?.[0];
+        const price = Math.floor(item.price * 80);
+        const oldPrice =
+          item.oldPrice &&
+          !isNaN(item.oldPrice) &&
+          Number(item.oldPrice) * 80 > price
+            ? Math.floor(Number(item.oldPrice) * 80)
+            : null;
+        const title =
+          item.title.length > 22 ? item.title.slice(0, 22) + "..." : item.title;
 
-        const container = document.getElementById("itemShow");
-        data.map((item) => {
-          const image = item.image || item.image?.[0];
-          const price = Math.floor(item.price * 80);
+        const card = document.createElement("div");
+        card.className = "col-sm-6 col-md-6 col-lg-4 mb-4";
 
-          let title =
-            item.title.length > 22 ? item.title.slice(0, 22) : item.title;
-
-          let priceOld = null;
-          if (item.oldPrice) {
-            const convertedOld = Math.floor(Number(item.oldPrice) * 80);
-            if (convertedOld > price) {
-              priceOld = convertedOld;
-            }
-          }
-          if (
-            item.oldPrice !== undefined &&
-            !isNaN(item.oldPrice) &&
-            Number(item.oldPrice) > price
-          ) {
-            priceOld = Math.floor(Number(item.oldPrice) * 80);
-          }
-
-          const showPrice = priceOld
-            ? `<p><del>₹${priceOld}</del>: ₹${price}</p>`
-            : `<p>₹${price}</p>`;
-
-          const productDiv = document.createElement("div");
-          productDiv.className = " col-sm-6 col-md-6 col-lg-4 mb-4";
-
-          productDiv.innerHTML = `
+        card.innerHTML = `
           <div class="item card h-100 text-center">
             <div class="card-body p-3">
               <div class="image-cartBtn">
                 <a href='../pages/product.html?id=${item._id}'>
                   <img src="${image}" alt="${
-            item.title
-          }" loading="lazy" class="item-img"/>
+          item.title
+        }" loading="lazy" class="item-img"/>
                 </a>
               </div>
               <button 
-                class="cart-btn"
+                class="cart-btn btn btn-sm btn-outline-primary mt-2"
                 data-id="${item._id}"
                 data-title="${item.title}"
-                data-oldprice="${priceOld !== null ? priceOld : ""}"
+                data-oldprice="${oldPrice !== null ? oldPrice : ""}"
                 data-price="${price}"
                 data-image="${image}"
               >
                 <span>Add to Cart</span>
               </button>
-              <h4 class="my-3">${title}</h4>
-              <p>${showPrice}</p>
+              <h5 class="my-3">${title}</h5>
+              <p>
+                ${
+                  oldPrice
+                    ? `<del class="text-danger">₹${oldPrice}</del> <span class="text-success">₹${price}</span>`
+                    : `<span class="text-success fw-bold">₹${price}</span>`
+                }
+              </p>
             </div>
-            </div>
-          `;
-          container.appendChild(productDiv);
-        });
-        attachCartListeners();
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-        waiting.textContent = "Failed to load products.";
+          </div>
+        `;
+
+        container.appendChild(card);
       });
-  }
-  function attachCartListeners() {
-    const cartButtons = document.querySelectorAll(".cart-btn");
 
-    cartButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        const id = this.dataset.id;
-        const title = this.dataset.title;
-        const price = parseFloat(this.dataset.price);
-        const image = this.dataset.image;
-        const oldPriceRaw = this.dataset.oldprice;
-        const oldPrice =
-          oldPriceRaw && !isNaN(oldPriceRaw) ? parseFloat(oldPriceRaw) : null;
-
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-        const existing = cart.find((item) => item.id === id);
-
-        if (existing) {
-          existing.qty += 1;
-        } else {
-          cart.push({ id, title, oldPrice, price, image, qty: 1 });
-        }
-        
-        localStorage.setItem("cart", JSON.stringify(cart));
-        window.location.reload()
-        updateCartCount();
-        alert("Item added to cart!");
-      });
+      attachCartListeners();
+    })
+    .catch((err) => {
+      console.error("Error loading products:", err);
+      waiting.textContent = "Failed to load products.";
     });
-  }
-  productsLoad();
 }
+
+// Attach "Add to Cart" button logic
+function attachCartListeners() {
+  const buttons = document.querySelectorAll(".cart-btn");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.id;
+      const title = btn.dataset.title;
+      const price = parseFloat(btn.dataset.price);
+      const image = btn.dataset.image;
+      const oldPriceRaw = btn.dataset.oldprice;
+      const oldPrice =
+        oldPriceRaw && !isNaN(oldPriceRaw) ? parseFloat(oldPriceRaw) : null;
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find((item) => item.id === id);
+
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, title, price, oldPrice, image, qty: 1 });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      window.location.reload()
+      alert("Item added to cart!");
+    });
+  });
+}
+
+// Run on page load
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+
+  // Only run product loading if on correct page
+  if (path.includes("productsView.html")) {
+    loadProducts();
+  }
+});

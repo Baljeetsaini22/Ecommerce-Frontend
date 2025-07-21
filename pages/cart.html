@@ -35,7 +35,7 @@
             <li><a href="./auth.html" class="login"></a></li>
           </ul>
           <div
-            class="nav-item dropdown dropdown-toggle align-items-center showProfile"
+            class="dropdown dropdown-toggle d-flex align-items-center"
           >
             <a
               href="#"
@@ -97,33 +97,51 @@
       <!-- <div class="overlay" id="overlay"></div> -->
     </header>
     <section id="cartView" class="cart-item">
-      <div class="cart-content">
-        <h1>Shopping Cart <span id="cart-count"></span> </h1>
+      <div class="container cart-content">
+        <h1 class="text-center mb-4">Shopping Cart</h1>
         <div class="row">
           <div class="col-lg-8 mb-4">
-            <h5 class="text-center">Cart </span></h5>
-            <div id="cart-container" class="cart-cont"></div>
+            <h5 class="text-center mb-3">Your Cart</h5>
+            <div id="cart-container"></div>
           </div>
           <div class="col-lg-4">
-            <h5 class="text-center">Order Sumary</h5>
-            <div id="cart-counter" class="cart-total"></div>
-            <hr />
-            <div class="d-flex flex-column">
-              <div class="amount-sec">
-                <div><p>Discount Price:</p></div>
-                <div id="discount" class="Order-price"></div></div>
-              </div>
-              <div class="amount-sec">
-                <div>
-                  <p>Total amount <br />(including VAT)</p>
-                </div>
-                  <div id="total-price" class="Order-price"></div>
-                </div>
+            <h5 class="text-center mb-3">Order Summary</h5>
+            <div id="cart-counter" class="cart-total mb-3"></div>
+            <div class="amount-sec mb-2">
+              <p>Discount Price:</p>
+              <div id="discount" class="Order-price fw-bold text-success"></div>
             </div>
-            <hr />
-            <div class="checkout">
-              <button id="checkoutBtn" class="btn btn-success">CheckOut</button>
+            <div class="amount-sec mb-3">
+              <p>Total Amount (incl. VAT):</p>
+              <div id="total-price" class="Order-price fw-bold text-primary"></div>
             </div>
+            <div class="checkout text-center">
+              <button id="checkoutBtn" class="btn btn-success w-75">Checkout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-light py-5">
+      <div class="container text-center">
+        <h2>Why Shop With Us?</h2>
+        <p class="mb-4">Experience fast, secure, and trusted e-commerce service.</p>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <i class="fa-solid fa-truck-fast fa-2x text-primary mb-2"></i>
+            <h5>Fast Delivery</h5>
+            <p>Get your orders quickly with our express delivery service.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <i class="fa-solid fa-lock fa-2x text-primary mb-2"></i>
+            <h5>Secure Payments</h5>
+            <p>Multiple safe payment options, including UPI & Cards.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <i class="fa-solid fa-star fa-2x text-primary mb-2"></i>
+            <h5>Top Quality</h5>
+            <p>All products are quality checked and guaranteed.</p>
           </div>
         </div>
       </div>
@@ -139,11 +157,7 @@
           <!-- Logo -->
           <div class="col-md-3 mb-4">
             <h4 class="mb-3">BrandLogo</h4>
-            <p>
-              Your trusted online store offering the best products, fast
-              delivery, and excellent customer support to make your shopping
-              experience effortless and enjoyable.
-            </p>
+            <p>Your trusted online store for quality and service.</p>
           </div>
           <!-- Quick Links -->
           <div class="col-md-3 mb-4">

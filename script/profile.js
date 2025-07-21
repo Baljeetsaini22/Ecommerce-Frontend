@@ -56,7 +56,7 @@ function formatTimestamp(timestamp) {
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     alert("Please log in to view your profile.");
-    window.location.href = "login.html";
+    window.location.href = "../pages/auth.html";
     return;
   }
 
@@ -97,7 +97,7 @@ onAuthStateChanged(auth, async (user) => {
       const itemsHtml = (order.cart || [])
         .map(
           (item) => `
-            <div class="d-flex align-items-center mb-2">
+            <div class="order-item d-flex align-items-center mb-2" style="cursor: pointer;" data-id="${item.id}">
               <img src="${item.image}" alt="${item.title}" class="order-item-img" />
               <div>
                 <strong>${item.title}</strong><br />
@@ -130,13 +130,19 @@ onAuthStateChanged(auth, async (user) => {
       `;
 
       // Clicking order redirects to first product in order (if available)
-      li.addEventListener("click", () => {
-        const productId = order.cart?.[0]?.id;
-        if (productId) {
-          window.location.href = `product.html?id=${productId}`;
-        } else {
-          alert("No product ID found.");
-        }
+      li.querySelectorAll(".order-item").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          e.stopPropagation(); // optional, in case li has a click listener
+          const productId = el.dataset.id;
+          //  const productId = order.cart?.[0].id;
+          console.log(productId);
+          
+          if (productId) {
+            window.location.href = `../pages/product.html?id=${productId}`;
+          } else {
+            alert("No product ID found.");
+          }
+        });
       });
 
       orderList.appendChild(li);

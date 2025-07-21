@@ -17,10 +17,15 @@
     <link rel="stylesheet" href="../style/main.css" />
     <link rel="stylesheet" href="../style/responsive.css" />
     <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f7f9fc;
+        color: #333;
+      }
+
       .main-container {
-        width: 100%;
-        padding-inline: 7.5%;
-        margin-top: 4.5rem;
+        width: 85%;
+        margin: 5rem auto;
       }
 
       .section-title {
@@ -29,24 +34,47 @@
         margin-bottom: 1rem;
         border-bottom: 2px solid #054997;
         padding-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
       }
 
       .service-box,
       .feature-box,
-      .review-box {
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-        background-color: #f9f9f9;
+      .review-box,
+      .team-box,
+      .contact-box {
+        border: 1px solid #e0e0e0;
+        border-radius: 15px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
-      .review-box {
-        background-color: #ffffff;
+      .service-box:hover,
+      .feature-box:hover,
+      .review-box:hover,
+      .team-box:hover,
+      .contact-box:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       }
 
       .highlight {
         color: #054997;
+        font-weight: 600;
+      }
+
+      .team-box img {
+        max-width: 100%;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+
+      .form-control:focus {
+        border-color: #054997;
+        box-shadow: 0 0 5px rgba(5, 73, 151, 0.5);
       }
     </style>
   </head>
@@ -66,7 +94,7 @@
             <li><a href="./auth.html" class="login"></a></li>
           </ul>
           <div
-            class="nav-item dropdown dropdown-toggle align-items-center showProfile"
+            class="nav-item dropdown dropdown-toggle d-flex align-items-center showProfile"
           >
             <a
               href="#"
@@ -81,9 +109,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="userDropdown">
               <li>
-                <a href="./userProfile.html" class="dropdown-item"
-                  >Profile</a
-                >
+                <a href="./userProfile.html" class="dropdown-item">Profile</a>
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
@@ -133,95 +159,132 @@
       <section id="about-website">
         <h2 class="section-title">About Our Website</h2>
         <p>
-          <strong>ShopNow</strong> is a leading eCommerce platform designed to
-          bring you the best shopping experience, whether you're on desktop or
-          mobile. Our platform offers a sleek interface, lightning-fast
-          checkout, and a secure environment to meet all your online shopping
-          needs.
+          <strong>ShopNow</strong> is a user-centric eCommerce platform focused
+          on delivering premium products at competitive prices. We offer a
+          seamless online shopping experience with intuitive navigation, mobile
+          optimization, and safe transactions.
         </p>
       </section>
 
-      <!-- Our Services -->
+      <!-- Services -->
       <section id="services">
         <h2 class="section-title">Our Services</h2>
         <div class="row">
-          <div class="col-md-4 service-box">
-            <h5 class="highlight">Free Shipping</h5>
-            <p>
-              Enjoy free shipping on orders over ₹999, anywhere across India.
-            </p>
+          <div class="col-md-4 service-box text-center">
+            <i class="fa-solid fa-truck fa-2x mb-2 highlight"></i>
+            <h5>Free Shipping</h5>
+            <p>Enjoy fast & free delivery on orders above ₹999.</p>
           </div>
-          <div class="col-md-4 service-box">
-            <h5 class="highlight">24/7 Customer Support</h5>
-            <p>
-              Our friendly support team is available anytime to help you with
-              your queries.
-            </p>
+          <div class="col-md-4 service-box text-center">
+            <i class="fa-solid fa-headset fa-2x mb-2 highlight"></i>
+            <h5>24/7 Support</h5>
+            <p>Our team is ready around the clock to assist you.</p>
           </div>
-          <div class="col-md-4 service-box">
-            <h5 class="highlight">Easy Returns</h5>
-            <p>
-              Not satisfied with your purchase? Get easy 7-day returns with no
-              hassle.
-            </p>
+          <div class="col-md-4 service-box text-center">
+            <i class="fa-solid fa-rotate-left fa-2x mb-2 highlight"></i>
+            <h5>Hassle-Free Returns</h5>
+            <p>Return products within 7 days with no questions asked.</p>
           </div>
         </div>
       </section>
 
       <!-- Features -->
       <section id="features">
-        <h2 class="section-title">Key Features</h2>
+        <h2 class="section-title">Why Choose Us</h2>
         <div class="row">
           <div class="col-md-6 feature-box">
-            <h6>🛒 Smart Cart System</h6>
-            <p>
-              Real-time cart updates with personalized suggestions based on your
-              browsing history.
-            </p>
+            <h6>🚀 Fast Checkout</h6>
+            <p>One-click payment and smooth transaction experience.</p>
           </div>
           <div class="col-md-6 feature-box">
             <h6>🔐 Secure Payments</h6>
-            <p>
-              Powered by encrypted gateways to ensure secure and quick
-              transactions.
-            </p>
+            <p>Transactions protected with end-to-end encryption.</p>
           </div>
           <div class="col-md-6 feature-box">
-            <h6>📱 Mobile Responsive</h6>
-            <p>
-              Browse and shop seamlessly on any device—mobile, tablet, or
-              desktop.
-            </p>
+            <h6>📦 Order Tracking</h6>
+            <p>Track your delivery live from our dashboard.</p>
           </div>
           <div class="col-md-6 feature-box">
-            <h6>🚀 Lightning-Fast Checkout</h6>
-            <p>
-              One-click checkout system with saved addresses and card details.
-            </p>
+            <h6>📱 Mobile First Design</h6>
+            <p>Responsive layouts tailored for all screen sizes.</p>
           </div>
         </div>
       </section>
 
-      <!-- Reviews -->
+      <!-- Meet Our Team -->
+      <section id="team">
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="row">
+          <div class="col-md-3 team-box text-center">
+            <img src="https://via.placeholder.com/120" alt="CEO" />
+            <h6 class="highlight">Rohan Mehta</h6>
+            <p>Founder & CEO</p>
+          </div>
+          <div class="col-md-3 team-box text-center">
+            <img src="https://via.placeholder.com/120" alt="CTO" />
+            <h6 class="highlight">Anjali Kapoor</h6>
+            <p>CTO</p>
+          </div>
+          <div class="col-md-3 team-box text-center">
+            <img src="https://via.placeholder.com/120" alt="Designer" />
+            <h6 class="highlight">Ishaan Roy</h6>
+            <p>Lead Designer</p>
+          </div>
+          <div class="col-md-3 team-box text-center">
+            <img src="https://via.placeholder.com/120" alt="Support" />
+            <h6 class="highlight">Priya Sharma</h6>
+            <p>Customer Support Lead</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customer Reviews -->
       <section id="reviews">
-        <h2 class="section-title">What Our Customers Say</h2>
+        <h2 class="section-title">Testimonials</h2>
         <div class="review-box">
           <p>
-            🌟 "Excellent platform! Easy to use and amazing product quality." -
-            <strong>Ritika Sharma</strong>
+            🌟 "Outstanding experience every time. Great service and quick
+            support." - <strong>Karan Batra</strong>
           </p>
         </div>
         <div class="review-box">
           <p>
-            🌟 "I loved the fast delivery and responsive design. ShopNow is my
-            go-to!" - <strong>Aman Verma</strong>
+            🌟 "Love the UI and the fast delivery. Highly recommended!" -
+            <strong>Simran Gill</strong>
           </p>
         </div>
         <div class="review-box">
           <p>
-            🌟 "Support team helped me with returns instantly. Very
-            professional!" - <strong>Neha Mehta</strong>
+            🌟 "Easy to navigate, great offers. A must-use app." -
+            <strong>Mohit Jain</strong>
           </p>
+        </div>
+      </section>
+
+      <!-- Contact Form -->
+      <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-box">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" required />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" required />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                id="message"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
         </div>
       </section>
     </div>
@@ -236,11 +299,7 @@
           <!-- Logo -->
           <div class="col-md-3 mb-4">
             <h4 class="mb-3">BrandLogo</h4>
-            <p>
-              Your trusted online store offering the best products, fast
-              delivery, and excellent customer support to make your shopping
-              experience effortless and enjoyable.
-            </p>
+            <p>Your trusted online store for quality and service.</p>
           </div>
           <!-- Quick Links -->
           <div class="col-md-3 mb-4">

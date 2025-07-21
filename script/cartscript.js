@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartCounter = document.getElementById("cart-counter");
   const totalPrice = document.getElementById("total-price");
   const disPrice = document.getElementById("discount");
+  const checkoutBtn = document.getElementById("checkoutBtn");
+
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   function updateCartDisplay() {
@@ -17,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>Your cart is empty.</p>
           <div><a href="../pages/productsView.html" class="shop-btn">Shop Now</a></div>
         </div>`;
-      cartCounter.innerHTML = "<p>Total Price 0.</p>";
+      cartCounter.innerHTML = "<p>Total Price: ₹0</p>";
       return;
     }
 
@@ -27,51 +29,42 @@ document.addEventListener("DOMContentLoaded", () => {
     cart.forEach((item, index) => {
       const price = item.price * item.qty;
       const oldPrice = item.oldPrice ? item.oldPrice * item.qty : 0;
-
-      const showPrice = oldPrice
-        ? `<del>₹${oldPrice}</del> ₹${price}`
-        : `₹${price}`;
-
       const discount = oldPrice ? oldPrice - price : 0;
       totalDiscount += discount;
 
-      const showOldPrice = oldPrice ? oldPrice : price;
-
       const div = document.createElement("div");
-      div.className = "cart-Prod";
+      div.className = "cart-item";
       div.innerHTML = `
-        <div class="cart-item">
-          <div>
-            <img src="${item.image}" width="100" alt="${item.title}" />
-          </div>
-          <div>
-            <div class="cart-left">
-              <div class="title-item">
-                <h4>${item.title}</h4>
-                <p>${showPrice}</p>
-              </div>
-              <div class="inc-dec">
-                <button class="dec-btn" data-index="${index}">➖</button>
-                <span>${item.qty}</span>
-                <button class="inc-btn" data-index="${index}">➕</button>
-              </div>
+        <div><img src="${item.image}" alt="${item.title}" /></div>
+        <div class="w-100">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="title-item">
+              <h4>${item.title}</h4>
+              <p>
+                ${oldPrice ? `<del class="text-danger">₹${oldPrice}</del> <span class="text-success fw-bold">₹${price}</span>` : `<span class="text-success fw-bold">₹${price}</span>`}
+              </p>
             </div>
+            <div class="inc-dec">
+              <button class="dec-btn" data-index="${index}">➖</button>
+              <span>${item.qty}</span>
+              <button class="inc-btn" data-index="${index}">➕</button>
+            </div>
+          </div>
+          <div class="text-end mt-2">
             <button class="remove-btn" data-index="${index}">🗑 Remove</button>
           </div>
-        </div>`;
+        </div>
+      `;
       cartContainer.appendChild(div);
 
-      let titleShort =
-        item.title.length > 22 ? item.title.slice(0, 22) + "..." : item.title;
-
+      const shortTitle = item.title.length > 22 ? item.title.slice(0, 22) + "..." : item.title;
+      const priceDisplay = oldPrice ? oldPrice : price;
       cartCounter.innerHTML += `
-        <div class="get-order">
-          <div class="row cart-right">
-            <p class="col-sm-1">${index + 1}</p>
-            <p class="col-sm-4">${titleShort}</p>
-            <span class="col-sm-2">x ${item.qty}</span>
-            <p class="col-sm-4">₹${showOldPrice}</p>
-          </div>
+        <div class="cart-right mb-1">
+          <span>${index + 1}.</span>
+          <span>${shortTitle}</span>
+          <span>x ${item.qty}</span>
+          <span>₹${priceDisplay}</span>
         </div>`;
     });
 
@@ -82,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function attachButtonListeners() {
-    // Increment
     document.querySelectorAll(".inc-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const i = btn.dataset.index;
@@ -91,28 +83,22 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Decrement
     document.querySelectorAll(".dec-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const i = btn.dataset.index;
         if (cart[i].qty > 1) {
           cart[i].qty--;
-        } else {
-          if (confirm("Quantity is 1. Remove item?")) {
-            cart.splice(i, 1);
-          } else {
-            return; // cancel decrement
-          }
+        } else if (confirm("Quantity is 1. Remove item?")) {
+          cart.splice(i, 1);
         }
         saveAndRender();
       });
     });
 
-    // Remove
     document.querySelectorAll(".remove-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const i = btn.dataset.index;
-        if (confirm("Are you sure you want to remove this item?")) {
+        if (confirm("Remove this item from cart?")) {
           cart.splice(i, 1);
           saveAndRender();
         }
@@ -125,15 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartDisplay();
   }
 
-  updateCartDisplay();
-
-  // Checkout button handler
-  const checkoutBtn = document.getElementById("checkoutBtn");
   if (checkoutBtn) {
     checkoutBtn.addEventListener("click", (e) => {
       e.preventDefault();
       const user = JSON.parse(localStorage.getItem("auth"));
-
       if (user) {
         window.location.href = "../pages/checkout.html";
       } else {
@@ -142,4 +123,5 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  updateCartDisplay();
 });

@@ -40,27 +40,15 @@ if (path.includes("product.html")) {
               ((product.price - product.oldPrice) / product.oldPrice) * 100
             )
           : 0;
-        const NewPrice = Math.floor(product.price * 80);
-        let priceOld = null;
-        if (product.oldPrice) {
-          const convertedOld = Math.floor(Number(product.oldPrice) * 80);
-          if (convertedOld > NewPrice) {
-            priceOld = convertedOld;
-          }
-        }
-        if (
-          product.oldPrice !== undefined &&
+        const newPrice = Math.floor(product.price * 80);
+        const priceOld =
+          product.oldPrice &&
           !isNaN(product.oldPrice) &&
-          Number(product.oldPrice) > NewPrice
-        ) {
-          priceOld = Math.floor(Number(product.oldPrice) * 80);
-        }
+          Number(product.oldPrice) * 80 > newPrice
+            ? Math.floor(Number(product.oldPrice) * 80)
+            : null;
 
-        const showPrice = priceOld
-          ? `<div class="d-flex gap-3"><p>M.R.P.: <del>₹${priceOld}</del></p> <span>₹${NewPrice}</span></div>`
-          : `<p>₹${NewPrice}</p>`;
-        console.log(showPrice);
-
+       
         document.getElementById("product-container").innerHTML = `
           <div class="about-product"> 
             <div class="product-img">
@@ -71,7 +59,13 @@ if (path.includes("product.html")) {
               
               <div class="price">              
                 <span class="lessPrice">${discountPercent}% off</span>
-                <p>${showPrice}</p>
+                 <p>
+                ${
+                  priceOld
+                    ? `<del class="text-danger">₹${priceOld}</del> <span class="text-success">₹${newPrice}</span>`
+                    : `<span class="text-success fw-bold">₹${newPrice}</span>`
+                }
+              </p>
               </div>
               <div class="quantity-control">
                 <button class="btnincDec" id="decreaseBtn">-</button>
@@ -137,7 +131,7 @@ if (path.includes("product.html")) {
         cartBtn.addEventListener("click", () => {
           const id = product._id;
           const title = product.title;
-          const price = NewPrice;
+          const price = newPrice;
           const image = product.image;
           const oldPriceRaw = priceOld;
           const oldPrice =
