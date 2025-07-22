@@ -251,3 +251,26 @@ footer {
   width: 100%;
   padding-inline: 7.5%;
 }
+
+.avatars {
+  margin-left: -0.5rem;
+}
+
+.avatar-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  margin-left: -10px;
+  transition: transform 0.3s ease;
+}
+
+.avatar-img:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.avatar-img:first-child {
+  margin-left: 0;
+}
