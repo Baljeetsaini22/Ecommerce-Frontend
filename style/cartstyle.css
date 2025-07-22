@@ -20,7 +20,7 @@
         align-items: center;
         gap: 1rem;
         border-bottom: 1px solid #ddd;
-        padding: 1rem 0;
+        padding: 1rem;
         transition: transform 0.3s;
       }
       .cart-item:hover {
@@ -65,17 +65,6 @@
       }
       .checkout .btn-success:hover {
         transform: scale(1.05);
-      }
-      .shop-btn {
-        background-color: #054997;
-        padding: 0.5rem 1rem;
-        border-radius: 0.4rem;
-        color: #fff;
-        text-decoration: none;
-        transition: background 0.3s ease;
-      }
-      .shop-btn:hover {
-        background-color: #0360c0;
       }
       @media (max-width: 768px) {
         .cart-content {
