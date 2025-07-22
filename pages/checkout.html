@@ -36,15 +36,15 @@
       /* Fixed sidebar */
       .fixed-summary {
         position: fixed;
-        top: 4rem;
+        top: 6rem;
         right: 7.5%;
-        width: 30%;
-        height: 100vh;
+        min-width: 350px;
         background-color: #fff;
         border-left: 1px solid #ddd;
         padding: 20px;
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
         z-index: -1;
+        border-radius: 1rem;
       }
 
       /* Margin for main content when sidebar is visible */
@@ -66,7 +66,7 @@
       /* Price styling */
       #MRP {
         font-size: 1.5rem;
-        color: #198754; /* Bootstrap success green */
+        color: #198754; 
         font-weight: 700;
       }
 
@@ -168,7 +168,7 @@
       <div class="container py-5">
         <div class="row">
           <!-- Main checkout form -->
-          <div class="col-lg-8 main-content">
+          <div class="col-lg-7 main-content">
             <form id="checkoutForm">
               <!-- Step 1: Billing Details -->
               <div class="card mb-4">
@@ -401,6 +401,7 @@
                   <p>Total Payable:</p>
                   <div id="MRP" class="Order-price"></div>
                 </div>
+                <div id="discount" class="text-center text-primary"></div>
               </div>
             </div>
           </div>

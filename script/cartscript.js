@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cartContainer.innerHTML = `
         <div class="d-flex flex-column align-items-center justify-content-center mt-5">
           <p>Your cart is empty.</p>
-          <div><a href="../pages/productsView.html" class="shop-btn">Shop Now</a></div>
+          <div><a href="../pages/productsView.html" class="btn btn-primary btn-lg mt-4">Shop Now</a></div>
         </div>`;
       cartCounter.innerHTML = "<p>Total Price: ₹0</p>";
       return;
@@ -31,33 +31,45 @@ document.addEventListener("DOMContentLoaded", () => {
       const oldPrice = item.oldPrice ? item.oldPrice * item.qty : 0;
       const discount = oldPrice ? oldPrice - price : 0;
       totalDiscount += discount;
+      const shortTitle =
+        item.title.length > 22 ? item.title.slice(0, 22) + "..." : item.title;
+      console.log(item.color);
 
       const div = document.createElement("div");
-      div.className = "cart-item";
+      div.className = "cart-item ";
       div.innerHTML = `
         <div><img src="${item.image}" alt="${item.title}" /></div>
-        <div class="w-100">
+        <div class="w-100 d-flex align-items-center justify-content-between">
           <div class="d-flex justify-content-between align-items-center">
-            <div class="title-item">
-              <h4>${item.title}</h4>
-              <p>
-                ${oldPrice ? `<del class="text-danger">₹${oldPrice}</del> <span class="text-success fw-bold">₹${price}</span>` : `<span class="text-success fw-bold">₹${price}</span>`}
-              </p>
-            </div>
+            <a href='../pages/product.html?id=${item.id}' class="text-black">
+              <div class="title-item">
+                <h4>${shortTitle}</h4>
+                <p>
+                  ${
+                    oldPrice
+                      ? `<del class="text-danger">₹${oldPrice}</del> <span class="text-success fw-bold">₹${price}</span>`
+                      : `<span class="text-success fw-bold">₹${price}</span>`
+                  }
+                </p>
+                <div class="d-flex gap-3 align-items-center">
+                  <span>${item.color ? `<p class="mb-1">Color: ${item.color}</p>` : ""}</span>
+                  <span>${item.size ? `<p class="mb-1">Size: ${item.size}</p>` : ""}</span>
+                </div>
+              </div>
+            </a>            
+          </div>
+          <div class="mt-2 d-flex flex-column gap-3">
             <div class="inc-dec">
               <button class="dec-btn" data-index="${index}">➖</button>
               <span>${item.qty}</span>
               <button class="inc-btn" data-index="${index}">➕</button>
             </div>
-          </div>
-          <div class="text-end mt-2">
             <button class="remove-btn" data-index="${index}">🗑 Remove</button>
           </div>
         </div>
       `;
       cartContainer.appendChild(div);
 
-      const shortTitle = item.title.length > 22 ? item.title.slice(0, 22) + "..." : item.title;
       const priceDisplay = oldPrice ? oldPrice : price;
       cartCounter.innerHTML += `
         <div class="cart-right mb-1">
@@ -101,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (confirm("Remove this item from cart?")) {
           cart.splice(i, 1);
           saveAndRender();
+          window.location.reload()
         }
       });
     });

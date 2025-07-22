@@ -24,12 +24,6 @@
   border-right: 3px solid #054997;
 }
 
-.item-img {
-  max-height: 200px;
-  object-fit: contain;
-  width: 100%;
-}
-
 @media (max-width: 767px) {
   .custom-border-end {
     border: none;

@@ -26,6 +26,7 @@ const form = document.getElementById("checkoutForm");
 const orderDetails = document.getElementById("orderDetails");
 const orderSummary = document.getElementById("cart-counter");
 const totalPrice = document.getElementById("MRP");
+const discount = document.getElementById("discount");
 
 function renderCartItems() {
   if (cart.length === 0) {
@@ -39,6 +40,7 @@ function renderCartItems() {
   orderDetails.innerHTML = "";
   cart.forEach((item) => {
     orderDetails.innerHTML += `
+    <a href="../pages/product.html?id=${item.id}" class="text-black">
       <div class="d-flex justify-content-start align-items-center gap-4 mb-3 border-bottom pb-2 cart-item hover-scale rounded">
         <div class="item-imgs flex-shrink-0">
           <img src="${item.image}" alt="${item.title}" class="img-fluid rounded" />
@@ -48,6 +50,7 @@ function renderCartItems() {
           <span class="text-primary fw-bold">₹${item.price} × ${item.qty}</span>
         </div>
       </div>
+      </a>
     `;
   });
 
@@ -56,6 +59,9 @@ function renderCartItems() {
 
 function updateSummary() {
   const totalVal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const totalOld = cart.reduce((sum, item) => sum + item.oldPrice * item.qty, 0);
+  const save = totalOld - totalVal;
+  
   orderSummary.innerHTML = `
     <div class="d-flex justify-content-between align-items-center">
       <p class="mb-1">Products (${cart.length} items)</p>
@@ -67,6 +73,7 @@ function updateSummary() {
     </div>
   `;
   totalPrice.innerHTML = `<p class="fs-4 fw-bold">₹${totalVal + 50}</p>`;
+  discount.innerHTML = `<span>You will save ₹${save} on this order</span>`
 }
 
 function togglePaymentSections() {
