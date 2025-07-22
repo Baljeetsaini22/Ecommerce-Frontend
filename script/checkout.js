@@ -164,7 +164,6 @@ form.addEventListener("submit", async (e) => {
     await addDoc(collection(db, "orders"), userDetails);
     alert("Order placed successfully! Thank you for shopping with us.");
     form.reset();
-    localStorage.setItem("purchased", localStorage.getItem("cart"));
     localStorage.removeItem("cart");
     togglePaymentSections();
     location.reload();
