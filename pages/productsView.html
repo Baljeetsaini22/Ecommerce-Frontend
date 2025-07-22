@@ -35,9 +35,7 @@
             <li><a href="./contact.html">Contact</a></li>
             <li><a href="./auth.html" class="login"></a></li>
           </ul>
-          <div
-            class="dropdown dropdown-toggle d-flex align-items-center"
-          >
+          <div class="dropdown dropdown-toggle d-flex align-items-center">
             <a
               href="#"
               class="nav-link flex-column align-items-center justify-content-center p-2 rounded-4 user-profile"
@@ -100,33 +98,65 @@
     <main class="prod-cont">
       <div class="row">
         <!-- Filter Sidebar -->
-        <aside class="col-md-4 col-lg-3 d-none d-md-block pe-4">
-          <div class="border border-dark p-3 rounded position-sticky top-0">
-            <h5>Filters</h5>
-            <label class="form-label">Category</label>
-            <div class="mb-3">
-              <div><input type="checkbox" /> Category 1</div>
-              <div><input type="checkbox" /> Category 2</div>
-              <div><input type="checkbox" /> Category 3</div>
-              <div><input type="checkbox" /> Category 4</div>
-              <div><input type="checkbox" /> Category 5</div>
+        <div class="row">
+          <!-- Filter Sidebar -->
+          <aside class="col-md-4 col-lg-3 mb-4">
+            <div class="border p-3 rounded">
+              <h5>Filters</h5>
+              <label class="form-label mt-3">Category</label>
+              <div id="categoryFilters" class="form-check">
+                <div>
+                  <input
+                    type="checkbox"
+                    class="form-check-input filter-category"
+                    value="Electronics"
+                    id="cat-elec"
+                  />
+                  <label class="form-check-label" for="cat-elec"
+                    >Electronics</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    class="form-check-input filter-category"
+                    value="Men"
+                    id="cat-men"
+                  />
+                  <label class="form-check-label" for="cat-men">Men</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    class="form-check-input filter-category"
+                    value="Women"
+                    id="cat-women"
+                  />
+                  <label class="form-check-label" for="cat-women">Women</label>
+                </div>
+              </div>
+              <label class="form-label mt-3"
+                >Max Price: ₹<span id="priceValue">200000</span></label
+              >
+              <input
+                type="range"
+                class="form-range"
+                id="priceRange"
+                min="100"
+                max="200000"
+                step="50"
+                value="200000"
+              />
             </div>
-            <label class="form-label">Price</label>
-            <input type="range" class="form-range" min="100" max="1000" />
-            <div class="d-flex justify-content-between">
-              <span>₹100</span><span>₹1000</span>
-            </div>
-          </div>
-        </aside>
+          </aside>
 
-        <!-- Product Cards -->
-        <section class="col-md-8 col-lg-9">
-          <div id="itemsView">
+          <!-- Product Grid -->
+          <section class="col-md-8 col-lg-9">
             <h2 class="text-center mb-4">Products</h2>
-            <div id="waiting">Loading products...</div>
+            <div id="waiting" class="text-center mb-3">Loading products...</div>
             <div id="itemShow" class="row"></div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </main>
 
