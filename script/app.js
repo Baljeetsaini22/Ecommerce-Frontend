@@ -1,5 +1,4 @@
 console.log("E-Commerce Website Loaded");
-
 /**
  * @description navbar shadow
  * @function navbarShadow()
@@ -12,6 +11,76 @@ function navbarShadow() {
   });
 }
 navbarShadow();
+
+/**
+ * @description show Product to show in input search bar
+ * @function inputSearch()
+ * @returns get item search by name
+ */
+
+function inputSearch() {
+  const searchBar = document.getElementById("searchItem");
+  const ShowCatalog = document.querySelector(".showItem");
+  const ShowDialog = document.querySelector(".search-item");
+
+  let productData = [];
+
+  fetch("/product.json")
+    .then((res) => res.json())
+    .then((data) => {
+      productData = data;
+    });
+
+  ShowDialog.addEventListener("click", function (e) {
+    e.stopPropagation();
+    ShowCatalog.style.display = "flex";
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!ShowDialog.contains(e.target)) {
+      ShowCatalog.style.display = "none";
+    }
+  });
+
+  searchBar.addEventListener("input", function (e) {
+    const invalue = e.target.value.trim().toLowerCase();
+
+    if (!invalue) {
+      ShowCatalog.innerHTML =
+        "<p class='text-muted px-2 py-1'>Search product by name</p>";
+      return;
+    }
+
+    const filtered = productData.filter((item) =>
+      item.title.toLowerCase().includes(invalue)
+    );
+
+    if (!filtered.length) {
+      ShowCatalog.innerHTML =
+        "<p class='text-danger px-2 py-1'>No products found.</p>";
+      return;
+    }
+
+    ShowCatalog.innerHTML = filtered
+      .map((item) => {
+        const shortTitle =
+          item.title.length > 22 ? item.title.slice(0, 22) + "..." : item.title;
+
+        return `
+          <div class=" d-flex align-items-center mb-2 border-bottom border-dark border-opacity-25">
+            <a href="../pages/product.html?id=${item._id}" class="d-flex align-items-center text-decoration-none text-dark w-100">
+              <img src="${item.image}" alt="${item.title}" class="searchImg me-2" />
+              <div>
+                <p class="mb-0 fw-semibold">${shortTitle}</p>
+                <span>₹${item.oldPrice}</span>
+              </div>
+            </a>
+          </div>`;
+      })
+      .join("");
+  });
+}
+inputSearch();
 
 /**
  * @description Hamburger toggle and search toggle
@@ -31,6 +100,17 @@ function mobileToggles() {
 mobileToggles();
 
 /**
+ * @description Cart Count
+ * @function updateCartCount()
+ * @returns update cart value then added item in cart
+ */
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  document.getElementById("cart-count").innerHTML = cart.length;
+}
+document.addEventListener("DOMContentLoaded", updateCartCount);
+
+/**
  * @description silder for hero section
  * @function heroSlider()
  * @returns Automatic change image in slide 5 second on hero section
@@ -46,17 +126,6 @@ function heroSlider() {
   }, 5000);
 }
 heroSlider();
-
-/**
- * @description Cart Count
- * @function updateCartCount()
- * @returns update cart value then added item in cart
- */
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  document.getElementById("cart-count").innerHTML = cart.length;
-}
-document.addEventListener("DOMContentLoaded", updateCartCount);
 
 // Load Products on Home Page
 const path = window.location.pathname;
@@ -79,7 +148,6 @@ if (path.includes("index.html") || path === "/") {
         data.forEach((item) => {
           const newPrice = Number(item.price.toString().replace(/,/g, ""));
           const prePrice = Number(item.oldPrice.toString().replace(/,/g, ""));
-
           const title =
             item.title.length > 22
               ? item.title.slice(0, 22) + "..."
@@ -118,7 +186,6 @@ if (path.includes("index.html") || path === "/") {
       })
       .catch(() => (loading.textContent = "Failed to load products."));
   }
-
   loadProducts();
 }
 (function normalizeCart() {

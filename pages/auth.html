@@ -80,8 +80,10 @@
             <input
               class="search-bar rounded-5 p-2"
               type="search"
+              id="searchItem"
               placeholder="Search products..."
             />
+            <div class="showItem"></div>
           </div>
           <div class="search-icon cursor-pointer" id="magnifyBtn">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -115,9 +117,15 @@
         <h3 class="text-center mb-3">Login</h3>
         <div class="mb-3">
           <label>Email</label>
-          <input type="email" class="form-control" id="loginEmail" placeholder="Enter Your Email" required />
+          <input
+            type="email"
+            class="form-control"
+            id="loginEmail"
+            placeholder="Enter Your Email"
+            required
+          />
         </div>
-        <div class="mb-3 position-relative ">
+        <div class="mb-3 position-relative">
           <label>Password</label>
           <input
             type="password"
@@ -143,15 +151,33 @@
         <h3 class="text-center mb-3">Sign Up</h3>
         <div class="mb-3">
           <label>Full Name</label>
-          <input type="text" class="form-control" id="name" placeholder="John Doe" required />
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="John Doe"
+            required
+          />
         </div>
         <div class="mb-3">
           <label>Email</label>
-          <input type="email" class="form-control" id="signupEmail" placeholder="john12@gmail.com" required />
+          <input
+            type="email"
+            class="form-control"
+            id="signupEmail"
+            placeholder="john12@gmail.com"
+            required
+          />
         </div>
         <div class="mb-3">
           <label for="mobile" class="form-label">Mobile Number</label>
-          <input type="tel" class="form-control" id="mobile" placeholder="10-digit" required />
+          <input
+            type="tel"
+            class="form-control"
+            id="mobile"
+            placeholder="10-digit"
+            required
+          />
         </div>
         <div class="mb-3 position-relative">
           <label>Password</label>
@@ -188,7 +214,13 @@
         <h3 class="text-center mb-3">Reset Password</h3>
         <div class="mb-3">
           <label>Email</label>
-          <input type="email" class="form-control" id="resetEmail" placeholder="Enter your registered email" required />
+          <input
+            type="email"
+            class="form-control"
+            id="resetEmail"
+            placeholder="Enter your registered email"
+            required
+          />
         </div>
         <button type="submit" class="btn btn-warning w-100">
           Send Reset Email

@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
       totalDiscount += discount;
       const shortTitle =
         item.title.length > 22 ? item.title.slice(0, 22) + "..." : item.title;
-      console.log(item.color);
 
       const div = document.createElement("div");
       div.className = "cart-item ";
