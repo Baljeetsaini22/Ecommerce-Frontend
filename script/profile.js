@@ -204,15 +204,21 @@ deactivateBtn.addEventListener("click", async () => {
 
 deleteBtn.addEventListener("click", async () => {
   if (!confirm("Permanently delete your account?")) return;
-  const user = auth.currentUser;
-  if (!user) return alert("No user logged in.");
 
+  const authInstance = getAuth(); 
+  const user = authInstance.currentUser;
+
+  if (!user) {
+    alert("No user logged in.");
+    return;
+  }
   try {
     await deleteUser(user);
-    alert("Account deleted.");
+    localStorage.removeItem("auth");
+    localStorage.removeItem("userName");
+    alert("Account deleted successfully.");
     window.location.href = "../pages/auth.html";
   } catch (error) {
     alert("Re-login and try again. " + error.message);
   }
 });
-
