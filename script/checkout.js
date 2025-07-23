@@ -6,7 +6,6 @@ import {
   serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// Firebase config & init
 const firebaseConfig = {
   apiKey: "AIzaSyDP2TktQJUtRfloWBoKTwlnzEJeRlUSS6M",
   authDomain: "ecommerce-project-eda80.firebaseapp.com",
@@ -19,7 +18,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Load cart from localStorage
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const form = document.getElementById("checkoutForm");
@@ -106,7 +104,6 @@ form.addEventListener("submit", async (e) => {
   const totalVal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
   const totalPayable = totalVal + 50;
 
-  // Validate payment details based on method
   if (paymentMethod === "UPI") {
     const upiID = document.getElementById("upiID").value.trim();
     if (!upiID) return alert("Please enter a valid UPI ID.");
@@ -148,7 +145,6 @@ form.addEventListener("submit", async (e) => {
     createdAt: serverTimestamp(),
   };
 
-  // Add optional payment info
   if (paymentMethod === "UPI") userDetails.upiID = form.upiID.value.trim();
   else if (paymentMethod === "Card") {
     userDetails.cardNumber = form.cardNumber.value.trim();
@@ -159,7 +155,6 @@ form.addEventListener("submit", async (e) => {
     userDetails.bankState = form.bankState.value.trim();
     userDetails.bankCity = form.bankCity.value.trim();
   }
-
   try {
     await addDoc(collection(db, "orders"), userDetails);
     alert("Order placed successfully! Thank you for shopping with us.");
@@ -177,7 +172,6 @@ document.querySelectorAll('input[name="paymentMethod"]').forEach((input) => {
   input.addEventListener("change", togglePaymentSections);
 });
 
-// Initial rendering
 document.addEventListener("DOMContentLoaded", () => {
   renderCartItems();
   togglePaymentSections();

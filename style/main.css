@@ -1,9 +1,14 @@
 @import url(./style.css);
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&display=swap");
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: "PlaywriteAUQLD", sans-serif;
 }
 
 a {
