@@ -154,7 +154,7 @@ goToTopBtn();
  */
 function showUser() {
   const showLoginUser = document.querySelector(".login");
-  const userProfile = document.querySelector(".user-profile");
+  const userProfile = document.getElementById("userName");
   const userLog = document.querySelector(".userLog");
   const getUserName =
     localStorage.getItem("userName") ||
@@ -205,7 +205,7 @@ onAuthStateChanged(auth, async (user) => {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       const { name, email, uid } = docSnap.data();
-      localStorage.setItem("auth", JSON.stringify({ uid, email, name }));
+      // localStorage.setItem("auth", JSON.stringify({ uid, email, name }));
       localStorage.setItem("isLogin", "true");
       showUser();
     }
