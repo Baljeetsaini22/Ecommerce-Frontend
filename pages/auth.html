@@ -48,11 +48,12 @@
             <li><a href="#login" class="login"></a></li>
           </ul>
           <div
-            class="dropdown dropdown-toggle d-flex align-items-center"
+            id="userName"
+            class="dropdown dropdown-toggle align-items-center"
           >
             <a
               href="#"
-              class="nav-link flex-column align-items-center justify-content-center p-2 rounded-4 user-profile"
+              class="nav-link d-flex flex-column align-items-center justify-content-center p-2 rounded-4 user-profile"
               id="userDropdown"
               role="button"
               data-bs-toggle="dropdown"
@@ -63,9 +64,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="userDropdown">
               <li>
-                <a href="./userProfile.html" class="dropdown-item"
-                  >Profile</a
-                >
+                <a href="./userProfile.html" class="dropdown-item">Profile</a>
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
@@ -116,14 +115,15 @@
         <h3 class="text-center mb-3">Login</h3>
         <div class="mb-3">
           <label>Email</label>
-          <input type="email" class="form-control" id="loginEmail" required />
+          <input type="email" class="form-control" id="loginEmail" placeholder="Enter Your Email" required />
         </div>
-        <div class="mb-3 position-relative">
+        <div class="mb-3 position-relative ">
           <label>Password</label>
           <input
             type="password"
             class="form-control"
             id="loginPassword"
+            placeholder="Your Password"
             required
           />
           <span class="password-toggle" id="toggleLogin">
@@ -143,15 +143,15 @@
         <h3 class="text-center mb-3">Sign Up</h3>
         <div class="mb-3">
           <label>Full Name</label>
-          <input type="text" class="form-control" id="name" required />
+          <input type="text" class="form-control" id="name" placeholder="John Doe" required />
         </div>
         <div class="mb-3">
           <label>Email</label>
-          <input type="email" class="form-control" id="signupEmail" required />
+          <input type="email" class="form-control" id="signupEmail" placeholder="john12@gmail.com" required />
         </div>
         <div class="mb-3">
           <label for="mobile" class="form-label">Mobile Number</label>
-          <input type="tel" class="form-control" id="mobile" required />
+          <input type="tel" class="form-control" id="mobile" placeholder="10-digit" required />
         </div>
         <div class="mb-3 position-relative">
           <label>Password</label>
@@ -160,6 +160,7 @@
             class="form-control"
             id="signupPassword"
             required
+            placeholder="Create Password"
           />
           <span class="password-toggle" id="toggleSignup">
             <i class="fa-solid fa-eye"></i>
@@ -173,6 +174,7 @@
             class="form-control"
             id="confirmPassword"
             required
+            placeholder="Re-enter Password"
           />
         </div>
         <button type="submit" class="btn btn-success w-100">Sign Up</button>
@@ -186,7 +188,7 @@
         <h3 class="text-center mb-3">Reset Password</h3>
         <div class="mb-3">
           <label>Email</label>
-          <input type="email" class="form-control" id="resetEmail" required />
+          <input type="email" class="form-control" id="resetEmail" placeholder="Enter your registered email" required />
         </div>
         <button type="submit" class="btn btn-warning w-100">
           Send Reset Email
