@@ -1,6 +1,3 @@
-// contact.js
-
-// Import Firebase (Modular SDK)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
@@ -15,11 +12,9 @@ const firebaseConfig = {
   measurementId: "G-6XB0QJEKK3",
 };
 
-// Initialize Firebase and Firestore
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Wait until DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
 
@@ -36,14 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const subject = document.getElementById("subject").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    // Validate email with RegEx
     if (!validateEmail(email)) {
       alert("Please enter a valid email address.");
       return;
     }
 
     try {
-      // Save to Firestore
       await addDoc(collection(db, "contacts"), {
         name,
         email,
@@ -52,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
         createdAt: serverTimestamp(),
       });
 
-      // Send Email via EmailJS
       await sendEmail(name, email, subject, message);
 
       alert("Message sent successfully! Thank you for contacting us.");
@@ -66,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// EmailJS send function
+
 function sendEmail(name, email, subject, message) {
   const serviceID = "service_clhsldf";
   const templateID = "template_5nc0s27";

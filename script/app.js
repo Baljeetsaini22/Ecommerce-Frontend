@@ -13,6 +13,31 @@ function navbarShadow() {
 navbarShadow();
 
 /**
+ * @description login and Show username in navbar
+ * @function showUser()
+ * @returns if show login or hide username & else show username or hide login
+ */
+function showUser() {
+  const showLoginUser = document.querySelector(".login");
+  const userProfile = document.getElementById("userName");
+  const userLog = document.querySelector(".userLog");
+  const getUserName =
+    localStorage.getItem("userName") ||
+    JSON.parse(localStorage.getItem("auth"))?.name;
+
+  if (!getUserName) {
+    showLoginUser.innerHTML = "Login";
+    showLoginUser.style.display = "block";
+    userProfile.style.display = "none";
+  } else {
+    showLoginUser.style.display = "none";
+    userProfile.style.display = "flex";
+    userLog.innerHTML = `Hi! ${getUserName}`;
+  }
+}
+showUser();
+
+/**
  * @description show Product to show in input search bar
  * @function inputSearch()
  * @returns get item search by name
@@ -127,9 +152,15 @@ function heroSlider() {
 }
 heroSlider();
 
-// Load Products on Home Page
-const path = window.location.pathname;
 
+
+/**
+ * @description Fetch product form api Product.json
+ * @function loadProducts()
+ * @returns Give product list in dom
+ */
+
+const path = window.location.pathname;
 if (path.includes("index.html") || path === "/") {
   const items = document.getElementById("items");
   const loading = document.getElementById("loading");
@@ -214,32 +245,7 @@ function goToTopBtn() {
 }
 goToTopBtn();
 
-/**
- * @description login and Show username in navbar
- * @function showUser()
- * @returns if show login or hide username & else show username or hide login
- */
-function showUser() {
-  const showLoginUser = document.querySelector(".login");
-  const userProfile = document.getElementById("userName");
-  const userLog = document.querySelector(".userLog");
-  const getUserName =
-    localStorage.getItem("userName") ||
-    JSON.parse(localStorage.getItem("auth"))?.name;
 
-  if (!getUserName) {
-    showLoginUser.innerHTML = "Login";
-    showLoginUser.style.display = "block";
-    userProfile.style.display = "none";
-  } else {
-    showLoginUser.style.display = "none";
-    userProfile.style.display = "flex";
-    userLog.innerHTML = `Hi! ${getUserName}`;
-  }
-}
-showUser();
-
-// Firebase Auth Integration
 import {
   getAuth,
   onAuthStateChanged,
@@ -303,96 +309,3 @@ function handleLogout() {
   });
 }
 document.addEventListener("DOMContentLoaded", handleLogout);
-
-// //! old code from fakeAPI
-// if (path.includes("index.html") || path === "/") {
-//   const items = document.getElementById("items");
-//   const loading = document.getElementById("loading");
-
-//   function loadProducts() {
-//     loading.style.display = "block";
-//     items.innerHTML = "";
-
-//     fetch("https://fakestoreapiserver.reactbd.com/walmart")
-//       .then((res) => res.json())
-//       .then((data) => {
-//         loading.style.display = "none";
-//         if (!data.length)
-//           return (items.innerHTML = "<p>No products found.</p>");
-
-//         data.forEach((item) => {
-//           const price = Math.floor(item.price * 80);
-//           const oldPrice =
-//             item.oldPrice && !isNaN(item.oldPrice)
-//               ? Math.floor(item.oldPrice * 80)
-//               : null;
-//           const title =
-//             item.title.length > 22
-//               ? item.title.slice(0, 22) + "..."
-//               : item.title;
-
-//           const product = document.createElement("div");
-//           product.className = "col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4";
-//           product.innerHTML = `
-//             <div class="item card h-100 text-center position-relative d-flex justify-content-center">
-//               <div class="card-body p-3">
-//                 <div class="image-cartBtn">
-//                   <a href='../pages/product.html?id=${item._id}'>
-//                     <img src="${item.image}" alt="${
-//             item.title
-//           }" loading="lazy" class="item-img"/>
-//                   </a>
-//                 </div>
-//                 <button class="cart-btn" data-id="${item._id}" data-title="${
-//             item.title
-//           }" data-oldprice="${
-//             oldPrice || ""
-//           }" data-price="${price}" data-image="${item.image}">
-//                   <span>Add to Cart</span>
-//                 </button>
-//                 <h4 class="my-3">${title}</h4>
-//                 <p>
-//                 ${
-//                   oldPrice
-//                     ? `<del class="text-danger">₹${oldPrice}</del> <span class="text-success">₹${price}</span>`
-//                     : `<span class="text-success fw-bold">₹${price}</span>`
-//                 }
-//               </p>
-//               </div>
-//             </div>`;
-
-//           items.appendChild(product);
-//         });
-
-//         attachCartListeners();
-//       })
-//       .catch(() => (loading.textContent = "Failed to load products."));
-//   }
-
-//   function attachCartListeners() {
-//     document.querySelectorAll(".cart-btn").forEach((button) => {
-//       button.addEventListener("click", () => {
-//         const { id, title, price, image, oldprice } = button.dataset;
-//         let cart = JSON.parse(localStorage.getItem("cart")) || [];
-//         const existing = cart.find((item) => item.id === id);
-
-//         if (existing) existing.qty += 1;
-//         else
-//           cart.push({
-//             id,
-//             title,
-//             oldPrice: parseFloat(oldprice) || null,
-//             price: parseFloat(price),
-//             image,
-//             qty: 1,
-//           });
-
-//         localStorage.setItem("cart", JSON.stringify(cart));
-//         updateCartCount();
-//         alert("Item added to cart!");
-//       });
-//     });
-//   }
-
-//   loadProducts();
-// }
