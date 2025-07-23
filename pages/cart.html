@@ -51,9 +51,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="userDropdown">
               <li>
-                <a href="./userProfile.html" class="dropdown-item"
-                  >Profile</a
-                >
+                <a href="./userProfile.html" class="dropdown-item">Profile</a>
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
@@ -69,19 +67,16 @@
             <input
               class="search-bar rounded-5 p-2"
               type="search"
+              id="searchItem"
               placeholder="Search products..."
             />
+            <div class="showItem"></div>
           </div>
           <div class="search-icon cursor-pointer" id="magnifyBtn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
           <div class="position-relative cursor-pointer">
-            <a
-              href="#cart"
-              title="cartbox"
-              id="showCart"
-              class="cart-icon"
-            >
+            <a href="#cart" title="cartbox" id="showCart" class="cart-icon">
               <i class="fa-solid fa-cart-shopping"></i
             ></a>
             <span
@@ -114,10 +109,15 @@
             </div>
             <div class="amount-sec mb-3">
               <p>Total Amount (incl. VAT):</p>
-              <div id="total-price" class="Order-price fw-bold text-primary"></div>
+              <div
+                id="total-price"
+                class="Order-price fw-bold text-primary"
+              ></div>
             </div>
             <div class="checkout text-center">
-              <button id="checkoutBtn" class="btn btn-success w-75">Checkout</button>
+              <button id="checkoutBtn" class="btn btn-success w-75">
+                Checkout
+              </button>
             </div>
           </div>
         </div>
@@ -127,7 +127,9 @@
     <section class="bg-light py-5">
       <div class="container text-center">
         <h2>Why Shop With Us?</h2>
-        <p class="mb-4">Experience fast, secure, and trusted e-commerce service.</p>
+        <p class="mb-4">
+          Experience fast, secure, and trusted e-commerce service.
+        </p>
         <div class="row">
           <div class="col-md-4 mb-3">
             <i class="fa-solid fa-truck-fast fa-2x text-primary mb-2"></i>

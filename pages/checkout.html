@@ -32,8 +32,6 @@
         object-fit: cover;
         border-radius: 0.375rem;
       }
-
-      /* Fixed sidebar */
       .fixed-summary {
         position: fixed;
         top: 6rem;
@@ -46,13 +44,9 @@
         z-index: -1;
         border-radius: 1rem;
       }
-
-      /* Margin for main content when sidebar is visible */
       .main-content {
         margin-right: 320px;
       }
-
-      /* Hover effect on cart items */
       .cart-item {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         cursor: pointer;
@@ -63,14 +57,12 @@
         background-color: #f8f9fa;
       }
 
-      /* Price styling */
       #MRP {
         font-size: 1.5rem;
         color: #198754; 
         font-weight: 700;
       }
 
-      /* Responsive styles for mobile/tablet */
       @media (max-width: 991.98px) {
         .fixed-summary {
           position: static !important;
@@ -140,8 +132,10 @@
             <input
               class="search-bar rounded-5 p-2"
               type="search"
+              id="searchItem"
               placeholder="Search products..."
             />
+            <div class="showItem"></div>
           </div>
           <div class="search-icon cursor-pointer" id="magnifyBtn">
             <i class="fa-solid fa-magnifying-glass"></i>
