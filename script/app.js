@@ -53,7 +53,8 @@ function inputSearch() {
   fetch("/product.json")
     .then((res) => res.json())
     .then((data) => {
-      productData = data;
+      const product = data.slice(0, 12);
+      productData = product
     });
 
   ShowDialog.addEventListener("click", function (e) {
