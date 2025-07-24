@@ -1,5 +1,25 @@
 [
   {
+    "_id": 0,
+    "title": "Men Super Slim Fit Striped Casual Shirt",
+    "des": "Premium black cotton shirt with a tailored slim fit, perfect for office and casual outings.",
+    "oldPrice": "2,299",
+    "price": "1,499",
+    "brand": "Peter England",
+    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/i/v/5/40-pxsfpssfs08927-peter-england-original-imagut3gyghwy79v.jpeg?q=70",
+    "isNew": true,
+    "category": "Men",
+    "color": ["Black"],
+    "size": ["M", "L", "XL"],
+    "modelName": "SlimFit Cotton",
+    "related": "CLoth",
+    "subImage": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/e/s/c/40-pxsfpssfs08927-peter-england-original-imagut3gezuhpgv7.jpeg?q=70",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/t/k/w/40-pxsfpssfs08927-peter-england-original-imagut3gm7gbfnue.jpeg?q=70",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/4/q/7/40-pxsfpssfs08927-peter-england-original-imagut3gckr2brfu.jpeg?q=70"
+    ]
+  },
+  {
     "_id": 1,
     "title": "Samsung Galaxy S24 Ultra 5G",
     "des": "Behold the Samsung Galaxy S24 Ultra smartphone, an exceptional amalgamation of incredible technology and superior sophistication. Whether you're typing up a storm or jotting something down, Note Assist makes a long story short. New AI-powered editing options let you get the photo you want, like relocating objects and intelligently filling in the space they left behind. With a durable shield of titanium built right into the frame and better scratch resistance with Corning Gorilla Armor, your IP68 water and dust-resistant Galaxy S24 Ultra is ready for adventure. Write, tap, and navigate with the precision your fingers wish they had on the new, flat display.",
@@ -12,6 +32,7 @@
     "color": ["Titanium Black"],
     "size": "",
     "modelName": "Galaxy S24 Ultra 5G",
+    "related": "Mobile",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/t/q/k/-original-imagx9pff4gxepfy.jpeg?q=70",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/r/f/y/-original-imagx9pf7dd5ny7n.jpeg?q=70",
@@ -32,6 +53,7 @@
     "color": ["Black Titanium"],
     "size": "",
     "modelName": "iPhone 16 Pro Max",
+    "related": "Mobile",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/0/1/c/-original-imahb4mudzkcggyh.jpeg?q=70",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/0/7/e/-original-imahb4mumpgykgqe.jpeg?q=70",
@@ -51,6 +73,7 @@
     "color": ["Silver"],
     "size": "",
     "modelName": "WH-1000XM5",
+    "related": "Earphone",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/l1dwknk0/headphone/u/b/h/wh-1000xm4-sony-original-imagcywfw6zh4weq.jpeg?q=70",
       "https://rukminim2.flixcart.com/image/832/832/l1dwknk0/headphone/o/k/s/wh-1000xm4-sony-original-imagcywfbvzqn5ba.jpeg?q=70",
@@ -70,6 +93,7 @@
     "color": ["Black"],
     "size": "",
     "modelName": "XPS 13 Plus",
+    "related": "Laptop",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/r/w/z/-original-imahcnjyc6dkqbw9.jpeg?q=70",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/e/t/f/g15-5530-gaming-laptop-dell-original-imah8hhzjqbhsjnj.jpeg?q=70",
@@ -89,6 +113,7 @@
     "color": ["Rose Quartz"],
     "size": "",
     "modelName": "Ion ANC Pro",
+    "related": "Earphone",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/g/x/s/-original-imah7gb7tkrbwwws.jpeg?q=70",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/v/3/2/-original-imahby5vjsz6vczj.jpeg?q=70",
@@ -108,6 +133,7 @@
     "color": ["Black"],
     "size": "",
     "modelName": "EOS R10",
+    "related": "Camera",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/l5fnhjk0/dslr-camera/2/c/q/eos-r10-24-2-r10-canon-original-imagg42fgrgstzks.jpeg?q=70",
       "https://rukminim2.flixcart.com/image/832/832/l5fnhjk0/dslr-camera/z/e/u/eos-r10-24-2-r10-canon-original-imagg42fuyju6jbb.jpeg?q=70",
@@ -127,6 +153,7 @@
     "color": ["Celadon Marble"],
     "size": "",
     "modelName": "Nord CE 4 5G",
+    "related": "Mobile",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/h/l/g/nord-ce4-cph2613-oneplus-original-imagzn8vbj5bfnzf.jpeg?q=70",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/u/n/q/nord-ce4-cph2613-oneplus-original-imagznc5zjxkyjx2.jpeg?q=70",
@@ -146,6 +173,7 @@
     "color": ["Nightfall Black"],
     "size": "",
     "modelName": "Envy x360",
+    "related": "Laptop",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/e/m/0/-original-imahcd9jhy2vczdh.jpeg?q=70",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/b/w/s/-original-imahcd9jafq3sncj.jpeg?q=70",
@@ -165,6 +193,7 @@
     "color": ["Black"],
     "size": "",
     "modelName": "Bar 1300 True Dolby Atmos with,DTS:X,MultiBeam,10 Subwoofer,HDMI",
+    "related": "Speaker",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/b/a/x/-original-imags9j5q6nqfj9z.jpeg?q=70",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/f/n/x/-original-imags9j5ryfjmzhz.jpeg?q=70",
@@ -184,6 +213,7 @@
     "color": ["Black"],
     "size": "",
     "modelName": "Crystal 4K Vision Pro UA43DUE76AKLXL",
+    "related": "LED",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/television/k/i/u/-original-imah3fhyk8y76v8p.jpeg?q=70",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/television/v/o/5/-original-imah45eczvmdwfxm.jpeg?q=70",
@@ -203,6 +233,7 @@
     "color": ["Black"],
     "size": "",
     "modelName": "ExecPro Leather 15.6”",
+    "related": "Bag",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/hand-messenger-bag/a/2/l/messenger-bag-15-6-mb-06-messenger-bag-i-bag-12-original-imagh8bhjf3zz4sw.jpeg?q=70",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/hand-messenger-bag/1/b/9/messenger-bag-15-6-mb-06-messenger-bag-i-bag-12-original-imagh8bhyxscbkyj.jpeg?q=70",
@@ -211,21 +242,22 @@
   },
   {
     "_id": 12,
-    "title": "Men Super Slim Fit Striped Casual Shirt",
-    "des": "Premium black cotton shirt with a tailored slim fit, perfect for office and casual outings.",
-    "oldPrice": "2,299",
-    "price": "1,499",
-    "brand": "Peter England",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/i/v/5/40-pxsfpssfs08927-peter-england-original-imagut3gyghwy79v.jpeg?q=70",
+    "title": "Black Round Dial & Brown Leather Strap Analog Watch - For Men TWEG294SMU01",
+    "des": "Sleek black dial analog watch with genuine leather strap, water-resistant and minimalistic design.",
+    "oldPrice": "8,699",
+    "price": "5,299",
+    "brand": "Timex",
+    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/x/s/k/1-tweg294smu01-timex-men-original-imahdwdsxtd8ngtf.jpeg",
     "isNew": true,
     "category": "Men",
     "color": ["Black"],
-    "size": ["M", "L", "XL"],
-    "modelName": "SlimFit Cotton",
+    "size": "",
+    "modelName": "Timex Classic",
+    "related": "Watch",
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/e/s/c/40-pxsfpssfs08927-peter-england-original-imagut3gezuhpgv7.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/t/k/w/40-pxsfpssfs08927-peter-england-original-imagut3gm7gbfnue.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/4/q/7/40-pxsfpssfs08927-peter-england-original-imagut3gckr2brfu.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/2/f/z/1-tweg294smu01-timex-men-original-imahdwdsxu6cfnzu.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/2/f/z/1-tweg294smu01-timex-men-original-imahdwdsxu6cfnzu.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/t/r/p/1-tweg294smu01-timex-men-original-imahcmfbjz35mavb.jpeg"
     ]
   },
   {
@@ -241,6 +273,7 @@
     "color": ["Black"],
     "size": ["M", "L", "XL"],
     "modelName": "Stretch Fit Trousers",
+    "related": "Cloth",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/l4u7vrk0/trouser/g/t/n/28-8008-black-broadstar-original-imagfngtcw3brfz4.jpeg?q=70",
       "https://rukminim2.flixcart.com/image/832/832/l4u7vrk0/trouser/f/f/q/28-8008-black-broadstar-original-imagfngt6ghfdmpg.jpeg?q=70",
@@ -260,6 +293,7 @@
     "color": ["Black"],
     "size": "",
     "modelName": "Classic Round UV",
+    "related": "Glasses",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/sunglass/u/b/s/medium-m260bk2v-fastrack-original-imaguwbfzyfff75s.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/sunglass/m/s/6/medium-m260bk2v-fastrack-original-imaguwbfr4bx5hha.jpeg",
@@ -279,6 +313,7 @@
     "color": ["Black"],
     "size": ["M", "L", "XL"],
     "modelName": "Relaxed Cotton Tee",
+    "related": "Cloth",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/m/4/x/xl-22086504-hrx-by-hrithik-roshan-original-imah4h9fvpnbmxdw.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/3/b/z/xl-22086504-hrx-by-hrithik-roshan-original-imah4h9fgaxzjfuf.jpeg"
@@ -297,33 +332,16 @@
     "color": ["Black"],
     "size": ["M", "L", "XL"],
     "modelName": "Denim Classic Cut",
+    "related": "Cloth",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/ko7idu80/jacket/p/d/n/xl-ttjk001228-tokyo-talkies-original-imag2pp2pzphtyub.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/ko7idu80/jacket/q/h/7/xl-ttjk001228-tokyo-talkies-original-imag2pp2pqkherna.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/ko7idu80/jacket/6/9/q/xl-ttjk001228-tokyo-talkies-original-imag2pp2kzkrr8nq.jpeg"
     ]
   },
+
   {
     "_id": 17,
-    "title": "Black Round Dial & Brown Leather Strap Analog Watch - For Men TWEG294SMU01",
-    "des": "Sleek black dial analog watch with genuine leather strap, water-resistant and minimalistic design.",
-    "oldPrice": "8,699",
-    "price": "5,299",
-    "brand": "Timex",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/x/s/k/1-tweg294smu01-timex-men-original-imahdwdsxtd8ngtf.jpeg",
-    "isNew": true,
-    "category": "Men",
-    "color": ["Black"],
-    "size": "",
-    "modelName": "Timex Classic",
-    "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/2/f/z/1-tweg294smu01-timex-men-original-imahdwdsxu6cfnzu.jpeg",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/2/f/z/1-tweg294smu01-timex-men-original-imahdwdsxu6cfnzu.jpeg",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/t/r/p/1-tweg294smu01-timex-men-original-imahcmfbjz35mavb.jpeg"
-    ]
-  },
-  {
-    "_id": 18,
     "title": "Women Solid Round Neck Polyester Black T-Shirt",
     "des": "Black shimmer stretchable t-shirt for women, perfect for evening wear and celebrations.",
     "oldPrice": "1,499",
@@ -335,6 +353,7 @@
     "color": ["Black"],
     "size": ["M", "L", "XL"],
     "modelName": "Shimmer Party Tee",
+    "related": "Cloth",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/9/3/c/s-rimzim3-rimzim-original-imahd5x3mvh4g9e4.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/m/k/f/s-rimzim3-rimzim-original-imahd5x3hpdcmb8y.jpeg",
@@ -342,7 +361,7 @@
     ]
   },
   {
-    "_id": 19,
+    "_id": 18,
     "title": "Men Solid Bomber Jacket",
     "des": "Lightweight bomber jacket with ribbed cuffs and hem. Perfect for casual winter outings.",
     "oldPrice": "2,499",
@@ -354,6 +373,7 @@
     "color": ["Red"],
     "size": ["M", "L", "XL"],
     "modelName": "Winter Bomber",
+    "related": "Cloth",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/jacket/x/r/x/xl-1-no-rfj1075a-red-tape-original-imah8fvhfqmgaf9q.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/jacket/k/x/4/xl-1-no-rfj1075a-red-tape-original-imah8fvhwkzrj4hg.jpeg",
@@ -361,7 +381,7 @@
     ]
   },
   {
-    "_id": 20,
+    "_id": 19,
     "title": "Analog Watch - For Women NT2634WM05",
     "des": "Elegant golden dial analog watch with stainless steel mesh band. A blend of sophistication and utility.",
     "oldPrice": "6,345",
@@ -372,11 +392,94 @@
     "category": "Women",
     "color": ["Gold"],
     "size": "",
+    "related": "Watch",
     "modelName": "Raga golden Elegance",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/1/n/a/-original-imahc7asgmrhurje.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/f/1/3/-original-imahc7asuyghufhv.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/l/u/v/-original-imahc7astq8rd5ga.jpeg"
+    ]
+  },
+  {
+    "_id": 20,
+    "title": "Infinix GT 30 Pro 5G+",
+    "des": "This Infinix GT 30 Pro provides seamless multitasking and top-tier gaming thanks to the MediaTek Dimensity 8350 ULTIMATE processor. The impressive camera configuration ensures detailed photography, and the AMOLED display with a refresh rate of 144 Hz provides incredibly smooth images. With a 5500 mAh battery, this GT 30 Pro is a powerful tablet that runs on Android 15 and XOS 15. This smartphone combines style and functionality, delivering smooth performance and immersive gameplay.",
+    "oldPrice": "34,999",
+    "price": "26,999",
+    "brand": "Infinix",
+    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/4/x/r/-original-imahddjyr6ch3xev.jpeg",
+    "isNew": true,
+    "category": "Electronics",
+    "color": ["Blade White"],
+    "size": "",
+    "modelName": "GT 30 Pro 5G+",
+    "related": "Mobile",
+    "subImage": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/l/b/h/-original-imahddjy2gzrrprd.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/e/u/w/-original-imahddjyx3uxwrhe.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/z/3/z/-original-imahddjyg4udjgyb.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/q/0/m/-original-imahddjyyvhmzaan.jpeg"
+    ]
+  },
+  {
+    "_id": 21,
+    "title": "LG AI TV UA8200 139 cm (55 inch) Ultra HD (4K) LED Smart WebOS TV 2025 Edition with Alpha7 AI Processor 4K Gen8 | 4K Super Upscaling | AI Picture Pro | 4K Expression Enhancer | NEW AI Magic Remote Compatible | AI Search with MS Copilot | AI Sound Pro (9.1.2 ch) | Dolby Atmos | Chromecast Built-in  (55UA82006LA)",
+    "des": "Experience crystal-clear detail and immersive entertainment with LG’s advanced α7 AI Processor Gen8. Enjoy enhanced 4K picture quality with superb sharpness, depth, and vibrant HDR10 colours, while AI-powered features such as Super Upscaling, AI Picture Wizard, and AI Sound Pro deliver truly cinematic visuals and audio. Voice-controlled through the AI Magic Remote and guided by intelligent tools like AI Search, AI Chatbot, and AI Concierge, your TV becomes smarter and more personalised. With a sleek design, powerful gaming capabilities, surround sound simulation, and secure, upgradable webOS, this is viewing redefined.",
+    "oldPrice": "71,999",
+    "price": "44,990",
+    "brand": "LG",
+    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/television/t/o/w/-original-imahdzrcs8gx7crw.jpeg",
+    "isNew": true,
+    "category": "Electronics",
+    "color": ["Blade White"],
+    "size": "",
+    "modelName": "55UA82006LA",
+    "related": "LED",
+    "subImage": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/television/d/y/w/-original-imahdwgujrdthfgy.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/television/y/s/k/-original-imahdwgugpghde4r.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/television/l/m/y/-original-imahdwgucxrtp83q.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/television/3/z/g/-original-imahdwguafzxj5z3.jpeg"
+    ]
+  },
+  {
+    "_id": 22,
+    "title": "Men Tailored Fit Solid Spread Collar Casual Shirt",
+    "des": "TThis men’s tailored fit shirt is stylish and comfortable. Made from soft fabric, it has a spread collar and solid color. Great for casual outings or smart everyday wear.",
+    "oldPrice": "2,999",
+    "price": "1,399",
+    "brand": "U.S. POLO ASSN. ",
+    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/v/3/e/46-ussht2387-u-s-polo-assn-original-imah6h84bgmqgxfd.jpeg",
+    "isNew": true,
+    "category": "Men",
+    "color": ["grayish-brown"],
+    "size": "",
+    "modelName": "Casual Shirt",
+    "related": "Cloth",
+    "subImage": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/y/s/6/46-ussht2387-u-s-polo-assn-original-imah6h84thynzygg.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/2/s/n/46-ussht2387-u-s-polo-assn-original-imah6h84ymv5hh8y.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/c/o/8/46-ussht2387-u-s-polo-assn-original-imah6h84p9zq7pz7.jpeg"
+    ]
+  },
+  {
+    "_id": 23,
+    "title": "Men Cargos",
+    "des": "TThese men’s cargo pants are comfortable, stylish, and perfect for everyday use. Made from durable fabric, they have multiple pockets for storage. Great for travel, casual wear, or outdoor activities. Easy to pair with any outfit.",
+    "oldPrice": "2,910",
+    "price": "1,959",
+    "brand": "PETER ENGLAND ",
+    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/track-pant/f/x/n/28-pjtfasmfo34042-peter-england-original-imagq44peerjnzgf.jpeg",
+    "isNew": true,
+    "category": "Electronics",
+    "color": ["Blade White"],
+    "size": "",
+    "modelName": "Men Cargos",
+    "related": "Men-Cloth",
+    "subImage": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/track-pant/f/h/z/28-pjtfasmfo34042-peter-england-original-imagq44p762fyu4f.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/track-pant/s/s/m/28-pjtfasmfo34042-peter-england-original-imagq44puceq7fag.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/track-pant/6/e/s/28-pjtfasmfo34042-peter-england-original-imagq44pfhge8z2m.jpeg"
     ]
   }
 ]

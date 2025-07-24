@@ -44,7 +44,9 @@ if (path.includes("product.html")) {
             <div class="col-md-6 description">
               <h2>${product.title}</h2>
               <div class="price">              
-                <span class="lessPrice text-danger">${"-" + discount + "%"}</span>
+                <span class="lessPrice text-danger">${
+                  "-" + discount + "%"
+                }</span>
                 <p>
                   ${
                     priceOld
@@ -53,7 +55,6 @@ if (path.includes("product.html")) {
                       : `<span class="text-success fw-bold">₹${newPrice}</span>`
                   }
                 </p>
-                <p>Total: ₹<span id="totalPrice">${newPrice}</span></p>
               </div>
               <div class="quantity-control my-2">
                 <button class="btnincDec btn btn-outline-secondary" id="decreaseBtn">-</button>
@@ -65,17 +66,31 @@ if (path.includes("product.html")) {
               </button>
               <hr/>
               <div class="prod-ablity">
-              <p>Size: 
-                      <select name="size" class="rounded">
-                        ${size.map((s) => `<option value="${s}">${s}</option>`).join("")}
-                      </select>
-              </p>
-
-              <p>Color: 
-                      <select name="color" class="rounded">
-                        ${color.map((c) => `<option value="${c}">${c}</option>`).join("")}
-                      </select>
-              </p>
+                ${
+                  showSize
+                    ? `
+                    <p>Size:
+                      <span class="d-inline-flex flex-wrap gap-2">
+                        ${size
+                          .map(
+                            (s, i) => `
+                            <input type="radio" class="btn-check" name="size" id="size-${i}" value="${s}" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="size-${i}">${s}</label>
+                          `
+                          )
+                          .join("")}
+                      </span>
+                    </p>
+                  `
+                  : "" 
+                }
+                <p>Color: 
+                  <select name="color" class="rounded">
+                    ${color
+                      .map((c) => `<option value="${c}">${c}</option>`)
+                      .join("")}
+                  </select>
+                </p>
               </div>
               <hr />
               <div class="otherDetails">
@@ -104,7 +119,6 @@ if (path.includes("product.html")) {
           });
           subImgContainer.appendChild(img);
         });
-
 
         const qtyEl = document.getElementById("quantity");
         const totalEl = document.getElementById("totalPrice");
