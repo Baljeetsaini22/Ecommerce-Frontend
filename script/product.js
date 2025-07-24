@@ -66,13 +66,13 @@ if (path.includes("product.html")) {
               <hr/>
               <div class="prod-ablity">
               <p>Size: 
-                      <select name="size">
+                      <select name="size" class="rounded">
                         ${size.map((s) => `<option value="${s}">${s}</option>`).join("")}
                       </select>
               </p>
 
               <p>Color: 
-                      <select name="color">
+                      <select name="color" class="rounded">
                         ${color.map((c) => `<option value="${c}">${c}</option>`).join("")}
                       </select>
               </p>
