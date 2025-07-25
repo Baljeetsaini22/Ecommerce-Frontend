@@ -1,3 +1,11 @@
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartCountEl = document.getElementById("cart-count");
+  if (cartCountEl) {
+    cartCountEl.textContent = cart.length;
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const cartContainer = document.getElementById("cart-container");
   const cartCounter = document.getElementById("cart-counter");
@@ -24,18 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let totalDiscount = 0;
-    let totalVal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+    let totalVal = 0;
 
     cart.forEach((item, index) => {
       const price = item.price * item.qty;
       const oldPrice = item.oldPrice ? item.oldPrice * item.qty : 0;
       const discount = oldPrice ? oldPrice - price : 0;
       totalDiscount += discount;
-      const shortTitle =
-        item.title.length > 22 ? item.title.slice(0, 22) + "..." : item.title;
+      totalVal += price;
+      const shortTitle = item.title.length > 22 ? item.title.slice(0, 22) + "..." : item.title;
 
       const div = document.createElement("div");
-      div.className = "cart-item ";
+      div.className = "cart-item";
       div.innerHTML = `
         <div><img src="${item.image}" alt="${item.title}" /></div>
         <div class="w-100 d-flex align-items-center justify-content-between">
@@ -44,18 +52,20 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="title-item">
                 <h4>${shortTitle}</h4>
                 <p>
-                  ${
-                    oldPrice
-                      ? `<del class="text-danger">₹${oldPrice}</del> <span class="text-success fw-bold">₹${price}</span>`
-                      : `<span class="text-success fw-bold">₹${price}</span>`
+                  ${oldPrice
+                    ? `<del class="text-danger">₹${oldPrice}</del> <span class="text-success fw-bold">₹${price}</span>`
+                    : `<span class="text-success fw-bold">₹${price}</span>`
                   }
                 </p>
                 <div class="d-flex gap-3 align-items-center">
-                  <span>${item.color ? `<p class="mb-1">Color: ${item.color}</p>` : ""}</span>
-                  <span>${item.size ? `<p class="mb-1">Size: ${item.size}</p>` : ""}</span>
+                  ${item.color ? `<p class="mb-1">Color: ${item.color}</p>` : ""}
+                  ${item.size
+                    ? `<p class="mb-1">Size: ${item.size}</p>`
+                    : item.storage
+                    ? `<p class="mb-1">Storage: ${item.storage}</p>` : ""}
                 </div>
               </div>
-            </a>            
+            </a>
           </div>
           <div class="mt-2 d-flex flex-column gap-3">
             <div class="inc-dec">
@@ -65,11 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <button class="remove-btn" data-index="${index}">🗑 Remove</button>
           </div>
-        </div>
-      `;
+        </div>`;
       cartContainer.appendChild(div);
 
-      const priceDisplay = oldPrice ? oldPrice : price;
+      const priceDisplay = oldPrice || price;
       cartCounter.innerHTML += `
         <div class="cart-right mb-1">
           <span>${index + 1}.</span>
@@ -81,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     totalPrice.innerHTML = `<span>₹${totalVal}</span>`;
     disPrice.innerHTML = `<span>-₹${totalDiscount}</span>`;
-
     attachButtonListeners();
   }
 
@@ -112,7 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (confirm("Remove this item from cart?")) {
           cart.splice(i, 1);
           saveAndRender();
-          window.location.reload()
         }
       });
     });
@@ -121,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function saveAndRender() {
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartDisplay();
+    updateCartCount();
   }
 
   if (checkoutBtn) {
@@ -135,5 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
   updateCartDisplay();
+  updateCartCount();
 });
