@@ -54,7 +54,7 @@ function inputSearch() {
     .then((res) => res.json())
     .then((data) => {
       const product = data.slice(0, 12);
-      productData = product
+      productData = product;
     });
 
   ShowDialog.addEventListener("click", function (e) {
@@ -153,8 +153,6 @@ function heroSlider() {
 }
 heroSlider();
 
-
-
 /**
  * @description Fetch product form api Product.json
  * @function loadProducts()
@@ -178,6 +176,8 @@ if (path.includes("index.html") || path === "/") {
           return (items.innerHTML = "<p>No products found.</p>");
 
         data.forEach((item) => {
+          const image = item.image || [];
+          const mainImage = Array.isArray(image) && image.length > 0 ? image[0] : "";
           const newPrice = Number(item.price.toString().replace(/,/g, ""));
           const prePrice = Number(item.oldPrice.toString().replace(/,/g, ""));
           const title =
@@ -194,7 +194,7 @@ if (path.includes("index.html") || path === "/") {
               }' class="card-body text-black p-3">
                 <div class="d-flex flex-column gap-2 justify-content-between">
                   <div class="image-cartBtn">
-                    <img src="${item.image}" alt="${item.title}" loading="lazy"
+                    <img src="${mainImage}" alt="${item.title}" loading="lazy"
                         class="item-img" />
                   </div>
                   <div style="min-height: 80px;">
@@ -245,7 +245,6 @@ function goToTopBtn() {
   });
 }
 goToTopBtn();
-
 
 import {
   getAuth,

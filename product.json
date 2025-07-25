@@ -6,17 +6,31 @@
     "oldPrice": "2,299",
     "price": "1,499",
     "brand": "Peter England",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/i/v/5/40-pxsfpssfs08927-peter-england-original-imagut3gyghwy79v.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/i/v/5/40-pxsfpssfs08927-peter-england-original-imagut3gyghwy79v.jpeg"
+    ],
     "isNew": true,
     "category": "Men",
-    "color": ["Black"],
+    "storage": [""],
     "size": ["M", "L", "XL"],
     "modelName": "SlimFit Cotton",
     "related": "CLoth",
+    "color": ["Black", "Green"],
+    "catalog": [
+      {
+        "black": 
+          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/i/v/5/40-pxsfpssfs08927-peter-england-original-imagut3gyghwy79v.jpeg"
+        ,
+        "green": 
+          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/d/s/q/40-pxsfpssff00102-peter-england-original-imagut3hwbxfmvgf.jpeg"
+        
+      }
+    ],
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/e/s/c/40-pxsfpssfs08927-peter-england-original-imagut3gezuhpgv7.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/t/k/w/40-pxsfpssfs08927-peter-england-original-imagut3gm7gbfnue.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/4/q/7/40-pxsfpssfs08927-peter-england-original-imagut3gckr2brfu.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/e/s/c/40-pxsfpssfs08927-peter-england-original-imagut3gezuhpgv7.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/t/k/w/40-pxsfpssfs08927-peter-england-original-imagut3gm7gbfnue.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/4/q/7/40-pxsfpssfs08927-peter-england-original-imagut3gckr2brfu.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/i/u/z/40-pxsfpssff00102-peter-england-original-imagut3hcwfdzdqe.jpeg"
     ]
   },
   {
@@ -26,18 +40,33 @@
     "oldPrice": "1,34,999",
     "price": "85,999",
     "brand": "Samsung",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/y/e/8/-original-imahyvntxfrpuw6g.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/y/e/8/-original-imahyvntxfrpuw6g.jpeg"
+    ],
     "isNew": true,
     "category": "Electronices",
-    "color": ["Titanium Black"],
+    "storage": ["12/256", "12/512"],
     "size": "",
     "modelName": "Galaxy S24 Ultra 5G",
     "related": "Mobile",
+    "color": ["Titanium Black", "Titanium Yellow"],
+    "catalog": [
+      {
+        "Titanium Black": [
+          "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/y/e/8/-original-imahyvntxfrpuw6g.jpeg"
+        ]
+      },
+      {
+        "Titanium Yellow": [
+          "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/5/g/l/-original-imah2yyfxkbhrgbz.jpeg"
+        ]
+      }
+    ],
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/t/q/k/-original-imagx9pff4gxepfy.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/r/f/y/-original-imagx9pf7dd5ny7n.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/x/0/z/-original-imagx9pghjasnh75.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/w/c/c/-original-imagx9egf2vuraf3.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/t/q/k/-original-imagx9pff4gxepfy.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/r/f/y/-original-imagx9pf7dd5ny7n.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/x/0/z/-original-imagx9pghjasnh75.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/w/c/c/-original-imagx9egf2vuraf3.jpeg"
     ]
   },
   {
@@ -47,27 +76,53 @@
     "oldPrice": "1,59,900",
     "price": "1,47,990",
     "brand": "Apple",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/y/m/i/-original-imah4jz66pzdzy4z.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/y/m/i/-original-imah4jz66pzdzy4z.jpeg"
+    ],
     "isNew": true,
     "category": "Electronics",
     "color": ["Black Titanium"],
-    "size": "",
+    "storage": "512",
     "modelName": "iPhone 16 Pro Max",
     "related": "Mobile",
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/0/1/c/-original-imahb4mudzkcggyh.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/0/7/e/-original-imahb4mumpgykgqe.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/h/j/f/-original-imah4jywzggxndyg.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/0/1/c/-original-imahb4mudzkcggyh.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/0/7/e/-original-imahb4mumpgykgqe.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/h/j/f/-original-imah4jywzggxndyg.jpeg"
     ]
   },
   {
     "_id": 3,
+    "title": "Women Solid Round Neck Polyester Black T-Shirt",
+    "des": "Black shimmer stretchable t-shirt for women, perfect for evening wear and celebrations.",
+    "oldPrice": "1,499",
+    "price": "547",
+    "brand": "RIMZIM",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/v/r/u/s-rimzim3-rimzim-original-imahd5x3ybxke5ju.jpeg"
+    ],
+    "isNew": true,
+    "category": "Women",
+    "color": ["Black"],
+    "size": ["M", "L", "XL"],
+    "modelName": "Shimmer Party Tee",
+    "related": "Cloth",
+    "subImage": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/9/3/c/s-rimzim3-rimzim-original-imahd5x3mvh4g9e4.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/m/k/f/s-rimzim3-rimzim-original-imahd5x3hpdcmb8y.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/d/e/k/s-rimzim3-rimzim-original-imahd5x33yguegyk.jpeg"
+    ]
+  },
+  {
+    "_id": 4,
     "title": "SONY WH-1000XM4 Bluetooth Gaming",
     "des": "You can enjoy an optimised listening experience with the Sony WH-1000XM4 Bluetooth Headphones. With their Digital Noise Cancellation, these headphones allow you to clearly hear every tune, note, and word with clarity despite your surroundings. Additionally, incorporating Dual Noise Sensor technology and featuring up to two microphones on each earcup, these headphones effectively capture ambient sounds and transmit the data to the HD Noise Cancelling Processor QN1. Also, these headphones provide enhanced call quality through their incorporation of up to five inbuilt microphones and sophisticated audio signal processing technology.",
     "oldPrice": "29,999",
     "price": "19,890",
     "brand": "Sony",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/t/0/c/-original-imah28h3qdnerykz.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/t/0/c/-original-imah28h3qdnerykz.jpeg"
+    ],
     "isNew": true,
     "category": "Electronics",
     "color": ["Silver"],
@@ -75,29 +130,9 @@
     "modelName": "WH-1000XM5",
     "related": "Earphone",
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/l1dwknk0/headphone/u/b/h/wh-1000xm4-sony-original-imagcywfw6zh4weq.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/l1dwknk0/headphone/o/k/s/wh-1000xm4-sony-original-imagcywfbvzqn5ba.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/l1dwknk0/headphone/i/a/3/wh-1000xm4-sony-original-imagcywfqqenhhxb.jpeg?q=70"
-    ]
-  },
-  {
-    "_id": 4,
-    "title": "DELL G15 Laptop",
-    "des": "DELL G15 Intel Core i9 13th Gen 13900HX - (16 GB/1 TB SSD/Windows 11 Home/8 GB Graphics/NVIDIA GeForce RTX 4060/165 Hz) 5530 Gaming Laptop  (15.6 Inch, Dark Shadow Gray With Black Thermal Shelf, 2.65 Kg, With MS Office).",
-    "oldPrice": "1,98,990",
-    "price": "1,81,999",
-    "brand": "Dell",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/g/8/c/-original-imahcnjyj3zupmfg.jpeg?q=70",
-    "isNew": true,
-    "category": "Electronics",
-    "color": ["Black"],
-    "size": "",
-    "modelName": "XPS 13 Plus",
-    "related": "Laptop",
-    "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/r/w/z/-original-imahcnjyc6dkqbw9.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/e/t/f/g15-5530-gaming-laptop-dell-original-imah8hhzjqbhsjnj.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/c/v/d/g15-5530-gaming-laptop-dell-original-imah8hhzbxku4gmb.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/l1dwknk0/headphone/u/b/h/wh-1000xm4-sony-original-imagcywfw6zh4weq.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/l1dwknk0/headphone/o/k/s/wh-1000xm4-sony-original-imagcywfbvzqn5ba.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/l1dwknk0/headphone/i/a/3/wh-1000xm4-sony-original-imagcywfqqenhhxb.jpeg"
     ]
   },
   {
@@ -107,7 +142,9 @@
     "oldPrice": "13,999",
     "price": "1,999",
     "brand": "boAt",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/g/h/k/-original-imah5vq5gzkeh5uk.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/g/h/k/-original-imah5vq5gzkeh5uk.jpeg"
+    ],
     "isNew": true,
     "category": "Electronics",
     "color": ["Rose Quartz"],
@@ -115,9 +152,9 @@
     "modelName": "Ion ANC Pro",
     "related": "Earphone",
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/g/x/s/-original-imah7gb7tkrbwwws.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/v/3/2/-original-imahby5vjsz6vczj.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/e/l/f/-original-imahby5vrcdezwse.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/g/x/s/-original-imah7gb7tkrbwwws.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/v/3/2/-original-imahby5vjsz6vczj.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/e/l/f/-original-imahby5vrcdezwse.jpeg"
     ]
   },
   {
@@ -127,7 +164,9 @@
     "oldPrice": "1,19,995",
     "price": "98,499",
     "brand": "Canon",
-    "image": "https://rukminim2.flixcart.com/image/832/832/l5fnhjk0/dslr-camera/f/t/m/eos-r10-24-2-r10-canon-original-imagg42fsbgv79da.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/l5fnhjk0/dslr-camera/f/t/m/eos-r10-24-2-r10-canon-original-imagg42fsbgv79da.jpeg"
+    ],
     "isNew": true,
     "category": "Electronics",
     "color": ["Black"],
@@ -135,9 +174,9 @@
     "modelName": "EOS R10",
     "related": "Camera",
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/l5fnhjk0/dslr-camera/2/c/q/eos-r10-24-2-r10-canon-original-imagg42fgrgstzks.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/l5fnhjk0/dslr-camera/z/e/u/eos-r10-24-2-r10-canon-original-imagg42fuyju6jbb.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/dslr-camera/d/e/h/-original-imaggjusqbj7rgq9.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/l5fnhjk0/dslr-camera/2/c/q/eos-r10-24-2-r10-canon-original-imagg42fgrgstzks.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/l5fnhjk0/dslr-camera/z/e/u/eos-r10-24-2-r10-canon-original-imagg42fuyju6jbb.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/dslr-camera/d/e/h/-original-imaggjusqbj7rgq9.jpeg"
     ]
   },
   {
@@ -147,7 +186,9 @@
     "oldPrice": "24,999",
     "price": "23,999",
     "brand": "OnePlus",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/6/z/x/nord-ce4-cph2613-oneplus-original-imagzn8vddauqjhx.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/6/z/x/nord-ce4-cph2613-oneplus-original-imagzn8vddauqjhx.jpeg"
+    ],
     "isNew": true,
     "category": "Electronics",
     "color": ["Celadon Marble"],
@@ -155,9 +196,9 @@
     "modelName": "Nord CE 4 5G",
     "related": "Mobile",
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/h/l/g/nord-ce4-cph2613-oneplus-original-imagzn8vbj5bfnzf.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/u/n/q/nord-ce4-cph2613-oneplus-original-imagznc5zjxkyjx2.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/q/7/q/nord-ce4-cph2613-oneplus-original-imagzn8vc4xakydq.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/h/l/g/nord-ce4-cph2613-oneplus-original-imagzn8vbj5bfnzf.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/u/n/q/nord-ce4-cph2613-oneplus-original-imagznc5zjxkyjx2.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/q/7/q/nord-ce4-cph2613-oneplus-original-imagzn8vc4xakydq.jpeg"
     ]
   },
   {
@@ -167,7 +208,9 @@
     "oldPrice": "1,10,999",
     "price": "1,10,999",
     "brand": "HP",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/r/f/l/-original-imahcd9jeht8agfp.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/r/f/l/-original-imahcd9jeht8agfp.jpeg"
+    ],
     "isNew": true,
     "category": "Electronics",
     "color": ["Nightfall Black"],
@@ -175,9 +218,9 @@
     "modelName": "Envy x360",
     "related": "Laptop",
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/e/m/0/-original-imahcd9jhy2vczdh.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/b/w/s/-original-imahcd9jafq3sncj.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/g/r/q/-original-imahcd9jfdfghyds.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/e/m/0/-original-imahcd9jhy2vczdh.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/b/w/s/-original-imahcd9jafq3sncj.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/g/r/q/-original-imahcd9jfdfghyds.jpeg"
     ]
   },
   {
@@ -187,7 +230,9 @@
     "oldPrice": "1,59,999",
     "price": "1,29,999",
     "brand": "JBL",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/w/y/r/-original-imahfcgxyahvyht6.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/w/y/r/-original-imahfcgxyahvyht6.jpeg"
+    ],
     "isNew": true,
     "category": "Electronics",
     "color": ["Black"],
@@ -195,9 +240,9 @@
     "modelName": "Bar 1300 True Dolby Atmos with,DTS:X,MultiBeam,10 Subwoofer,HDMI",
     "related": "Speaker",
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/b/a/x/-original-imags9j5q6nqfj9z.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/f/n/x/-original-imags9j5ryfjmzhz.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/o/r/m/-original-imags9j5jww77u3g.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/b/a/x/-original-imags9j5q6nqfj9z.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/f/n/x/-original-imags9j5ryfjmzhz.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/o/r/m/-original-imags9j5jww77u3g.jpeg"
     ]
   },
   {
@@ -207,7 +252,9 @@
     "oldPrice": "44,990",
     "price": "32,999",
     "brand": "Samsung",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/television/u/v/o/-original-imah2v2gamua43wz.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/television/u/v/o/-original-imah2v2gamua43wz.jpeg"
+    ],
     "isNew": true,
     "category": "Electronics",
     "color": ["Black"],
@@ -215,9 +262,9 @@
     "modelName": "Crystal 4K Vision Pro UA43DUE76AKLXL",
     "related": "LED",
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/television/k/i/u/-original-imah3fhyk8y76v8p.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/television/v/o/5/-original-imah45eczvmdwfxm.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/television/b/j/i/-original-imaha8fsgvhtzaku.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/television/k/i/u/-original-imah3fhyk8y76v8p.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/television/v/o/5/-original-imah45eczvmdwfxm.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/television/b/j/i/-original-imaha8fsgvhtzaku.jpeg"
     ]
   },
   {
@@ -227,7 +274,9 @@
     "oldPrice": "2,999",
     "price": "1,999",
     "brand": "i-bag",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/hand-messenger-bag/k/p/v/messenger-bag-15-6-mb-06-messenger-bag-i-bag-12-original-imagh8bhdbewb2su.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/hand-messenger-bag/k/p/v/messenger-bag-15-6-mb-06-messenger-bag-i-bag-12-original-imagh8bhdbewb2su.jpeg"
+    ],
     "isNew": true,
     "category": "Office Bag",
     "color": ["Black"],
@@ -235,9 +284,9 @@
     "modelName": "ExecPro Leather 15.6”",
     "related": "Bag",
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/hand-messenger-bag/a/2/l/messenger-bag-15-6-mb-06-messenger-bag-i-bag-12-original-imagh8bhjf3zz4sw.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/hand-messenger-bag/1/b/9/messenger-bag-15-6-mb-06-messenger-bag-i-bag-12-original-imagh8bhyxscbkyj.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/hand-messenger-bag/q/0/u/messenger-bag-15-6-mb-06-messenger-bag-i-bag-12-original-imagh8bhkmwuv8g4.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/hand-messenger-bag/a/2/l/messenger-bag-15-6-mb-06-messenger-bag-i-bag-12-original-imagh8bhjf3zz4sw.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/hand-messenger-bag/1/b/9/messenger-bag-15-6-mb-06-messenger-bag-i-bag-12-original-imagh8bhyxscbkyj.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/hand-messenger-bag/q/0/u/messenger-bag-15-6-mb-06-messenger-bag-i-bag-12-original-imagh8bhkmwuv8g4.jpeg"
     ]
   },
   {
@@ -247,7 +296,9 @@
     "oldPrice": "8,699",
     "price": "5,299",
     "brand": "Timex",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/x/s/k/1-tweg294smu01-timex-men-original-imahdwdsxtd8ngtf.jpeg",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/x/s/k/1-tweg294smu01-timex-men-original-imahdwdsxtd8ngtf.jpeg"
+    ],
     "isNew": true,
     "category": "Men",
     "color": ["Black"],
@@ -267,7 +318,9 @@
     "oldPrice": "2,999",
     "price": "999",
     "brand": "Van Heusen",
-    "image": "https://rukminim2.flixcart.com/image/832/832/l4u7vrk0/trouser/i/h/o/28-8008-black-broadstar-original-imagfngtekgwu65k.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/l4u7vrk0/trouser/i/h/o/28-8008-black-broadstar-original-imagfngtekgwu65k.jpeg"
+    ],
     "isNew": true,
     "category": "Women",
     "color": ["Black"],
@@ -275,9 +328,9 @@
     "modelName": "Stretch Fit Trousers",
     "related": "Cloth",
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/l4u7vrk0/trouser/g/t/n/28-8008-black-broadstar-original-imagfngtcw3brfz4.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/l4u7vrk0/trouser/f/f/q/28-8008-black-broadstar-original-imagfngt6ghfdmpg.jpeg?q=70",
-      "https://rukminim2.flixcart.com/image/832/832/l4u7vrk0/trouser/h/1/t/28-8008-black-broadstar-original-imagfngtmrda24g2.jpeg?q=70"
+      "https://rukminim2.flixcart.com/image/832/832/l4u7vrk0/trouser/g/t/n/28-8008-black-broadstar-original-imagfngtcw3brfz4.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/l4u7vrk0/trouser/f/f/q/28-8008-black-broadstar-original-imagfngt6ghfdmpg.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/l4u7vrk0/trouser/h/1/t/28-8008-black-broadstar-original-imagfngtmrda24g2.jpeg"
     ]
   },
   {
@@ -287,7 +340,9 @@
     "oldPrice": "2,100",
     "price": "1,989",
     "brand": "Fastrack",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/sunglass/e/u/c/medium-m260bk2v-fastrack-original-imaguwbfwcsk49y8.jpeg?q=70",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/sunglass/e/u/c/medium-m260bk2v-fastrack-original-imaguwbfwcsk49y8.jpeg"
+    ],
     "isNew": true,
     "category": "Glasses",
     "color": ["Black"],
@@ -307,7 +362,9 @@
     "oldPrice": "999",
     "price": "479",
     "brand": "HRX",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/m/4/x/xl-22086504-hrx-by-hrithik-roshan-original-imah4h9fvpnbmxdw.jpeg",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/m/4/x/xl-22086504-hrx-by-hrithik-roshan-original-imah4h9fvpnbmxdw.jpeg"
+    ],
     "isNew": true,
     "category": "Men",
     "color": ["Black"],
@@ -326,7 +383,9 @@
     "oldPrice": "3,799",
     "price": "2,095",
     "brand": "Tokyo Talkies",
-    "image": "https://rukminim2.flixcart.com/image/832/832/ko7idu80/jacket/x/9/v/xl-ttjk001228-tokyo-talkies-original-imag2pp2gfhr8n8n.jpeg",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/ko7idu80/jacket/x/9/v/xl-ttjk001228-tokyo-talkies-original-imag2pp2gfhr8n8n.jpeg"
+    ],
     "isNew": true,
     "category": "Women",
     "color": ["Black"],
@@ -342,22 +401,24 @@
 
   {
     "_id": 17,
-    "title": "Women Solid Round Neck Polyester Black T-Shirt",
-    "des": "Black shimmer stretchable t-shirt for women, perfect for evening wear and celebrations.",
-    "oldPrice": "1,499",
-    "price": "547",
-    "brand": "RIMZIM",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/v/r/u/s-rimzim3-rimzim-original-imahd5x3ybxke5ju.jpeg",
+    "title": "DELL G15 Laptop",
+    "des": "DELL G15 Intel Core i9 13th Gen 13900HX - (16 GB/1 TB SSD/Windows 11 Home/8 GB Graphics/NVIDIA GeForce RTX 4060/165 Hz) 5530 Gaming Laptop  (15.6 Inch, Dark Shadow Gray With Black Thermal Shelf, 2.65 Kg, With MS Office).",
+    "oldPrice": "1,98,990",
+    "price": "1,81,999",
+    "brand": "Dell",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/g/8/c/-original-imahcnjyj3zupmfg.jpeg"
+    ],
     "isNew": true,
-    "category": "Women",
+    "category": "Electronics",
     "color": ["Black"],
-    "size": ["M", "L", "XL"],
-    "modelName": "Shimmer Party Tee",
-    "related": "Cloth",
+    "size": "",
+    "modelName": "XPS 13 Plus",
+    "related": "Laptop",
     "subImage": [
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/9/3/c/s-rimzim3-rimzim-original-imahd5x3mvh4g9e4.jpeg",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/m/k/f/s-rimzim3-rimzim-original-imahd5x3hpdcmb8y.jpeg",
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/d/e/k/s-rimzim3-rimzim-original-imahd5x33yguegyk.jpeg"
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/r/w/z/-original-imahcnjyc6dkqbw9.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/e/t/f/g15-5530-gaming-laptop-dell-original-imah8hhzjqbhsjnj.jpeg",
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/c/v/d/g15-5530-gaming-laptop-dell-original-imah8hhzbxku4gmb.jpeg"
     ]
   },
   {
@@ -367,7 +428,9 @@
     "oldPrice": "2,499",
     "price": "1,599",
     "brand": "RED TAPE",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/jacket/j/u/m/xl-1-no-rfj1075a-red-tape-original-imah8fvhrzdph88z.jpeg",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/jacket/j/u/m/xl-1-no-rfj1075a-red-tape-original-imah8fvhrzdph88z.jpeg"
+    ],
     "isNew": true,
     "category": "Men",
     "color": ["Red"],
@@ -387,7 +450,9 @@
     "oldPrice": "6,345",
     "price": "6,345",
     "brand": "Titan Raga",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/t/o/y/-original-imahc7asuyhhshkw.jpeg",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/t/o/y/-original-imahc7asuyhhshkw.jpeg"
+    ],
     "isNew": true,
     "category": "Women",
     "color": ["Gold"],
@@ -407,7 +472,9 @@
     "oldPrice": "34,999",
     "price": "26,999",
     "brand": "Infinix",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/4/x/r/-original-imahddjyr6ch3xev.jpeg",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/4/x/r/-original-imahddjyr6ch3xev.jpeg"
+    ],
     "isNew": true,
     "category": "Electronics",
     "color": ["Blade White"],
@@ -428,7 +495,9 @@
     "oldPrice": "71,999",
     "price": "44,990",
     "brand": "LG",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/television/t/o/w/-original-imahdzrcs8gx7crw.jpeg",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/television/t/o/w/-original-imahdzrcs8gx7crw.jpeg"
+    ],
     "isNew": true,
     "category": "Electronics",
     "color": ["Blade White"],
@@ -449,7 +518,9 @@
     "oldPrice": "2,999",
     "price": "1,399",
     "brand": "U.S. POLO ASSN. ",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/v/3/e/46-ussht2387-u-s-polo-assn-original-imah6h84bgmqgxfd.jpeg",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/v/3/e/46-ussht2387-u-s-polo-assn-original-imah6h84bgmqgxfd.jpeg"
+    ],
     "isNew": true,
     "category": "Men",
     "color": ["grayish-brown"],
@@ -469,7 +540,9 @@
     "oldPrice": "2,910",
     "price": "1,959",
     "brand": "PETER ENGLAND ",
-    "image": "https://rukminim2.flixcart.com/image/832/832/xif0q/track-pant/f/x/n/28-pjtfasmfo34042-peter-england-original-imagq44peerjnzgf.jpeg",
+    "image": [
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/track-pant/f/x/n/28-pjtfasmfo34042-peter-england-original-imagq44peerjnzgf.jpeg"
+    ],
     "isNew": true,
     "category": "Electronics",
     "color": ["Blade White"],

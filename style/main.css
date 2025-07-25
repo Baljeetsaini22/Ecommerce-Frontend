@@ -193,16 +193,17 @@ a {
 }
 
 .item {
-  border: 1px solid #333;
+  /* background-color: rgba(189, 189, 189, 0.116); */
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
   border-radius: 1rem;
   animation: doup 1.5s forwards;
-  opacity: 0.7;
+  opacity: 0.8;
 
   &:hover {
     transition: all 0.5s ease-in-out;
     transform: scale(0.95);
     opacity: 1;
-    box-shadow: 0 0 10px;
   }
 }
 @keyframes doup {

@@ -30,7 +30,6 @@ function renderCartItems() {
   if (cart.length === 0) {
     orderDetails.innerHTML = `<p class="text-muted">Your cart is empty.</p>`;
     orderSummary.innerHTML = `<p class="text-muted">No items in cart</p>`;
-    form.style.display = "none";
     totalPrice.innerHTML = `<p>₹0</p>`;
     return;
   }
@@ -57,9 +56,12 @@ function renderCartItems() {
 
 function updateSummary() {
   const totalVal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const totalOld = cart.reduce((sum, item) => sum + item.oldPrice * item.qty, 0);
+  const totalOld = cart.reduce(
+    (sum, item) => sum + item.oldPrice * item.qty,
+    0
+  );
   const save = totalOld - totalVal;
-  
+
   orderSummary.innerHTML = `
     <div class="d-flex justify-content-between align-items-center">
       <p class="mb-1">Products (${cart.length} items)</p>
@@ -71,7 +73,7 @@ function updateSummary() {
     </div>
   `;
   totalPrice.innerHTML = `<p class="fs-4 fw-bold">₹${totalVal + 50}</p>`;
-  discount.innerHTML = `<span>You will save ₹${save} on this order</span>`
+  discount.innerHTML = `<span>You will save ₹${save} on this order</span>`;
 }
 
 function togglePaymentSections() {
@@ -91,80 +93,84 @@ function togglePaymentSections() {
 }
 
 form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+  if (cart.length === 0) {
+    e.preventDefault(); 
+    alert("Your cart is empty. Please add items before confirming the order.");
+  } else {
+    if (!form.checkValidity()) {
+      form.reportValidity();
 
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
-
-  const paymentMethod = document.querySelector(
-    'input[name="paymentMethod"]:checked'
-  ).value;
-  const totalVal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const totalPayable = totalVal + 50;
-
-  if (paymentMethod === "UPI") {
-    const upiID = document.getElementById("upiID").value.trim();
-    if (!upiID) return alert("Please enter a valid UPI ID.");
-    if (!confirm(`Pay ₹${totalPayable} from ${upiID}?`)) return;
-  } else if (paymentMethod === "Card") {
-    const cardNumber = document.getElementById("cardNumber").value.trim();
-    const cardExpiry = document.getElementById("cardExpiry").value.trim();
-    const cardCVV = document.getElementById("cardCVV").value.trim();
-    if (!cardNumber || !cardExpiry || !cardCVV)
-      return alert("Fill in all card details.");
-    if (
-      !confirm(
-        `Pay ₹${totalPayable} using card ending with ${cardNumber.slice(-4)}?`
-      )
-    )
       return;
-  } else if (paymentMethod === "NetBanking") {
-    const bankName = document.getElementById("bankName").value.trim();
-    const bankState = document.getElementById("bankState").value.trim();
-    const bankCity = document.getElementById("bankCity").value.trim();
-    if (!bankName || !bankState || !bankCity)
-      return alert("Fill in all net banking details.");
-    if (!confirm(`Pay ₹${totalPayable} via ${bankName} NetBanking?`)) return;
-  }
+    }
 
-  const userDetails = {
-    fullName: form.fullName.value.trim(),
-    email: form.email.value.trim(),
-    mobile: form.mobile.value.trim(),
-    pincode: form.pincode.value.trim(),
-    address: form.address.value.trim(),
-    city: form.city.value.trim(),
-    state: form.state.value.trim(),
-    country: form.country.value.trim(),
-    additionalInfo: form.additionalInfo.value.trim(),
-    paymentMethod,
-    cart,
-    totalPayable,
-    createdAt: serverTimestamp(),
-  };
+    const paymentMethod = document.querySelector(
+      'input[name="paymentMethod"]:checked'
+    ).value;
+    const totalVal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+    const totalPayable = totalVal + 50;
 
-  if (paymentMethod === "UPI") userDetails.upiID = form.upiID.value.trim();
-  else if (paymentMethod === "Card") {
-    userDetails.cardNumber = form.cardNumber.value.trim();
-    userDetails.cardExpiry = form.cardExpiry.value.trim();
-    userDetails.cardCVV = form.cardCVV.value.trim();
-  } else if (paymentMethod === "NetBanking") {
-    userDetails.bankName = form.bankName.value.trim();
-    userDetails.bankState = form.bankState.value.trim();
-    userDetails.bankCity = form.bankCity.value.trim();
-  }
-  try {
-    await addDoc(collection(db, "orders"), userDetails);
-    alert("Order placed successfully! Thank you for shopping with us.");
-    form.reset();
-    localStorage.removeItem("cart");
-    togglePaymentSections();
-    location.reload();
-  } catch (error) {
-    console.error("Error saving to Firebase:", error);
-    alert("Failed to place order.");
+    if (paymentMethod === "UPI") {
+      const upiID = document.getElementById("upiID").value.trim();
+      if (!upiID) return alert("Please enter a valid UPI ID.");
+      if (!confirm(`Pay ₹${totalPayable} from ${upiID}?`)) return;
+    } else if (paymentMethod === "Card") {
+      const cardNumber = document.getElementById("cardNumber").value.trim();
+      const cardExpiry = document.getElementById("cardExpiry").value.trim();
+      const cardCVV = document.getElementById("cardCVV").value.trim();
+      if (!cardNumber || !cardExpiry || !cardCVV)
+        return alert("Fill in all card details.");
+      if (
+        !confirm(
+          `Pay ₹${totalPayable} using card ending with ${cardNumber.slice(-4)}?`
+        )
+      )
+        return;
+    } else if (paymentMethod === "NetBanking") {
+      const bankName = document.getElementById("bankName").value.trim();
+      const bankState = document.getElementById("bankState").value.trim();
+      const bankCity = document.getElementById("bankCity").value.trim();
+      if (!bankName || !bankState || !bankCity)
+        return alert("Fill in all net banking details.");
+      if (!confirm(`Pay ₹${totalPayable} via ${bankName} NetBanking?`)) return;
+    }
+
+    const userDetails = {
+      fullName: form.fullName.value.trim(),
+      email: form.email.value.trim(),
+      mobile: form.mobile.value.trim(),
+      pincode: form.pincode.value.trim(),
+      address: form.address.value.trim(),
+      city: form.city.value.trim(),
+      state: form.state.value.trim(),
+      country: form.country.value.trim(),
+      additionalInfo: form.additionalInfo.value.trim(),
+      paymentMethod,
+      cart,
+      totalPayable,
+      createdAt: serverTimestamp(),
+    };
+
+    if (paymentMethod === "UPI") userDetails.upiID = form.upiID.value.trim();
+    else if (paymentMethod === "Card") {
+      userDetails.cardNumber = form.cardNumber.value.trim();
+      userDetails.cardExpiry = form.cardExpiry.value.trim();
+      userDetails.cardCVV = form.cardCVV.value.trim();
+    } else if (paymentMethod === "NetBanking") {
+      userDetails.bankName = form.bankName.value.trim();
+      userDetails.bankState = form.bankState.value.trim();
+      userDetails.bankCity = form.bankCity.value.trim();
+    }
+    try {
+      await addDoc(collection(db, "orders"), userDetails);
+      alert("Order placed successfully! Thank you for shopping with us.");
+      form.reset();
+      localStorage.removeItem("cart");
+      togglePaymentSections();
+      location.reload();
+    } catch (error) {
+      console.error("Error saving to Firebase:", error);
+      alert("Failed to place order.");
+    }
   }
 });
 
