@@ -53,8 +53,7 @@ function inputSearch() {
   fetch("/product.json")
     .then((res) => res.json())
     .then((data) => {
-      const product = data.slice(0, 12);
-      productData = product;
+      productData = data;
     });
 
   ShowDialog.addEventListener("click", function (e) {
@@ -171,11 +170,12 @@ if (path.includes("index.html") || path === "/") {
     fetch("/product.json")
       .then((res) => res.json())
       .then((data) => {
+        const prouct = data.slice(0, 12)
         loading.style.display = "none";
         if (!data.length)
           return (items.innerHTML = "<p>No products found.</p>");
 
-        data.forEach((item) => {
+        prouct.map((item) => {
           const image = item.image || [];
           const mainImage = Array.isArray(image) && image.length > 0 ? image[0] : "";
           const newPrice = Number(item.price.toString().replace(/,/g, ""));

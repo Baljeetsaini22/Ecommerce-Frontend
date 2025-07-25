@@ -45,7 +45,7 @@
     ],
     "isNew": true,
     "category": "Electronices",
-    "storage": ["12/256", "12/512"],
+    "storage": ["12/256"],
     "size": "",
     "modelName": "Galaxy S24 Ultra 5G",
     "related": "Mobile",
@@ -73,8 +73,8 @@
     "_id": 2,
     "title": "Apple iPhone 16 Pro Max",
     "des": "iPhone 16 Pro Max. Built for Apple Intelligence. Featuring a stunning titanium design. Camera Control. 4K 120 fps Dolby Vision. And A18 Pro chip.",
-    "oldPrice": "1,59,900",
-    "price": "1,47,990",
+    "oldPrice": "1,64,900",
+    "price": "1,57,990",
     "brand": "Apple",
     "image": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/y/m/i/-original-imah4jz66pzdzy4z.jpeg"
@@ -82,7 +82,7 @@
     "isNew": true,
     "category": "Electronics",
     "color": ["Black Titanium"],
-    "storage": "512",
+    "storage": ["512"],
     "modelName": "iPhone 16 Pro Max",
     "related": "Mobile",
     "subImage": [
@@ -184,7 +184,7 @@
     "title": "OnePlus Nord CE 4 5G",
     "des": "The Qulcomm Snapdragon 7 Gen 3 chipset not only gives your Nord CE4 silly levels of OnePlus Fast and Smooth performance, but it also guards your battery life and maximizes power efficiency. What's more? You get to experience blazing download speeds up to 5Gbps deliver unceasing mobile gaming, work-from-anywhere productivity, and more OnePlus Nord CE4 comes in 2 colorways - Celadon Marble, a first for Nord and Da, our signature variant. Oh, and it’s mega-durable… This phone’s bezel material is so tough, it’s thinking of taking up cage fighting. Seriously, we dropped it 1.5 meters onto marble, and it survived2. That’s tough as nails! Battery & Charging: The most powerful fast charging in Nord history, with 100W SuperVOOC charging and 5500mAh Battery.",
     "oldPrice": "24,999",
-    "price": "23,999",
+    "price": "22,999",
     "brand": "OnePlus",
     "image": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/6/z/x/nord-ce4-cph2613-oneplus-original-imagzn8vddauqjhx.jpeg"
@@ -192,7 +192,7 @@
     "isNew": true,
     "category": "Electronics",
     "color": ["Celadon Marble"],
-    "size": "",
+    "storage": ["8/128"],
     "modelName": "Nord CE 4 5G",
     "related": "Mobile",
     "subImage": [
