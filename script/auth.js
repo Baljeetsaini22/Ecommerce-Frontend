@@ -134,7 +134,7 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
     });
 
     alert("Signup successful!");
-    showLogin();
+    window.location.href = "/";
   } catch (error) {
     alert("Signup Error: " + error.message);
   }
