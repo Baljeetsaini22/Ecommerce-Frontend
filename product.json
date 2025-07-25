@@ -14,16 +14,11 @@
     "storage": [""],
     "size": ["M", "L", "XL"],
     "modelName": "SlimFit Cotton",
-    "related": "CLoth",
     "color": ["Black", "Green"],
     "catalog": [
       {
-        "black": 
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/i/v/5/40-pxsfpssfs08927-peter-england-original-imagut3gyghwy79v.jpeg"
-        ,
-        "green": 
-          "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/d/s/q/40-pxsfpssff00102-peter-england-original-imagut3hwbxfmvgf.jpeg"
-        
+        "black": "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/i/v/5/40-pxsfpssfs08927-peter-england-original-imagut3gyghwy79v.jpeg",
+        "green": "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/d/s/q/40-pxsfpssff00102-peter-england-original-imagut3hwbxfmvgf.jpeg"
       }
     ],
     "subImage": [
@@ -48,7 +43,6 @@
     "storage": ["12/256"],
     "size": "",
     "modelName": "Galaxy S24 Ultra 5G",
-    "related": "Mobile",
     "color": ["Titanium Black", "Titanium Yellow"],
     "catalog": [
       {
@@ -84,7 +78,6 @@
     "color": ["Black Titanium"],
     "storage": ["512"],
     "modelName": "iPhone 16 Pro Max",
-    "related": "Mobile",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/0/1/c/-original-imahb4mudzkcggyh.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/0/7/e/-original-imahb4mumpgykgqe.jpeg",
@@ -106,7 +99,6 @@
     "color": ["Black"],
     "size": ["M", "L", "XL"],
     "modelName": "Shimmer Party Tee",
-    "related": "Cloth",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/9/3/c/s-rimzim3-rimzim-original-imahd5x3mvh4g9e4.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/m/k/f/s-rimzim3-rimzim-original-imahd5x3hpdcmb8y.jpeg",
@@ -128,7 +120,6 @@
     "color": ["Silver"],
     "size": "",
     "modelName": "WH-1000XM5",
-    "related": "Earphone",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/l1dwknk0/headphone/u/b/h/wh-1000xm4-sony-original-imagcywfw6zh4weq.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/l1dwknk0/headphone/o/k/s/wh-1000xm4-sony-original-imagcywfbvzqn5ba.jpeg",
@@ -150,7 +141,6 @@
     "color": ["Rose Quartz"],
     "size": "",
     "modelName": "Ion ANC Pro",
-    "related": "Earphone",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/g/x/s/-original-imah7gb7tkrbwwws.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/v/3/2/-original-imahby5vjsz6vczj.jpeg",
@@ -172,7 +162,6 @@
     "color": ["Black"],
     "size": "",
     "modelName": "EOS R10",
-    "related": "Camera",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/l5fnhjk0/dslr-camera/2/c/q/eos-r10-24-2-r10-canon-original-imagg42fgrgstzks.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/l5fnhjk0/dslr-camera/z/e/u/eos-r10-24-2-r10-canon-original-imagg42fuyju6jbb.jpeg",
@@ -194,7 +183,6 @@
     "color": ["Celadon Marble"],
     "storage": ["8/128"],
     "modelName": "Nord CE 4 5G",
-    "related": "Mobile",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/h/l/g/nord-ce4-cph2613-oneplus-original-imagzn8vbj5bfnzf.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/u/n/q/nord-ce4-cph2613-oneplus-original-imagznc5zjxkyjx2.jpeg",
@@ -216,7 +204,6 @@
     "color": ["Nightfall Black"],
     "size": "",
     "modelName": "Envy x360",
-    "related": "Laptop",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/e/m/0/-original-imahcd9jhy2vczdh.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/b/w/s/-original-imahcd9jafq3sncj.jpeg",
@@ -238,7 +225,6 @@
     "color": ["Black"],
     "size": "",
     "modelName": "Bar 1300 True Dolby Atmos with,DTS:X,MultiBeam,10 Subwoofer,HDMI",
-    "related": "Speaker",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/b/a/x/-original-imags9j5q6nqfj9z.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/f/n/x/-original-imags9j5ryfjmzhz.jpeg",
@@ -260,7 +246,6 @@
     "color": ["Black"],
     "size": "",
     "modelName": "Crystal 4K Vision Pro UA43DUE76AKLXL",
-    "related": "LED",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/television/k/i/u/-original-imah3fhyk8y76v8p.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/television/v/o/5/-original-imah45eczvmdwfxm.jpeg",
@@ -282,7 +267,6 @@
     "color": ["Black"],
     "size": "",
     "modelName": "ExecPro Leather 15.6”",
-    "related": "Bag",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/hand-messenger-bag/a/2/l/messenger-bag-15-6-mb-06-messenger-bag-i-bag-12-original-imagh8bhjf3zz4sw.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/hand-messenger-bag/1/b/9/messenger-bag-15-6-mb-06-messenger-bag-i-bag-12-original-imagh8bhyxscbkyj.jpeg",
@@ -304,7 +288,6 @@
     "color": ["Black"],
     "size": "",
     "modelName": "Timex Classic",
-    "related": "Watch",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/2/f/z/1-tweg294smu01-timex-men-original-imahdwdsxu6cfnzu.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/2/f/z/1-tweg294smu01-timex-men-original-imahdwdsxu6cfnzu.jpeg",
@@ -326,7 +309,6 @@
     "color": ["Black"],
     "size": ["M", "L", "XL"],
     "modelName": "Stretch Fit Trousers",
-    "related": "Cloth",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/l4u7vrk0/trouser/g/t/n/28-8008-black-broadstar-original-imagfngtcw3brfz4.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/l4u7vrk0/trouser/f/f/q/28-8008-black-broadstar-original-imagfngt6ghfdmpg.jpeg",
@@ -348,7 +330,6 @@
     "color": ["Black"],
     "size": "",
     "modelName": "Classic Round UV",
-    "related": "Glasses",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/sunglass/u/b/s/medium-m260bk2v-fastrack-original-imaguwbfzyfff75s.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/sunglass/m/s/6/medium-m260bk2v-fastrack-original-imaguwbfr4bx5hha.jpeg",
@@ -370,7 +351,6 @@
     "color": ["Black"],
     "size": ["M", "L", "XL"],
     "modelName": "Relaxed Cotton Tee",
-    "related": "Cloth",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/m/4/x/xl-22086504-hrx-by-hrithik-roshan-original-imah4h9fvpnbmxdw.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/3/b/z/xl-22086504-hrx-by-hrithik-roshan-original-imah4h9fgaxzjfuf.jpeg"
@@ -391,7 +371,6 @@
     "color": ["Black"],
     "size": ["M", "L", "XL"],
     "modelName": "Denim Classic Cut",
-    "related": "Cloth",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/ko7idu80/jacket/p/d/n/xl-ttjk001228-tokyo-talkies-original-imag2pp2pzphtyub.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/ko7idu80/jacket/q/h/7/xl-ttjk001228-tokyo-talkies-original-imag2pp2pqkherna.jpeg",
@@ -414,7 +393,6 @@
     "color": ["Black"],
     "size": "",
     "modelName": "XPS 13 Plus",
-    "related": "Laptop",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/r/w/z/-original-imahcnjyc6dkqbw9.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/e/t/f/g15-5530-gaming-laptop-dell-original-imah8hhzjqbhsjnj.jpeg",
@@ -436,7 +414,6 @@
     "color": ["Red"],
     "size": ["M", "L", "XL"],
     "modelName": "Winter Bomber",
-    "related": "Cloth",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/jacket/x/r/x/xl-1-no-rfj1075a-red-tape-original-imah8fvhfqmgaf9q.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/jacket/k/x/4/xl-1-no-rfj1075a-red-tape-original-imah8fvhwkzrj4hg.jpeg",
@@ -457,7 +434,6 @@
     "category": "Women",
     "color": ["Gold"],
     "size": "",
-    "related": "Watch",
     "modelName": "Raga golden Elegance",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/1/n/a/-original-imahc7asgmrhurje.jpeg",
@@ -480,7 +456,6 @@
     "color": ["Blade White"],
     "size": "",
     "modelName": "GT 30 Pro 5G+",
-    "related": "Mobile",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/l/b/h/-original-imahddjy2gzrrprd.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/e/u/w/-original-imahddjyx3uxwrhe.jpeg",
@@ -503,7 +478,6 @@
     "color": ["Blade White"],
     "size": "",
     "modelName": "55UA82006LA",
-    "related": "LED",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/television/d/y/w/-original-imahdwgujrdthfgy.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/television/y/s/k/-original-imahdwgugpghde4r.jpeg",
@@ -526,7 +500,6 @@
     "color": ["grayish-brown"],
     "size": "",
     "modelName": "Casual Shirt",
-    "related": "Cloth",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/y/s/6/46-ussht2387-u-s-polo-assn-original-imah6h84thynzygg.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/2/s/n/46-ussht2387-u-s-polo-assn-original-imah6h84ymv5hh8y.jpeg",
@@ -544,11 +517,10 @@
       "https://rukminim2.flixcart.com/image/832/832/xif0q/track-pant/f/x/n/28-pjtfasmfo34042-peter-england-original-imagq44peerjnzgf.jpeg"
     ],
     "isNew": true,
-    "category": "Electronics",
+    "category": "Men",
     "color": ["Blade White"],
     "size": "",
     "modelName": "Men Cargos",
-    "related": "Men-Cloth",
     "subImage": [
       "https://rukminim2.flixcart.com/image/832/832/xif0q/track-pant/f/h/z/28-pjtfasmfo34042-peter-england-original-imagq44p762fyu4f.jpeg",
       "https://rukminim2.flixcart.com/image/832/832/xif0q/track-pant/s/s/m/28-pjtfasmfo34042-peter-england-original-imagq44puceq7fag.jpeg",
