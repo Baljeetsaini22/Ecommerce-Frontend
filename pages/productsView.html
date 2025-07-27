@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../style/productView.css" />
    <style>
      .filter{
-      z-index: -1;
+      background-color: #fff;
     }
      </style>
   </head>
@@ -104,8 +104,8 @@
 
     <main id="product" class="prod-cont">
       <div class="row">
-        <aside class="d-none d-md-block col-md-4 col-lg-3 mb-4">
-          <div class="filter border p-3 rounded position-fixed">
+        <aside class="filter d-none d-md-block col-md-4 col-lg-3 mb-4">
+          <div class="border p-3 rounded position-fixed">
             <h5>Filters</h5>
             <label class="form-label mt-3">Category</label>
             <div id="categoryFilters" class="form-check">
@@ -161,7 +161,7 @@
         </section>
       </div>
     </main>
-    <footer class="bg-dark text-light">
+    <footer class="bg-dark text-light position-relative z-index-1">
       <div class="text-center py-2 bg-dark">
         <button id="goTopBtn" class="btn btn-primary mt-3">
           <i class="fa-solid fa-arrow-up"></i> Go to Top
